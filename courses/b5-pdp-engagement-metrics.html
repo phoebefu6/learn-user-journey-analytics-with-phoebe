@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyst session 5 · PDP engagement metrics - learn user journey analytics with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-user-journey-analytics-with-phoebe</a> / Analyst session 5 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn User Journey Analytics with Phoebe · Analyst track · Session 5 of 8</div>
+    <h1>PDP <span class="accent">engagement metrics</span></h1>
+    <p class="sub">144,000 sessions reach a Mango Lane PDP, and until now each one was a single tick: view_item fired, the shopper ARRIVED. Today you instrument what happens inside the decision room - gallery swipes, review opens, size-guide taps, wishlist adds - and split the 144,000 by behaviour. Engaged sessions convert at twice the plain rate. Then we spend real time on what that 2x does and does not mean, because this is the most-abused chart in ecommerce.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Analyst track</span>
+      <span class="chip audience">Analysts · PMs · UX · growth</span>
+      <span class="chip audience">Compute along</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-15 · Beyond the view</span>
+      <span class="a3" style="flex:4">15-27 · Trap &amp; evidence</span>
+      <span class="a4" style="flex:6">27-45 · Compute along</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ PART 1: BEYOND THE VIEW ============ -->
+  <section class="section" id="zones">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · what a view_item tick cannot tell you</span>
+      <h2>Beyond the view: the decision room's measurable zones <span class="tag concept">10 min live</span></h2>
+    </div>
+    <p class="lede">view_item says a shopper arrived at the product. It says nothing about what she did there. The PDP has zones, and each zone can fire an event: the <strong>image gallery</strong> (GA4's select_content, or a custom image_swipe), the <strong>reviews block</strong> (a custom review_open), the <strong>size guide</strong> (a custom open), and the <strong>wishlist button</strong> (add_to_wishlist - a standard GA4 ecommerce event, no customization needed). With those events flowing, Mango Lane can define an <strong>engaged PDP session</strong>: viewed 2+ gallery images, OR opened reviews, OR opened the size guide.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The PDP's measurable zones and the engaged versus plain split of 144,000 PDP sessions with conversion rates">
+        <style>
+          .peH { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .peV { font: 800 14px Inter, sans-serif; fill: #134E4A; }
+          .peC { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .peT { font: 800 13px Inter, sans-serif; fill: #FFFFFF; }
+          .peS { font: 600 11px Inter, sans-serif; fill: #FFFFFF; }
+          .peE { font: 600 11px Inter, sans-serif; fill: #4B6A66; }
+          .peN { font: 600 12.5px Inter, sans-serif; fill: #042F2E; }
+          .peArr { stroke: #14B8A6; stroke-width: 2; fill: none; marker-end: url(#peArrHead); }
+        </style>
+        <defs>
+          <marker id="peArrHead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#14B8A6"/>
+          </marker>
+        </defs>
+
+        <rect x="30" y="40" width="280" height="316" rx="12" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="peH" x="170" y="66" text-anchor="middle">One PDP - four measurable zones</text>
+
+        <rect x="50" y="80" width="240" height="60" rx="8" fill="#0F766E"/>
+        <text class="peT" x="170" y="104" text-anchor="middle">Image gallery</text>
+        <text class="peS" x="170" y="124" text-anchor="middle">select_content / image_swipe</text>
+
+        <rect x="50" y="150" width="240" height="48" rx="8" fill="#FFFFFF" stroke="#99F6E4"/>
+        <text class="peH" x="170" y="170" text-anchor="middle">Reviews block</text>
+        <text class="peE" x="170" y="188" text-anchor="middle">review_open (custom event)</text>
+
+        <rect x="50" y="208" width="240" height="48" rx="8" fill="#FFFFFF" stroke="#99F6E4"/>
+        <text class="peH" x="170" y="228" text-anchor="middle">Size guide</text>
+        <text class="peE" x="170" y="246" text-anchor="middle">size_guide_open (custom event)</text>
+
+        <rect x="50" y="266" width="240" height="48" rx="8" fill="#FFFFFF" stroke="#99F6E4"/>
+        <text class="peH" x="170" y="286" text-anchor="middle">Wishlist button</text>
+        <text class="peE" x="170" y="304" text-anchor="middle">add_to_wishlist (standard GA4)</text>
+
+        <text class="peC" x="170" y="338" text-anchor="middle">view_item fired at the door -</text>
+        <text class="peC" x="170" y="352" text-anchor="middle">it sees none of these zones</text>
+
+        <rect x="470" y="44" width="240" height="52" rx="10" fill="#134E4A"/>
+        <text class="peT" x="590" y="66" text-anchor="middle">144,000 PDP sessions</text>
+        <text class="peS" x="590" y="84" text-anchor="middle">split by in-room behaviour</text>
+
+        <path class="peArr" d="M530,96 C480,120 470,130 460,146"/>
+        <path class="peArr" d="M650,96 C700,120 710,130 720,146"/>
+
+        <rect x="360" y="152" width="230" height="96" rx="10" fill="#0F766E"/>
+        <text class="peT" x="475" y="176" text-anchor="middle">Engaged · 72,000 (50%)</text>
+        <text class="peS" x="475" y="196" text-anchor="middle">2+ images / reviews / size guide</text>
+        <text class="peT" x="475" y="218" text-anchor="middle" style="font-size:15px">CR 9%</text>
+        <text class="peS" x="475" y="236" text-anchor="middle">6,480 orders</text>
+
+        <rect x="620" y="152" width="230" height="96" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="peH" x="735" y="176" text-anchor="middle">Plain · 72,000 (50%)</text>
+        <text class="peC" x="735" y="196" text-anchor="middle">arrived, touched no zone</text>
+        <text class="peV" x="735" y="218" text-anchor="middle">CR 4.5%</text>
+        <text class="peC" x="735" y="236" text-anchor="middle">3,240 orders</text>
+
+        <rect x="400" y="272" width="410" height="52" rx="10" fill="#FFE4E6"/>
+        <text class="peH" x="605" y="294" text-anchor="middle" style="fill:#881337">2x - engaged sessions convert at twice the plain rate</text>
+        <text class="peC" x="605" y="312" text-anchor="middle" style="fill:#BE123C">correlation, not proof - Part 2 spells out the trap</text>
+
+        <text class="peN" x="440" y="350">6,480 + 3,240 = 9,720 orders - the same total, now split by behaviour</text>
+
+        <rect x="30" y="374" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="peN" x="54" y="386">The split is exact against canon: 72,000 x 9% + 72,000 x 4.5% = 9,720. Verify it yourself in the demo.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the PDP's four measurable zones, and the engaged-vs-plain split of the 144,000</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The engagement events, one by one<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The instrumentation shopping list, cheapest first:</p>
+        <ul>
+          <li><strong>add_to_wishlist</strong> - already in GA4's standard ecommerce event set, same family as add_to_cart. If your ecommerce events flow, this one is nearly free.</li>
+          <li><strong>Gallery interaction</strong> - GA4's generic <code>select_content</code> works, or a custom <code>image_swipe</code> with an index parameter so you can distinguish "saw image 2" from "saw all 8".</li>
+          <li><strong>review_open / size_guide_open</strong> - custom events on the tap or expand. Remember b1's trap: if reviews open in a modal sheet, auto screen tracking may miss it entirely - log the event manually.</li>
+        </ul>
+        <div class="callout win">
+          <strong>★ The definition is yours to set</strong>
+          Mango Lane's rule - 2+ gallery images OR opened reviews OR opened the size guide - is one reasonable choice, not a standard. What matters is that the rule is written down, applied consistently, and produces a split you can reconcile back to total orders. That reconciliation is demo step 1.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why wishlist adds sit outside the engaged rule<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Mango Lane tracks add_to_wishlist but leaves it out of the engaged definition on purpose: a wishlist add is deferred intent ("not today"), while gallery, reviews and size guide are active evaluation ("deciding right now"). Mixing the two muddies the split - a high-wishlist session often converts NEXT month, which this month's CR cannot see. Keep wishlist as its own metric; it becomes interesting again in re-engagement work (the push and deeplink doors from b1).</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: THE CORRELATION TRAP ============ -->
+  <section class="section" id="trap">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · what the 2x does NOT mean</span>
+      <h2>The correlation trap, stated honestly <span class="tag concept">6 min live</span></h2>
+    </div>
+    <p class="lede">Engaged sessions convert at 9%, plain at 4.5%. It is very tempting to read that as "if we get plain sessions to engage, they will convert at 9% too" - and that reading is wrong. Engaged shoppers were more interested to begin with; the swipe did not create the intent, the intent created the swipe. Forcing engagement (auto-playing the gallery, popping the size guide open) does not transplant the intent.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Diagnostic, not causal promise<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>What the engagement split IS good for - and it is genuinely good for this:</p>
+        <ul>
+          <li><strong>Which zones correlate with buying.</strong> Split the engaged 72,000 further by zone: sessions that opened reviews vs sessions that only swiped images. The zone with the strongest order correlation is your first candidate for investment - and for a test.</li>
+          <li><strong>Where plain sessions bail.</strong> 72,000 sessions arrive and touch nothing. Do they bounce in 3 seconds (wrong product, bad entry - a b2/b3 problem) or linger and leave (the page failed to invite them in - a PDP problem)? Elapsed-time views in funnel exploration separate the two.</li>
+          <li><strong>A before/after tripwire.</strong> If a redesign moves the engaged share from 50% to 60% but the engaged CR collapses, you diluted the pool with forced engagement - the metric caught you inflating it.</li>
+        </ul>
+        <p>Causal proof - "does making the gallery better CAUSE more orders?" - needs an A/B test, where you change the page for a random half and compare. That craft is its own course: <a href="https://phoebefu6.github.io/learn-experimentation-with-phoebe/">learn-experimentation-with-phoebe</a>.</p>
+        <div class="callout tip">
+          <strong>The most-abused chart in ecommerce</strong>
+          The engaged-vs-plain bar chart gets pasted into more decks with a causal caption than any other chart in this industry. Present it as <strong>"engaged sessions convert 2x"</strong> - a fact about sessions. Never as <strong>"engagement doubles conversion"</strong> - a claim about what your feature does, which the chart cannot support.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The selection effect in one sentence<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>People who read hospital reviews are sicker than people who do not; hospitals did not make them sick. The engaged 72,000 selected themselves into engagement because they were already closer to buying. Any observational split - engaged vs plain, searcher vs browser (b3's 2.67x), push-receiver vs not - carries this selection effect. The honest phrasing habit ("X sessions convert at 2x", never "X doubles conversion") is the cheapest insurance an analyst owns.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: THE EVIDENCE ============ -->
+  <section class="section" id="evidence">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · why the zones deserve investment anyway</span>
+      <h2>The evidence for the zones, precisely phrased <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">The trap says the 2x is not proof. It does not say the zones are worthless - there is real external evidence that images, reviews and size guidance matter. The discipline is quoting that evidence exactly as strong as it is, and no stronger.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Images first, reviews measured, sizing honest<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <ul>
+          <li><strong>Images are the first act.</strong> Baymard's PDP research finds 56% of shoppers' first action on a product page is exploring the images. The gallery is not decoration; it is where evaluation starts for most sessions.</li>
+          <li><strong>Reviews have academic numbers.</strong> The Spiegel Research Center's 2017 review (with PowerReviews data) found: a product showing 5 reviews had a <strong>270% greater purchase likelihood than the same product with 0</strong> - note the phrasing, it is 5-versus-0, not "reviews lift sales 270%". For higher-priced products the gap widened to +380%. A Verified Buyer badge added about +15%. The ratings sweet spot was <strong>4.0-4.7</strong> - near-perfect 5.0 averages read as fake and convert worse. And the benefit <strong>plateaus after roughly 5 reviews</strong>.</li>
+          <li><strong>Fit and size drive returns.</strong> Poor fit is the #1 apparel return reason - sources put it anywhere from ~53% to ~70% of fashion returns (McKinsey at the high end). Size guidance is return prevention as much as conversion. But no credible "size guides cut returns by X%" number exists - if you see one quoted, ask where it came from.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>The plateau is the actionable part of Spiegel.</strong> If benefit flattens after ~5 reviews, the highest-leverage review program is not stacking review #51 on the bestseller - it is getting the first 5 reviews onto every zero-review product in the catalog. Merchandising teams routinely get this backwards because bestsellers are the products they look at.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>How to file each evidence grade<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <table class="clean">
+          <thead><tr><th>Claim</th><th>Grade</th><th>How to quote it</th></tr></thead>
+          <tbody>
+            <tr><td>5 reviews vs 0 = 270% greater purchase likelihood</td><td>Academic (Spiegel 2017)</td><td>Quote the exact comparison, with the plateau caveat</td></tr>
+            <tr><td>56% start with the image gallery</td><td>Industry research (Baymard)</td><td>Quote as a behaviour share, not a conversion claim</td></tr>
+            <tr><td>Fit is the #1 fashion return reason, ~53-70%</td><td>Range across sources</td><td>Give the range and name the high-end source</td></tr>
+            <tr><td>"Size guides cut returns by X%"</td><td>No credible number</td><td>Say so out loud - do not invent one</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO: THE ENGAGEMENT AUDIT ============ -->
+  <section class="section" id="demo">
+    <div class="section-kicker">
+      <span class="klabel">Demo · everyone computes</span>
+      <h2>The engagement audit <span class="tag demo">★ 15 min · everyone works</span></h2>
+    </div>
+    <p class="lede">Three drills, calculator out. Drill 1 proves the split reconciles; drill 2 crosses engagement with b3's paths; drill 3 finds the slice worth testing.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Step 1 · verify the split reproduces total orders<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p>Engaged orders: 72,000 x 0.09 = <strong>6,480</strong>.</p></div>
+          <div class="step"><p>Plain orders: 72,000 x 0.045 = <strong>3,240</strong>.</p></div>
+          <div class="step"><p>Sum: 6,480 + 3,240 = <strong>9,720</strong> - exactly the canon order count. The split passes reconciliation.</p></div>
+        </div>
+        <p>Always run this check on any behavioural split before presenting it. A split whose segments do not cross-foot to the known total means the segment definitions overlap, leak, or were computed on different date ranges - all three happen constantly in the wild.</p>
+      </div>
+    </details>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Step 2 · engagement rate by path<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Cross the engagement split with b3's paths. Mango Lane's numbers:</p>
+        <div class="steps">
+          <div class="step"><p>Search-path PDP sessions: 43,200. Of these, 60% engage: 43,200 x 0.60 = <strong>25,920</strong> engaged.</p></div>
+          <div class="step"><p>Browse-path engaged sessions: all engaged minus search engaged = 72,000 - 25,920 = <strong>46,080</strong>.</p></div>
+          <div class="step"><p>Browse-path engagement rate: 46,080 / 100,800 = <strong>45.7%</strong>.</p></div>
+        </div>
+        <p><strong>The punchline:</strong> searchers arrive warmer (b3: path CR 12% vs 4.5%) AND engage more once they arrive (60% vs 45.7%). Intent shows up at every layer of measurement - one more reason the naive "make browsers engage more" reading of the 2x chart fails.</p>
+      </div>
+    </details>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Step 3 · find the actionable slice<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The interesting sessions are the ones that break the pattern:</p>
+        <div class="steps">
+          <div class="step"><p><strong>Plain but added to cart.</strong> Sessions that touched no zone yet carted anyway. What did they NOT need? Often: repeat buyers who already know the product. If this slice is large, your engaged rule may be measuring novelty, not quality.</p></div>
+          <div class="step"><p><strong>Engaged but never carted.</strong> Swiped images, opened the size guide - then left. The size-guide subset is the loudest: they wanted to buy and could not resolve fit. This is where Part 3's returns evidence points your first test.</p></div>
+          <div class="step"><p><strong>Write it down:</strong> for each slice, name the ONE zone you would A/B test first and what the success metric is. That sentence is the handoff to the experimentation course.</p></div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 20-25 min total</span></h2>
+    </div>
+    <ul>
+      <li>Write your own engaged-PDP-session rule (some version of: 2+ gallery images OR opened reviews OR opened size guide). Check which of the events already exist in your tracking.</li>
+      <li>Compute the two conversion rates - engaged sessions to order, plain sessions to order - and check the segments cross-foot to your total orders.</li>
+      <li>Present the split to one colleague using the honest phrasing: "engaged sessions convert Nx" - and watch yourself resist saying "engagement Nx-es conversion".</li>
+      <li>Count your zero-review products. Spiegel's plateau says that list, not your bestsellers, is where review collection pays.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources</span>
+      <h2>Sources this session draws on</h2>
+    </div>
+    <p class="lede">The engagement evidence base is a mix of academic work, industry research, and honest gaps - flagged accordingly:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Spiegel Research Center 2017 (with PowerReviews) - 5-vs-0 reviews, price effect, Verified Buyer, 4.0-4.7 sweet spot, ~5-review plateau</span><span class="note">Part 3 · academic, quoted with exact phrasing</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GA4 ecommerce events - add_to_wishlist standard, select_content, custom event pattern</span><span class="note">Part 1 · the instrumentation shopping list</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Mango Lane canon - engaged 72,000 @ 9%, plain 72,000 @ 4.5%, sum 9,720 (python-verified)</span><span class="note">Part 1 + demo · the split and its reconciliation</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Baymard PDP research - 56% of first actions are image exploration</span><span class="note">Part 3 · search-confirmed, quoted as behaviour share</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Fashion fit/size returns ~53-70% by source (McKinsey high end); no credible size-guide impact number</span><span class="note">Part 3 · range with named high end, gap stated honestly</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · Engaged PDP sessions convert at 9%, plain at 4.5%. Which caption is honest?</p>
+      <button class="qopt" type="button">A · "Engagement doubles conversion - roll out forced gallery autoplay"</button>
+      <button class="qopt" type="button">B · "Engaged sessions convert 2x - a diagnostic; causal proof needs an A/B test"</button>
+      <button class="qopt" type="button">C · "Getting the plain 72,000 to engage adds 3,240 orders"</button>
+      <p class="qwhy">Engaged shoppers were more interested to begin with - the intent created the swipe, not the reverse. The split diagnoses which zones correlate with buying; only an experiment can prove a zone change causes orders.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · What did Spiegel 2017 actually find about the 270% number?</p>
+      <button class="qopt" type="button">A · Adding reviews lifts any product's sales by 270%</button>
+      <button class="qopt" type="button">B · Every additional review adds 270% purchase likelihood</button>
+      <button class="qopt" type="button">C · A product with 5 reviews had 270% greater purchase likelihood than the same product with 0</button>
+      <p class="qwhy">The finding is a 5-versus-0 comparison, not a per-review multiplier or a blanket lift. Precision matters: the effect was larger for pricier products (+380%) and plateaus after roughly 5 reviews.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · Spiegel's benefit plateaus after ~5 reviews. What does that imply for a review program?</p>
+      <button class="qopt" type="button">A · Prioritize getting the first ~5 reviews onto zero-review products across the catalog</button>
+      <button class="qopt" type="button">B · Push bestsellers from 200 reviews to 300</button>
+      <button class="qopt" type="button">C · Reviews stop mattering after launch week</button>
+      <p class="qwhy">If the curve flattens after ~5, review #6 onward buys little - but reviews 1-5 on a zero-review product buy the whole 270% gap. The long tail of unreviewed products is where collection effort pays.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 5 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Engaged PDP session</b><span>2+ gallery images OR opened reviews OR opened size guide. Your rule, written down, applied consistently.</span></div>
+      <div class="cheat-item"><b>The split</b><span>Engaged 72,000 @ 9% = 6,480 · plain 72,000 @ 4.5% = 3,240 · sum 9,720. Always cross-foot.</span></div>
+      <div class="cheat-item"><b>Honest phrasing</b><span>"Engaged sessions convert 2x" - never "engagement doubles conversion". The most-abused chart in ecommerce.</span></div>
+      <div class="cheat-item"><b>Diagnostic, not causal</b><span>The split finds zones worth testing and where plain sessions bail. Proof = A/B test (experimentation course).</span></div>
+      <div class="cheat-item"><b>Zone events</b><span>select_content/image_swipe · review_open · size_guide_open (custom) · add_to_wishlist (standard GA4).</span></div>
+      <div class="cheat-item"><b>Spiegel 2017</b><span>5 reviews vs 0 = 270% greater purchase likelihood · pricier +380% · Verified Buyer +15% · 4.0-4.7 sweet spot · plateau ~5.</span></div>
+      <div class="cheat-item"><b>Images and sizing</b><span>56% of first PDP actions = images (Baymard). Fit = #1 return reason, ~53-70% by source; no credible size-guide cut number.</span></div>
+      <div class="cheat-item"><b>Cross with paths</b><span>Searchers engage 60% vs browsers 45.7% - intent shows at every layer. Next: b6 opens the checkout gate.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 5 of 8 · learn-user-journey-analytics-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b4-the-flow-simulator.html">← Prev: The flow simulator</a> &nbsp;·&nbsp; <a href="b6-cart-checkout-micro-funnel.html">Next: Cart &amp; checkout micro-funnel →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/journey-live.js?v=2"></script>
+<script src="../assets/tree-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

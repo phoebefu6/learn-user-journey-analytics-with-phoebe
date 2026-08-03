@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leader session 4 · The PDP decision room - learn user journey analytics with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-user-journey-analytics-with-phoebe</a> / Leader session 4 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn User Journey Analytics with Phoebe · Leader track · Session 4 of 6</div>
+    <h1>The PDP <span class="accent">decision room</span></h1>
+    <p class="sub">Sessions 2 and 3 followed shoppers TO the product page. This session stays inside it - because the product page is where the buying decision actually happens. At Mango Lane, 144,000 sessions walk into this room each month and 36,000 walk out with something in the cart. What the room contains, what the research says about each piece, and the three PDP reviews every leader ends up running.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Leader track</span>
+      <span class="chip audience">Commercial + product leaders</span>
+      <span class="chip audience">Reading mode - no computation</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · The decision room</span>
+      <span class="a3" style="flex:4">18-33 · Reviews &amp; fit</span>
+      <span class="a4" style="flex:3">33-45 · Three PDP reviews</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where this session sits</h2>
+    </div>
+    <p class="lede">Every road in this course leads here. The search road, the browse road, the ad deeplink - all of them deliver a shopper to one screen: the PDP, the product detail page. It is the highest-stakes screen in the store, and the one most often decorated instead of understood. This session gives you the research-backed anatomy - what each element is FOR - so your PDP conversations stop being about taste and start being about evidence. As always: nothing to compute, everything to ask.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill inkpill">Sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      The decision-room model of the PDP, the precisely-phrased reviews math (and the sloppy version to never repeat), the honest truth about size guides and returns, and a three-item PDP review you can run on your own store this week.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: THE DECISION ROOM ============ -->
+  <section class="section" id="room">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the room where it happens</span>
+      <h2>144,000 walk in, 36,000 say yes <span class="tag concept">15 min live</span></h2>
+    </div>
+    <p class="lede">At Mango Lane, <strong>144,000 sessions reach a PDP</strong> each month and <strong>36,000 add to cart</strong> - one in four. Everything on that page exists to answer a question a shopper cannot ask out loud. The useful metaphor: the PDP is a <strong>decision room</strong>, and its elements are stand-ins for a real shop. The image gallery is seeing the product. The reviews are asking other buyers. The size guide is trying it on. And what shoppers do first is well studied: <strong>56% start by exploring the images</strong> (Baymard Institute, search-confirmed) - they look before they read anything.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PDP anatomy: one product page with its decision zones labeled - gallery, price and promo, reviews, size and fit, add to cart - and the shopper question each zone answers">
+        <style>
+          .pdH { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .pdV { font: 800 13px Inter, sans-serif; fill: #134E4A; }
+          .pdC { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .pdT { font: 800 13px Inter, sans-serif; fill: #FFFFFF; }
+          .pdW { font: 600 12px Inter, sans-serif; fill: #FFFFFF; }
+          .pdN { font: 600 12.5px Inter, sans-serif; fill: #042F2E; }
+          .pdLn { stroke: #14B8A6; stroke-width: 2; fill: none; marker-end: url(#pdLnHead); }
+        </style>
+        <defs>
+          <marker id="pdLnHead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#14B8A6"/>
+          </marker>
+        </defs>
+
+        <!-- The page frame -->
+        <rect x="50" y="30" width="310" height="345" rx="12" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="pdC" x="205" y="50" text-anchor="middle">one product's own page - the PDP</text>
+
+        <!-- Gallery zone -->
+        <rect x="65" y="60" width="280" height="92" rx="8" fill="#0F766E"/>
+        <text class="pdT" x="205" y="98" text-anchor="middle">Image gallery</text>
+        <text class="pdW" x="205" y="118" text-anchor="middle">56% start here</text>
+
+        <!-- Price + promo zone -->
+        <rect x="65" y="160" width="280" height="46" rx="8" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="pdH" x="205" y="188" text-anchor="middle">Price · promo · delivery promise</text>
+
+        <!-- Reviews zone -->
+        <rect x="65" y="214" width="280" height="46" rx="8" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="pdH" x="205" y="242" text-anchor="middle">Reviews · rating stars</text>
+
+        <!-- Size & fit zone -->
+        <rect x="65" y="268" width="280" height="46" rx="8" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="pdH" x="205" y="296" text-anchor="middle">Size guide · fit notes</text>
+
+        <!-- Add to cart -->
+        <rect x="65" y="322" width="280" height="40" rx="8" fill="#134E4A"/>
+        <text class="pdT" x="205" y="347" text-anchor="middle">Add to cart</text>
+
+        <!-- Annotations right -->
+        <rect x="470" y="66" width="386" height="56" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="pdV" x="486" y="89">Seeing the product</text>
+        <text class="pdC" x="486" y="108">"Is this what I think it is?" - the first act for most shoppers</text>
+        <path class="pdLn" d="M345,106 C400,102 420,96 466,94"/>
+
+        <rect x="470" y="146" width="386" height="56" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="pdV" x="486" y="169">Counting the cost</text>
+        <text class="pdC" x="486" y="188">"What will this really cost me, and when does it arrive?"</text>
+        <path class="pdLn" d="M345,183 C400,180 420,176 466,174"/>
+
+        <rect x="470" y="226" width="386" height="56" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="pdV" x="486" y="249">Asking other buyers</text>
+        <text class="pdC" x="486" y="268">"Do people like me regret this?" - trust borrowed from strangers</text>
+        <path class="pdLn" d="M345,237 C400,240 420,248 466,254"/>
+
+        <rect x="470" y="306" width="386" height="56" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="pdV" x="486" y="329">Trying it on</text>
+        <text class="pdC" x="486" y="348">"Will it fit ME?" - the question returns are made of</text>
+        <path class="pdLn" d="M345,291 C400,298 420,320 466,330"/>
+
+        <!-- Bottom note -->
+        <rect x="50" y="392" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="pdN" x="74" y="404">The decision room: 144,000 sessions walk in each month, 36,000 add to cart. Every zone answers one question.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the PDP anatomy: five decision zones, each standing in for something a real shop would let you do</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why "decision room" beats "product page"<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The renaming is not cosmetic - it changes what you inspect:</p>
+        <ul>
+          <li><strong>A page is judged by how it looks; a room is judged by what it lets you do.</strong> "Is the PDP beautiful?" is a taste debate. "Can a first-time buyer answer their four questions here?" is an audit.</li>
+          <li><strong>Images first is a fact, not a preference.</strong> With 56% of shoppers starting in the gallery, image quality and coverage (front, back, detail, on-body, scale) is the room's front door - and the first thing to check when a product underperforms.</li>
+          <li><strong>The room has a conversion rate.</strong> 36,000 of 144,000 is 25% - the PDP-to-cart gate from the metrics course. When it moves, one of the zones changed, and the anatomy tells you where to look.</li>
+        </ul>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <strong>What to ask your team after Part 1</strong>
+      "For our top products, can a shopper see the product properly - how many images, and do they cover front, back, detail, and on-body?" Then: "What is our PDP-to-cart rate, and which zone changed the last time it moved?"
+    </div>
+  </section>
+
+  <!-- ============ PART 2: THE REVIEWS MATH ============ -->
+  <section class="section" id="reviews">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · asking other buyers</span>
+      <h2>The reviews math, precisely <span class="tag concept">10 min live</span></h2>
+    </div>
+    <p class="lede">Reviews are the best-researched element in the room, thanks to an academic study worth knowing by name: <strong>Spiegel Research Center, 2017</strong> (Northwestern, with PowerReviews data). Its findings are specific - and almost always misquoted. Learn the precise phrasing once and you will catch the sloppy versions forever.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>What Spiegel actually found<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <table class="clean">
+          <thead><tr><th>Finding</th><th>The precise claim</th></tr></thead>
+          <tbody>
+            <tr><td>The first five reviews</td><td>A product with 5 reviews is <strong>270% more likely to be purchased than the same product with 0</strong>. Phrase it exactly as 5-vs-0 - NOT "reviews lift conversion 270%".</td></tr>
+            <tr><td>Price amplifies it</td><td>The effect is stronger on higher-priced items - up to <strong>+380%</strong>. The more money at stake, the more shoppers lean on other buyers.</td></tr>
+            <tr><td>Verified Buyer badge</td><td>Reviews marked as verified purchases add about <strong>+15%</strong> - provenance matters, not just volume.</td></tr>
+            <tr><td>The sweet spot</td><td>Purchase likelihood peaks at <strong>4.0-4.7 stars</strong>. A near-perfect 5.0 average reads as fake and converts WORSE.</td></tr>
+            <tr><td>The plateau</td><td>Most of the benefit arrives by <strong>~5 reviews</strong>, then flattens. Review number 100 is worth far less than review number 3.</td></tr>
+          </tbody>
+        </table>
+        <p>Why the phrasing discipline matters: "reviews lift conversion 270%" implies every added review compounds forever, which justifies bottomless review-buying budgets. The real finding - a 5-vs-0 comparison with a plateau at ~5 - justifies something much cheaper and more targeted.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What this means operationally<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Put the plateau and the 5-vs-0 finding together and the operational conclusion writes itself: <strong>getting the FIRST five reviews onto new products beats accumulating the hundredth on bestsellers.</strong> Bestsellers gather reviews on their own; new products sit at the steep part of the curve, where each review moves real probability. The programs that work are unglamorous: post-purchase review requests timed after delivery, small incentives for early buyers of new lines, and seeding review collection into every product launch checklist rather than treating it as marketing's occasional campaign.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>The zero-review shelf is the commonest PDP finding.</strong> Stores with thousands of glowing reviews on their top 50 products routinely have 30-50% of the catalog sitting at zero - every one of those products fighting the 5-vs-0 gap on every visit. Nobody notices because dashboards report the average, and the average is carried by the bestsellers.</p>
+        </div>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <strong>What to ask your team after Part 2</strong>
+      "What share of our live catalog has fewer than five reviews?" and "Do we have a first-five program for new products - or do we just wait?" One follow-up with teeth: "Are any of our near-5.0 averages audited for authenticity?"
+    </div>
+  </section>
+
+  <!-- ============ PART 3: FIT AND RETURNS ============ -->
+  <section class="section" id="fit">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · trying it on</span>
+      <h2>Fit and returns - the fashion tax <span class="tag concept">8 min live</span></h2>
+    </div>
+    <p class="lede">In apparel, the decision room has a back door: the return. And the research on why apparel comes back is consistent in direction, wide in magnitude: <strong>fit and size is the number one return reason, at roughly 53-70% of apparel returns depending on the source</strong> (McKinsey sits at the high end). Present it as a range - the honest version is "half to two-thirds", not any single confident percentage.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Size guidance is return prevention, not decoration<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Reframe the size guide's budget line: it is not PDP furniture, it is <strong>return prevention infrastructure</strong>. Every "will it fit me?" the page fails to answer gets answered at your expense later - shipping both ways, inspection, repackaging, markdown. Fit notes ("runs small, size up"), model measurements, garment dimensions, and fit-finder tools all attack the same tax.</p>
+        <p>One warning that protects you in vendor meetings: <strong>no credible "size guides cut returns by X%" number exists.</strong> The return-reason research is solid; the intervention-effect research is not public or not rigorous. Anyone quoting a precise universal figure is selling something - distrust the number, pilot the tool, and measure your own before-and-after instead.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Preview of b5: engagement is measurable<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The analyst track (b5) measures the decision room directly. At Mango Lane, sessions that ENGAGE with the room - viewed two or more gallery images, opened the reviews, or used the size guide - convert to order at <strong>9%</strong>, against <strong>4.5%</strong> for sessions that landed on a PDP and did none of those things. Half of PDP sessions engage, half do not, and the engaged half converts <strong>2x</strong>. Correlation runs both ways (intent drives engagement too), but the operational reading holds: the decision-room elements are where conversion lives, and whether shoppers can even reach them - gallery swipe visible? reviews above the fold? size guide findable? - is measurable, not a matter of opinion.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <strong>What to ask your team after Part 3</strong>
+      "What share of our returns are fit or size related?" and "Which of our top products have real fit guidance - measurements and fit notes, not just an S/M/L chart?" If a vendor pitch lands: "Whose data says size guides cut returns by that number?"
+    </div>
+  </section>
+
+  <!-- ============ DEMO: THREE PDP REVIEWS ============ -->
+  <section class="section" id="pdpreviews">
+    <div class="section-kicker">
+      <span class="klabel">Demo · read along</span>
+      <h2>Three PDP reviews you will actually run <span class="tag demo">★ read-along - no computation</span></h2>
+    </div>
+    <p class="lede">Three situations from real stores, walked with the decision-room model. Each looks like a design problem; none of them is.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Review 1 · Beautiful page, zero reviews on 40% of the catalog<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>The scene:</strong> the PDP redesign shipped, photography is gorgeous, and 40% of products still show "No reviews yet".</p></div>
+          <div class="step"><p><strong>The model says:</strong> those products are fighting the 5-vs-0 gap - a 270% purchase-likelihood handicap that no photography can offset. The room looks finished but one chair is empty on nearly half the shelf.</p></div>
+          <div class="step"><p><strong>The move:</strong> a first-five-reviews program - post-delivery requests, early-buyer nudges on new lines, review collection in the launch checklist. Cheap, targeted at the steep part of the curve.</p></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Review 2 · A 4.9-star average everywhere<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>The scene:</strong> the ratings dashboard glows - 4.9 average across the catalog. The team presents it as a win.</p></div>
+          <div class="step"><p><strong>The model says:</strong> the sweet spot is 4.0-4.7; near-perfect averages read as fake to shoppers and convert worse. A uniform 4.9 is not excellence - it is a signal to audit: incentivized-only collection, filtered negatives, or genuinely fraudulent reviews.</p></div>
+          <div class="step"><p><strong>The move:</strong> audit authenticity before celebrating. Check the Verified Buyer share (the +15% finding says provenance converts), whether negative reviews survive moderation, and whether collection only targets happy customers.</p></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Review 3 · High add-to-cart, high returns on dresses<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>The scene:</strong> the dress category converts beautifully into carts and orders - then a painful share comes back, mostly "didn't fit".</p></div>
+          <div class="step"><p><strong>The model says:</strong> the room answered "is this what I want?" (images did their job - hence the add-to-cart) but not "will it fit ME?". The gap is fit information, not photography. More or prettier photos will not fix a returns problem that fit notes and measurements would.</p></div>
+          <div class="step"><p><strong>The move:</strong> fit guidance on the dress PDPs first - garment measurements, "runs small" notes, model size context - and measure the category's return-reason mix before and after. Your own data, not a vendor's universal claim.</p></div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Walk your own decision room - this week <span class="tag exercise">◐ 20 min, no computation</span></h2>
+    </div>
+    <ul>
+      <li>Open your top 5 products' pages on your phone, as a shopper would.</li>
+      <li>For each: count the reviews (over or under five?), and check whether real size/fit information exists - measurements and fit notes, not just a generic chart.</li>
+      <li>Write down every question a first-time buyer could NOT answer from the page. That list is your PDP backlog, pre-prioritized by your own bestsellers.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources</span>
+      <h2>Sources this session draws on</h2>
+    </div>
+    <p class="lede">The PDP is unusually well researched - and unusually often misquoted. This page draws on:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Spiegel Research Center 2017 (Northwestern, with PowerReviews) - 5-vs-0 = 270%, +380% pricier items, +15% Verified Buyer, 4.0-4.7 sweet spot, ~5-review plateau</span><span class="note">Part 2 · academic, fetched-primary; keep the 5-vs-0 phrasing exact</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Baymard Institute - 56% of shoppers' first PDP action is exploring images</span><span class="note">Part 1 · search-confirmed, not fetched-primary</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Fit/size as #1 apparel return reason - ~53-70% by source, McKinsey at the high end</span><span class="note">Part 3 · secondary, wide range; no credible "size guides cut returns X%" figure exists</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Mango Lane journey canon - 144,000 PDP sessions, 36,000 add to cart; engaged 9% vs plain 4.5% (b5)</span><span class="note">Parts 1 &amp; 3 · python-verified, same month as the metrics course</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Which is the precise version of the Spiegel Research Center finding on reviews?</p>
+      <button class="qopt" type="button">A · Reviews lift conversion by 270%</button>
+      <button class="qopt" type="button">B · Every review adds 270% more purchases</button>
+      <button class="qopt" type="button">C · A product with 5 reviews is 270% more likely to be purchased than the same product with 0 - and the benefit plateaus after ~5</button>
+      <p class="qwhy">It is a 5-vs-0 comparison with a plateau, not a per-review multiplier. The sloppy phrasing justifies bottomless review budgets; the precise one justifies a cheap first-five program on new products.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · Your catalog shows a uniform 4.9-star average. What does the research say a leader should do?</p>
+      <button class="qopt" type="button">A · Audit authenticity - the sweet spot is 4.0-4.7, and near-perfect averages read as fake and convert worse</button>
+      <button class="qopt" type="button">B · Celebrate - higher stars always convert better</button>
+      <button class="qopt" type="button">C · Push for 5.0 on every product</button>
+      <p class="qwhy">Spiegel found purchase likelihood peaks at 4.0-4.7 stars. A wall of 4.9s is a trust signal problem and often a collection-bias or fraud signal - check Verified Buyer share and whether negatives survive moderation.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">3 · Dresses convert well into orders but return heavily for "didn't fit". Where is the PDP gap?</p>
+      <button class="qopt" type="button">A · Photography - shoot more images</button>
+      <button class="qopt" type="button">B · Fit information - the page answered "is this what I want?" but not "will it fit me?"; measurements and fit notes are the fix</button>
+      <button class="qopt" type="button">C · Price - discount the category</button>
+      <p class="qwhy">High add-to-cart says the images did their job. Fit/size is the #1 apparel return reason (~53-70% by source), so the missing zone is trying-it-on - fit guidance, measured with your own before-and-after, not a vendor's universal claim.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Leader session 4 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The decision room</b><span>144,000 sessions walk in, 36,000 add to cart (25%). Images = seeing it, reviews = asking buyers, size guide = trying it on.</span></div>
+      <div class="cheat-item"><b>Images first</b><span>56% of shoppers start by exploring the gallery (Baymard). Image coverage is the room's front door.</span></div>
+      <div class="cheat-item"><b>Reviews, phrased exactly</b><span>5 reviews vs 0 = 270% greater purchase likelihood (Spiegel 2017). Never "reviews lift 270%".</span></div>
+      <div class="cheat-item"><b>The rest of Spiegel</b><span>Pricier items +380% · Verified Buyer +15% · sweet spot 4.0-4.7 stars · benefit plateaus after ~5 reviews.</span></div>
+      <div class="cheat-item"><b>The operational move</b><span>First five reviews on new products beats the hundredth on bestsellers. Launch-checklist item, not a campaign.</span></div>
+      <div class="cheat-item"><b>The fashion tax</b><span>Fit/size = #1 apparel return reason, ~53-70% by source. Size guidance is return prevention, not decoration.</span></div>
+      <div class="cheat-item"><b>The vendor trap</b><span>No credible "size guides cut returns X%" number exists. Pilot and measure your own before-and-after.</span></div>
+      <div class="cheat-item"><b>Preview of b5</b><span>Engaged PDP sessions (gallery/reviews/size guide) convert 9% vs 4.5% plain - 2x, and measurable.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Leader session 4 of 6 · learn-user-journey-analytics-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="../index.html">← All sessions</a> &nbsp;·&nbsp; <a href="a3-search-vs-browse.html">← Prev: Search vs browse</a> &nbsp;·&nbsp; <a href="a5-the-last-mile.html">Next: The last mile →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/journey-live.js?v=2"></script>
+<script src="../assets/tree-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

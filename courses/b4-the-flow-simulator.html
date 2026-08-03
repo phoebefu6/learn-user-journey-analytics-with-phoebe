@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyst session 4 · The flow simulator - learn user journey analytics with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-user-journey-analytics-with-phoebe</a> / Analyst session 4 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn User Journey Analytics with Phoebe · Analyst track · Session 4 of 8</div>
+    <h1>The <span class="accent">flow simulator</span></h1>
+    <p class="sub">You have mapped Mango Lane's screens (b1), measured its entry points (b2), and compared its paths (b3). Now the whole journey becomes one live machine. Every gate in the flow is a rate you can improve; every improvement multiplies through to orders, conversion rate, and GMV. Today you run the four classic journey fixes and watch 2.7% become 4.0% - then learn to argue about which fix comes first.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Analyst track</span>
+      <span class="chip audience">Analysts · PMs · UX · growth</span>
+      <span class="chip audience">▶ Live flow simulator</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-15 · The flow as one machine</span>
+      <span class="a3" style="flex:6">15-42 · Run the four fixes</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where you are</h2>
+    </div>
+    <p class="lede">This is the course's centerpiece session. The metrics course taught you the four gates as numbers; b1-b3 taught you the screens and paths behind them. The simulator below welds it all together: one flow, four gates, four fixes. In b5-b6 you go deep on the two highest-leverage screens (the PDP and checkout), and in b7 you run this machine in reverse - from a broken number back to a broken screen.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">▶ Live flow - editable &amp; runnable</span>
+      <span class="pill inkpill">Sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      A working feel for how gate improvements compound (four modest fixes = +47% GMV), the discipline of stating every fix as a gate delta, and the beginnings of a prioritization argument you will finish in a6.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: ONE MACHINE ============ -->
+  <section class="section" id="machine">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the journey as a multiplicative system</span>
+      <h2>The journey is one machine with four dials <span class="tag concept">10 min live</span></h2>
+    </div>
+    <p class="lede">Mango Lane's month, as a flow: 360,000 sessions, 40% reach a PDP, 25% of those add to cart, 45% of those start checkout, 60% of those pay. Multiply through: 9,720 orders, 2.7% session CR, $660,960 GMV. Each rate is a <strong>dial</strong> - and because the flow is multiplicative, turning any single dial moves the end of the line by the same proportion.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The journey as a machine: four gate dials between sessions and orders">
+        <style>
+          .fmH { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .fmV { font: 800 15px Inter, sans-serif; fill: #134E4A; }
+          .fmC { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .fmT { font: 800 14px Inter, sans-serif; fill: #FFFFFF; }
+          .fmN { font: 600 12.5px Inter, sans-serif; fill: #042F2E; }
+          .fmArr { stroke: #14B8A6; stroke-width: 2.5; fill: none; marker-end: url(#fmArrHead); }
+        </style>
+        <defs>
+          <marker id="fmArrHead" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#14B8A6"/>
+          </marker>
+        </defs>
+
+        <rect x="20" y="70" width="140" height="70" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="fmH" x="90" y="97" text-anchor="middle">Sessions</text>
+        <text class="fmV" x="90" y="120" text-anchor="middle">360,000</text>
+
+        <rect x="196" y="58" width="110" height="94" rx="10" fill="#0F766E"/>
+        <text class="fmT" x="251" y="86" text-anchor="middle">Gate 1</text>
+        <text class="fmT" x="251" y="106" text-anchor="middle" style="font-size:12px">PDP pen</text>
+        <text class="fmT" x="251" y="126" text-anchor="middle">40%</text>
+
+        <rect x="342" y="58" width="110" height="94" rx="10" fill="#0F766E"/>
+        <text class="fmT" x="397" y="86" text-anchor="middle">Gate 2</text>
+        <text class="fmT" x="397" y="106" text-anchor="middle" style="font-size:12px">add-to-cart</text>
+        <text class="fmT" x="397" y="126" text-anchor="middle">25%</text>
+
+        <rect x="488" y="58" width="110" height="94" rx="10" fill="#0F766E"/>
+        <text class="fmT" x="543" y="86" text-anchor="middle">Gate 3</text>
+        <text class="fmT" x="543" y="106" text-anchor="middle" style="font-size:12px">checkout start</text>
+        <text class="fmT" x="543" y="126" text-anchor="middle">45%</text>
+
+        <rect x="634" y="58" width="110" height="94" rx="10" fill="#0F766E"/>
+        <text class="fmT" x="689" y="86" text-anchor="middle">Gate 4</text>
+        <text class="fmT" x="689" y="106" text-anchor="middle" style="font-size:12px">completion</text>
+        <text class="fmT" x="689" y="126" text-anchor="middle">60%</text>
+
+        <rect x="770" y="70" width="90" height="70" rx="10" fill="#134E4A"/>
+        <text class="fmT" x="815" y="97" text-anchor="middle">Orders</text>
+        <text class="fmT" x="815" y="120" text-anchor="middle">9,720</text>
+
+        <path class="fmArr" d="M160,105 L190,105"/>
+        <path class="fmArr" d="M306,105 L336,105"/>
+        <path class="fmArr" d="M452,105 L482,105"/>
+        <path class="fmArr" d="M598,105 L628,105"/>
+        <path class="fmArr" d="M744,105 L764,105"/>
+
+        <text class="fmC" x="251" y="172" text-anchor="middle">search + nav own it</text>
+        <text class="fmC" x="397" y="172" text-anchor="middle">PDP team owns it</text>
+        <text class="fmC" x="543" y="172" text-anchor="middle">cart UX owns it</text>
+        <text class="fmC" x="689" y="172" text-anchor="middle">payments own it</text>
+
+        <rect x="20" y="216" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="fmN" x="44" y="228">Four dials, four owners. Turning any one dial moves orders by the same proportion.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the journey machine: sessions in, four gate dials, orders out</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why fixes compound<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Gate improvements <strong>multiply</strong>, they do not add. Improve PDP penetration by 7.5% (40 to 43) and add-to-cart by 12% (25 to 28) and orders rise by roughly 1.075 x 1.12 = 20.4% - more than 7.5 + 12 would suggest for big moves. Four modest fixes below compound to +47% GMV. This is why journey work beats one-big-redesign work: several small, owned, testable gate deltas stack.</p>
+        <div class="callout tip">
+          <strong>State every fix as a gate delta</strong>
+          "Improve search" is a wish. "Move PDP penetration from 40% to 43% by fixing zero-result searches" is a fix - it names the gate, the size, and the mechanism. The simulator only accepts fixes in that form, and so should your roadmap.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Where the four fixes come from<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The lever sizes in the simulator are illustrative teaching values, but each fix is a real, well-documented pattern:</p>
+        <ul>
+          <li><strong>Smarter search &amp; nav</strong> - killing zero-result searches and improving autocomplete raises the share of sessions that ever reach a product page (b2-b3 showed search-path sessions convert about 2.7x browse-path).</li>
+          <li><strong>Richer PDP</strong> - better galleries, visible reviews, and size guidance raise add-to-cart (b5 measures engaged-PDP sessions converting 2x plain ones).</li>
+          <li><strong>Persistent cart + nudges</strong> - carts that survive across sessions and gentle reminders raise checkout starts.</li>
+          <li><strong>One-page checkout + wallets</strong> - fewer form fields and wallet payments raise completion (b6 walks the checkout micro-funnel; Baymard's research catalogs exactly which frictions kill it).</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO 1: BASELINE ============ -->
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Demo 1 of 2</span>
+      <h2>Read the machine at rest <span class="tag demo">★ 8 min · everyone reads</span></h2>
+    </div>
+    <p class="lede">Here is the live flow. Before touching anything, read it end to end and match every number to what you already know from b1-b3 and the metrics course - same store, same month, same 9,720 orders.</p>
+
+    <div class="flowbox" data-caption="Mango Lane's baseline journey. Toggle any fix and the counts recompute live; improved gates light coral.">
+      <pre class="flow-src">{
+  "sessions": 360000, "aov": 68,
+  "stages": [
+    { "label": "Sessions" },
+    { "label": "PDP sessions",      "rate": 0.40, "rateLabel": "PDP penetration" },
+    { "label": "Cart sessions",     "rate": 0.25, "rateLabel": "add-to-cart" },
+    { "label": "Checkout sessions", "rate": 0.45, "rateLabel": "checkout start" },
+    { "label": "Orders",            "rate": 0.60, "rateLabel": "completion" }
+  ],
+  "levers": [
+    { "stage": 1, "to": 0.43, "label": "Smarter search & nav", "desc": "PDP penetration 40% to 43% - fix zero-result searches, better autocomplete" },
+    { "stage": 2, "to": 0.28, "label": "Richer PDP", "desc": "add-to-cart 25% to 28% - gallery, reviews, size guidance up front" },
+    { "stage": 3, "to": 0.50, "label": "Persistent cart + nudges", "desc": "checkout start 45% to 50% - cart survives sessions, gentle reminders" },
+    { "stage": 4, "to": 0.66, "label": "One-page checkout + wallets", "desc": "completion 60% to 66% - fewer fields, wallet payments" }
+  ]
+}</pre>
+    </div>
+
+    <div class="steps">
+      <div class="step"><p>Read the lane left to right: 360,000 → 144,000 → 36,000 → 16,200 → 9,720. Each arrow carries the gate rate that produced the next count.</p></div>
+      <div class="step"><p>Check the scorecard line: 9,720 orders, 2.70% session CR, $660,960 GMV. The machine at rest is exactly the month you have been decomposing since b1.</p></div>
+      <div class="step"><p>Say out loud which team owns each arrow. If you cannot name an owner, that gate is nobody's job - and it will never move.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ DEMO 2: THE LADDER ============ -->
+  <section class="section" id="demo-2">
+    <div class="section-kicker">
+      <span class="klabel">Demo 2 of 2</span>
+      <h2>Run the four fixes - the ladder <span class="tag demo">★ 15 min · everyone builds</span></h2>
+    </div>
+    <p class="lede">Now turn the dials one at a time, in order, and check the machine against the expected ladder below. Every rung is a real recomputation - the simulator multiplies the counts through live.</p>
+
+    <table class="clean">
+      <thead><tr><th>Rung</th><th>Fixes on</th><th>Orders</th><th>Session CR</th><th>GMV</th><th>vs baseline</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>none (baseline)</td><td>9,720</td><td>2.70%</td><td>$660,960</td><td>-</td></tr>
+        <tr><td>1</td><td>Smarter search &amp; nav</td><td>10,449</td><td>2.90%</td><td>$710,532</td><td>+7.5%</td></tr>
+        <tr><td>2</td><td>+ Richer PDP</td><td>11,703</td><td>3.25%</td><td>$795,796</td><td>+20.4%</td></tr>
+        <tr><td>3</td><td>+ Persistent cart</td><td>13,003</td><td>3.61%</td><td>$884,218</td><td>+33.8%</td></tr>
+        <tr><td>4</td><td>+ One-page checkout</td><td>14,304</td><td>3.97%</td><td>$972,639</td><td>+47.2%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="steps">
+      <div class="step"><p>Toggle <strong>Smarter search &amp; nav</strong>. PDP sessions jump to 154,800 and every later stage inherits the gain - orders 10,449, CR 2.90%. One dial, whole machine.</p></div>
+      <div class="step"><p>Add <strong>Richer PDP</strong>. Now two gates are coral: orders 11,703, GMV +20.4%. Notice 7.5% and 12% compounding past 19.5%.</p></div>
+      <div class="step"><p>Add the remaining two fixes and land on the full ladder: 14,304 orders, 3.97% CR, $972,639 GMV - <strong>+47.2%</strong> from four modest, testable deltas.</p></div>
+      <div class="step"><p>Now press <strong>Reset</strong> and try the fixes in a different order. The end state is identical - multiplication commutes - but the <em>per-fix credited lift</em> you would report differs. Remember that when teams fight over credit.</p></div>
+      <div class="step"><p>Last drill: turn on only ONE fix of your choice and write its one-line business case: "moving [gate] from X% to Y% is worth [orders] orders / [$] GMV per month."</p></div>
+    </div>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>This table is how journey roadmaps get funded.</strong> A UX team asking for "checkout redesign budget" gets questions; a team showing "completion 60% to 66% = +$88K GMV per month on current traffic" gets a decision. The simulator's honesty rail still applies - the effect sizes are estimates until an A/B test confirms them (that craft lives in learn-experimentation-with-phoebe) - but the arithmetic of the claim is exactly this.</p>
+    </div>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Which fix first? The preview of a6<span class="mini">4 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>All four rungs assume you can do everything at once. Real teams pick. Two useful tie-breakers, both computable from this machine:</p>
+        <ul>
+          <li><strong>Reach</strong> - how many sessions touch the gate. Gate 1 touches all 360,000 sessions; gate 4 touches only 16,200. A small % lift on a huge base can beat a big % lift on a tiny one.</li>
+          <li><strong>Distance to benchmark</strong> - Mango Lane's completion (60%) is already strong versus the ~45% Shopify average (Littledata, 2025), while its PDP penetration has no such cushion. Fix the gate that lags its benchmark, not the one that is easiest to imagine.</li>
+        </ul>
+        <p>a6 turns this into a full prioritization ritual (reach x severity x confidence); b7 uses the same machine backwards to diagnose a leak.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 20-30 min total</span></h2>
+    </div>
+    <ul>
+      <li>Rebuild the baseline flow for your own store: sessions, your four gate rates, orders. If a gate rate is unknown, that gap is finding number one.</li>
+      <li>Write your top three journey fixes as gate deltas (gate, from%, to%, mechanism). Toss any "fix" that cannot be written that way.</li>
+      <li>Compute each fix's monthly GMV value with the simulator (paste your numbers into the flow JSON mentally or on paper) and rank them.</li>
+      <li>Check one gate against a real benchmark before proposing to fix it - a5 of the metrics course has the honest tables.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources</span>
+      <h2>Sources this session draws on</h2>
+    </div>
+    <p class="lede">The simulator is a teaching machine; the gates and fixes it models are standard, documented patterns. This page draws on:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Mango Lane canon (metrics course b3-b4) - the four gates and their baseline rates</span><span class="note">Part 1 + Demo 1 · same store, same month, cross-checked</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Multiplicative pass-through - gate deltas compound through a product</span><span class="note">Demo 2 · the ladder arithmetic, verified live</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Littledata Shopify benchmark 2025 - checkout completion ~45% average</span><span class="note">Self-study · the distance-to-benchmark tie-breaker</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Lever effect sizes - illustrative teaching values, not measured promises</span><span class="note">Honesty rail · confirm any real fix with an A/B test</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · PDP penetration improves 7.5% and add-to-cart improves 12%. Orders rise by...</p>
+      <button class="qopt" type="button">A · 19.5% exactly - percentage gains add</button>
+      <button class="qopt" type="button">B · About 20.4% - gains multiply (1.075 x 1.12), slightly more than the sum</button>
+      <button class="qopt" type="button">C · 12% - only the bigger fix counts</button>
+      <p class="qwhy">Gate improvements compound multiplicatively: 1.075 x 1.12 = 1.204. For small moves the sum is a decent approximation; for stacked fixes the compounding is real money.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · What makes "improve search" unacceptable on a journey roadmap?</p>
+      <button class="qopt" type="button">A · Search is not part of the journey</button>
+      <button class="qopt" type="button">B · Search fixes never work</button>
+      <button class="qopt" type="button">C · It names no gate, no size, no mechanism - it cannot be valued or tested</button>
+      <p class="qwhy">A fix must be a gate delta: "PDP penetration 40% to 43% by fixing zero-result searches." That form makes it valuable (the simulator prices it) and testable (an experiment can confirm it).</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · Completion (60%) already beats the ~45% benchmark; PDP penetration has no such cushion. Which fix deserves scrutiny first?</p>
+      <button class="qopt" type="button">A · The PDP penetration fix - target the gate lagging its benchmark, weigh reach too</button>
+      <button class="qopt" type="button">B · The completion fix - always fix the last gate first</button>
+      <button class="qopt" type="button">C · Neither - benchmarks decide nothing</button>
+      <p class="qwhy">Distance-to-benchmark plus reach are the two computable tie-breakers. A gate already beating its benchmark has less headroom; a gate touching all 360K sessions has more leverage per point.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 4 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The machine</b><span>Sessions x PDP pen x add-to-cart x checkout start x completion = orders. Four dials, four owners.</span></div>
+      <div class="cheat-item"><b>Baseline</b><span>360,000 x 40% x 25% x 45% x 60% = 9,720 orders · 2.70% CR · $660,960 GMV.</span></div>
+      <div class="cheat-item"><b>The full ladder</b><span>Four fixes: 9,720 → 10,449 → 11,703 → 13,003 → 14,304 orders. CR 2.70% → 3.97%. GMV +47.2%.</span></div>
+      <div class="cheat-item"><b>Fixes compound</b><span>Gate gains multiply: 1.075 x 1.12 = +20.4%, more than the sum. Stacked small fixes beat one big redesign.</span></div>
+      <div class="cheat-item"><b>Fix = gate delta</b><span>Gate + from% + to% + mechanism. Anything else is a wish, not a roadmap item.</span></div>
+      <div class="cheat-item"><b>Value a fix</b><span>Toggle it alone: the GMV delta is its monthly business case on current traffic.</span></div>
+      <div class="cheat-item"><b>Which first</b><span>Reach (sessions touching the gate) x distance to benchmark. Full ritual in a6; diagnosis in reverse in b7.</span></div>
+      <div class="cheat-item"><b>Honesty rail</b><span>The arithmetic is real; lever sizes are illustrative until an A/B test confirms them (learn-experimentation).</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 4 of 8 · learn-user-journey-analytics-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b3-path-analysis.html">← Prev: Path analysis</a> &nbsp;·&nbsp; <a href="b5-pdp-engagement-metrics.html">Next: PDP engagement metrics →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/journey-live.js?v=2"></script>
+<script src="../assets/tree-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

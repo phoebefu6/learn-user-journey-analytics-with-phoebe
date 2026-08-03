@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyst session 3 · Path analysis - learn user journey analytics with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-user-journey-analytics-with-phoebe</a> / Analyst session 3 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn User Journey Analytics with Phoebe · Analyst track · Session 3 of 8</div>
+    <h1>Path <span class="accent">analysis</span></h1>
+    <p class="sub">b2 measured where sessions enter. Today you measure which ROAD they take to the product - and prove the roads are not equal. Mango Lane's searchers convert at 2.67x its browsers. You will verify that split reproduces every one of the 9,720 orders, run a what-if that adds 750 orders without improving a single gate, and learn to drive GA4's path exploration without drowning in its tree.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Analyst track</span>
+      <span class="chip audience">Analysts · PMs · UX · growth</span>
+      <span class="chip audience">Compute along</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Recap</span>
+      <span class="a2" style="flex:3">3-15 · The two paths</span>
+      <span class="a3" style="flex:3">15-27 · Path tooling</span>
+      <span class="a4" style="flex:4">27-45 · Drills &amp; Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ PART 1: THE TWO PATHS ============ -->
+  <section class="section" id="twopaths">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the search-vs-browse split, measured</span>
+      <h2>The two paths, measured <span class="tag concept">12 min live</span></h2>
+    </div>
+    <p class="lede">Split Mango Lane's 144,000 PDP sessions by one question: did the session use search before or at the PDP? <strong>Search path:</strong> 43,200 sessions (30%), converting at 12% - 5,184 orders. <strong>Browse path:</strong> 100,800 sessions (70%), converting at 4.5% - 4,536 orders. The two paths sum to 9,720 orders exactly, and the conversion ratio is 12 / 4.5 = <strong>2.67x</strong>. A minority road carrying a majority-sized payload.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="144,000 PDP sessions split into a search path of 43,200 converting at 12 percent and a browse path of 100,800 converting at 4.5 percent, producing 5,184 and 4,536 orders">
+        <style>
+          .paH { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .paT { font: 800 13px Inter, sans-serif; fill: #FFFFFF; }
+          .paS { font: 600 11.5px Inter, sans-serif; fill: #FFFFFF; }
+          .paV { font: 800 14px Inter, sans-serif; fill: #134E4A; }
+          .paC { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .paN { font: 600 12.5px Inter, sans-serif; fill: #042F2E; }
+          .paArr { stroke: #14B8A6; stroke-width: 2; fill: none; marker-end: url(#paArrHead); }
+        </style>
+        <defs>
+          <marker id="paArrHead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#14B8A6"/>
+          </marker>
+        </defs>
+
+        <!-- Source: all PDP sessions -->
+        <rect x="30" y="118" width="180" height="80" rx="10" fill="#0F766E"/>
+        <text class="paT" x="120" y="148" text-anchor="middle">PDP sessions</text>
+        <text class="paT" x="120" y="170" text-anchor="middle" style="font-size:15px">144,000</text>
+        <text class="paS" x="120" y="187" text-anchor="middle">the 40% from b2</text>
+
+        <!-- Search path (top) -->
+        <path class="paArr" d="M210,138 C290,120 310,86 356,74"/>
+        <text class="paC" x="278" y="88" text-anchor="middle">used search · 30%</text>
+        <rect x="360" y="40" width="220" height="68" rx="10" fill="#134E4A"/>
+        <text class="paT" x="470" y="66" text-anchor="middle">Search path · 43,200</text>
+        <text class="paS" x="470" y="88" text-anchor="middle">path CR 12%</text>
+        <path class="paArr" d="M580,74 L666,74"/>
+        <rect x="670" y="46" width="180" height="56" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="paH" x="760" y="68" text-anchor="middle">5,184 orders</text>
+        <text class="paC" x="760" y="88" text-anchor="middle">53.3% of all orders</text>
+
+        <!-- Browse path (bottom) -->
+        <path class="paArr" d="M210,178 C290,196 310,230 356,242"/>
+        <text class="paC" x="278" y="238" text-anchor="middle">browsed only · 70%</text>
+        <rect x="360" y="208" width="220" height="68" rx="10" fill="#14B8A6"/>
+        <text class="paT" x="470" y="234" text-anchor="middle">Browse path · 100,800</text>
+        <text class="paS" x="470" y="256" text-anchor="middle">path CR 4.5%</text>
+        <path class="paArr" d="M580,242 L666,242"/>
+        <rect x="670" y="214" width="180" height="56" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="paH" x="760" y="236" text-anchor="middle">4,536 orders</text>
+        <text class="paC" x="760" y="256" text-anchor="middle">46.7% of all orders</text>
+
+        <!-- Ratio note -->
+        <rect x="360" y="132" width="220" height="40" rx="8" fill="#FFE4E6"/>
+        <text class="paH" x="470" y="149" text-anchor="middle" style="fill:#881337">12% vs 4.5%</text>
+        <text class="paC" x="470" y="164" text-anchor="middle" style="fill:#BE123C">searchers convert at 2.67x</text>
+
+        <rect x="30" y="302" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="paN" x="54" y="314">Cross-foot: 5,184 + 4,536 = 9,720 orders exactly - the same total the metrics course computed. Nothing leaks.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the two-path split: 30% of PDP sessions on the search road carry 53.3% of the orders</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Is 2.67x believable? The industry range<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Search-vs-browse conversion gaps are one of ecommerce's most repeated claims, and almost all the numbers are secondary - vendor and analyst studies, not your data. Teach them as a range, with flags on:</p>
+        <table class="clean">
+          <thead><tr><th>Source (all secondary - treat as directional)</th><th>Claimed search-vs-browse ratio</th></tr></thead>
+          <tbody>
+            <tr><td>Econsultancy</td><td>~1.8x</td></tr>
+            <tr><td>Forrester</td><td>2-3x</td></tr>
+            <tr><td>Algolia-relayed figures (Walmart 2.4x, Etsy 3x, Amazon 6x)</td><td>2.4-6x</td></tr>
+          </tbody>
+        </table>
+        <p>The honest summary: vendor and analyst studies put search users at 1.8-6x browse conversion, and the often-quoted "15% of visitors, 45% of revenue" is commonly cited rather than independently verified. Mango Lane's 2.67x sits mid-range - plausible, not exceptional. If your own split lands outside 1.5-6x, suspect your path definition before you suspect your shoppers.</p>
+        <div class="callout tip">
+          <strong>Why searchers convert better - and the causal trap</strong>
+          Searchers typed what they want; browsers are still deciding. That is INTENT, not interface magic. "Make everyone search" does not follow - forcing browsers into a search box does not give them a shopping list. The valid plays: make search prominent for those who already have intent, and fix the search experiences that fail them (b4 simulates both).
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: GA4 PATH TOOLING ============ -->
+  <section class="section" id="tooling">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers GA4 path &amp; funnel explorations</span>
+      <h2>Path exploration without drowning <span class="tag concept">12 min live</span></h2>
+    </div>
+    <p class="lede">GA4's path exploration draws a <strong>tree graph</strong>: the sequences of events or screens users actually walked, one branching step at a time. The tree is honest and overwhelming in equal measure - by step three you can be staring at hundreds of branches. Two settings decide whether you drown: the direction you path in, and what you use as nodes.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Forward, backward, and the five node types<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <ul>
+          <li><strong>Forward pathing:</strong> pick a starting point (say, Home) and ask "what did users do next?" Good for exploring how a screen is used.</li>
+          <li><strong>Backward pathing:</strong> pick an ENDING point (say, purchase) and ask "how did they get here?" This is the money question - it filters the tree to only the walks that ended where you care.</li>
+          <li><strong>Node types:</strong> each step can show Event name, Page title, Page path, Screen name, or Screen class. Screen name is the readable one - IF you did b1's homework and named your screens. Path a tree on Screen class and you get ProductViewController soup.</li>
+          <li><strong>Pruning:</strong> the tree shows the top 5 nodes per step by default, expandable to 20. Metrics per node: event count and total users.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The two recipes worth memorizing<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>You will open path exploration a hundred times. These two setups do most of the work:</p>
+        <ul>
+          <li><strong>Recipe 1 - backward from purchase.</strong> Ending point: the purchase event, nodes: screen name. The tree now shows which roads actually produce orders, weighted by reality. This is how you would DISCOVER the two-path split in Part 1 if nobody had handed it to you: search results keeps appearing one to two steps before the PDP in the converting walks.</li>
+          <li><strong>Recipe 2 - forward from search results.</strong> Starting point: view_search_results, nodes: screen name. Where do searchers go next? Mostly to a PDP = search relevance is working. Back to search results again and again = it is not - shoppers are re-querying because the first answer failed. That re-query loop is the cheapest search-quality signal you own.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Funnel exploration - path's stricter sibling<span class="mini">4 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Path exploration discovers roads; funnel exploration measures a road you already believe in. Worth knowing cold:</p>
+        <ul>
+          <li><strong>Open vs closed:</strong> a closed funnel (the default) only counts users who enter at step 1; an open funnel lets users enter at any step. Mango Lane's PDP-direct entries are exactly why the distinction matters - a closed funnel starting at Home silently drops all 54,000 of them.</li>
+          <li><strong>Limits and toggles:</strong> up to 10 steps, up to 4 segments side by side, an elapsed-time toggle showing how long users take between steps, and a trended view of any step over time.</li>
+          <li><strong>The "next action" breakdown:</strong> for users who abandon at a step, the top 5 next actions they took instead. Abandoned checkout and went WHERE is the start of every leak diagnosis (b7 leans on this hard).</li>
+        </ul>
+        <p>Rule of thumb: path exploration to find the story, funnel exploration to measure it monthly. b4's simulator is the third sibling: change the story's numbers and watch the orders move.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3 / DEMO: PATH ACCOUNTING DRILLS ============ -->
+  <section class="section" id="drills">
+    <div class="section-kicker">
+      <span class="klabel">Demo · everyone computes</span>
+      <h2>Path accounting drills <span class="tag demo">★ 15 min · everyone works</span></h2>
+    </div>
+    <p class="lede">Three drills, full arithmetic, no calculator shame. Drill 1 proves the split is real accounting, not a slide decoration. Drills 2 and 3 turn it into money.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Compute along: verify, shift, rescue<span class="mini">13 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>Drill 1 - verify the split reproduces total orders.</strong> Search path: 43,200 x 0.12 = <strong>5,184</strong>. Browse path: 100,800 x 0.045 = <strong>4,536</strong>. Sum: 5,184 + 4,536 = <strong>9,720</strong> - the exact order total from the metrics course. A path split that does not cross-foot to the real total is a broken segment definition, and you check this BEFORE presenting, every time.</p></div>
+          <div class="step"><p><strong>Drill 2 - the mix what-if.</strong> Suppose better in-app search prominence shifts 10,000 sessions from the browse path to the search path, and both path CRs hold. New orders: 53,200 x 0.12 = <strong>6,384</strong> and 90,800 x 0.045 = <strong>4,086</strong>. Total: 6,384 + 4,086 = <strong>10,470</strong> - that is +750 orders, +7.7% on 9,720. Name it precisely: this is a MIX play. No gate improved, no CR moved - sessions migrated from the 4.5% road to the 12% road. Same decomposition discipline as b2's 44.4% scenario, now applied to paths. (And the same skepticism applies: the 10,000 movers must actually behave like searchers - intent-holding shoppers nudged to search will; browsers forced to search may not.)</p></div>
+          <div class="step"><p><strong>Drill 3 - the zero-result rescue estimate.</strong> Suppose 8% of the 43,200 search-path sessions hit a zero-result page, and half of those are rescuable (synonym handling, typo tolerance, better suggestions) at the normal path CR. Extra orders: 43,200 x 0.08 = 3,456 zero-result sessions; x 0.5 = 1,728 rescuable; x 0.12 = <strong>207 extra orders per month</strong>. Small next to Drill 2 - but zero-result fixes are close to free, and 207 orders x $68 AOV is about $14,000 a month for a synonyms file.</p></div>
+        </div>
+        <div class="callout win">
+          <strong>★ The pattern across all three drills</strong>
+          Sessions x path CR = orders, for every slice, always. Verify the baseline cross-foots, then move ONE quantity at a time and recompute. That is the whole method - b4 wires it into a live simulator so you can drag the levers instead of long-multiplying.
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 4: PATH HYGIENE ============ -->
+  <section class="section" id="hygiene">
+    <div class="section-kicker">
+      <span class="klabel">Part 4 · covers when not to trust a path report</span>
+      <h2>Path hygiene <span class="tag concept">4 min live</span></h2>
+    </div>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Three rules before you diagnose on paths<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <ul>
+          <li><strong>Paths are session-scoped stories.</strong> The same shopper can walk the browse path Monday and the search path Friday. You are classifying sessions, not people - do not write "30% of our CUSTOMERS are searchers" on a slide that measured sessions.</li>
+          <li><strong>Do not diagnose on thin paths.</strong> A path slice with fewer than ~100 conversions swings wildly month to month - the metrics course's thin-slice rule, unchanged. Mango Lane's drills work because the slices carry thousands of orders; your "iPad users who searched twice in French" slice does not.</li>
+          <li><strong>Unnamed screens make path reports unreadable.</strong> b1's trap, compounding: one unnamed screen is one ugly row in a table, but in a tree it pollutes every branch it appears on. Fix screen names before your first path review, not after.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 20-25 min total</span></h2>
+    </div>
+    <ul>
+      <li>Run backward pathing from purchase in your tool (Recipe 1: ending point purchase, nodes = screen name). Write down the top 3 roads that actually produce your orders.</li>
+      <li>Compute your own search-vs-browse split: sessions that fired view_search_results before converting vs those that did not, each path's CR, and the ratio. Check it cross-foots to your real order total.</li>
+      <li>Place your ratio on the 1.8-6x industry range. Outside it? Audit your path definition (is search tracking firing at all? b1's URL-param trap) before concluding your shoppers are unusual.</li>
+      <li>Bonus: run Recipe 2 (forward from search results) and estimate your re-query loop share - searchers whose next step is another search.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources</span>
+      <h2>Sources this session draws on</h2>
+    </div>
+    <p class="lede">Platform documentation for the tooling, canon numbers for the store, and one honestly-flagged industry range:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GA4 path exploration - tree graph, forward/backward pathing, five node types, top 5 to 20 nodes per step</span><span class="note">Part 2 · the two recipes: backward from purchase, forward from search</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GA4 funnel exploration - open vs closed (closed default), 10 steps, elapsed time, next-action breakdown</span><span class="note">Part 2 self-study · path's stricter sibling</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GA4 site search - view_search_results + search_term, default URL params, the silent-SPA gap</span><span class="note">Part 1 &amp; homework · what defines the search path, and how it silently vanishes</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Search-vs-browse conversion range (secondary: Econsultancy ~1.8x, Forrester 2-3x, Algolia-relayed Amazon 6x)</span><span class="note">Part 1 · taught as a directional range with flags on, never as gospel</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Mango Lane canon - path split python-verified, cross-foots to 9,720 orders exactly</span><span class="note">Throughout · every drill reconciles to the metrics course</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · You want to know which roads actually produce orders. Which path-exploration setup answers it directly?</p>
+      <button class="qopt" type="button">A · Forward pathing from Home - follow the biggest branches</button>
+      <button class="qopt" type="button">B · Backward pathing from purchase - the tree shows only the walks that ended in an order</button>
+      <button class="qopt" type="button">C · Forward pathing from session_start with Screen class nodes</button>
+      <p class="qwhy">Backward pathing filters the tree to converting walks - the money question. Forward from Home shows how Home is used, converting or not; Screen class nodes give you class-name soup.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · Shift 10,000 sessions from browse path (4.5% CR) to search path (12% CR), both CRs holding. New order total?</p>
+      <button class="qopt" type="button">A · 9,720 - moving sessions between paths cannot change the total</button>
+      <button class="qopt" type="button">B · 10,920 - add 10,000 x 12%</button>
+      <button class="qopt" type="button">C · 10,470 - since 53,200 x 0.12 + 90,800 x 0.045 = 6,384 + 4,086</button>
+      <p class="qwhy">Recompute both slices: 6,384 + 4,086 = 10,470, a +750 (+7.7%) gain from pure mix - the sessions moved to a road that converts 7.5 points higher. Option B forgets the 10,000 stop converting at 4.5%.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · Mango Lane's searchers convert at 2.67x its browsers. The right way to read that number?</p>
+      <button class="qopt" type="button">A · Plausible, mid-range - secondary studies put search-vs-browse at roughly 1.8-6x, and intent explains most of it</button>
+      <button class="qopt" type="button">B · Exceptional - it proves the search UX is world-class</button>
+      <button class="qopt" type="button">C · Suspicious - searchers and browsers should convert about equally</button>
+      <p class="qwhy">1.8x (Econsultancy) to 6x (Algolia-relayed Amazon) is the flagged industry range; 2.67x sits comfortably inside it. The gap is mostly intent - searchers arrive knowing what they want - so it is expected, not a UX trophy.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 3 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The two paths</b><span>Search 43,200 (30%) at 12% = 5,184 orders · browse 100,800 (70%) at 4.5% = 4,536. Sum 9,720.</span></div>
+      <div class="cheat-item"><b>The ratio</b><span>12 / 4.5 = 2.67x. Industry range 1.8-6x (secondary sources) - mid-range, plausible, mostly intent.</span></div>
+      <div class="cheat-item"><b>Always cross-foot</b><span>Path slices x path CRs must rebuild the real order total before you present anything.</span></div>
+      <div class="cheat-item"><b>Backward pathing</b><span>End at purchase, nodes = screen name. The tree shows only the roads that produce orders.</span></div>
+      <div class="cheat-item"><b>Forward from search</b><span>Next step PDP = relevance works. Next step search-again = the re-query loop, your cheapest search signal.</span></div>
+      <div class="cheat-item"><b>Funnel sibling</b><span>Closed default (enter at step 1), 10 steps max, elapsed time, next-action top 5. Measure the story monthly.</span></div>
+      <div class="cheat-item"><b>The what-if method</b><span>Move ONE quantity, recompute all slices: 10,000 shifted = 10,470 orders (+7.7%). Zero-result rescue = 207.</span></div>
+      <div class="cheat-item"><b>Path hygiene</b><span>Session-scoped stories · no diagnosing under ~100 conversions per slice · name your screens first.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 3 of 8 · learn-user-journey-analytics-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b2-entry-point-analytics.html">← Prev: Entry-point analytics</a> &nbsp;·&nbsp; <a href="b4-the-flow-simulator.html">Next: The flow simulator →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/journey-live.js?v=2"></script>
+<script src="../assets/tree-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

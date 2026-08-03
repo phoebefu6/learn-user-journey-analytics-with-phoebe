@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leader session 3 · Search vs browse - learn user journey analytics with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-user-journey-analytics-with-phoebe</a> / Leader session 3 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn User Journey Analytics with Phoebe · Leader track · Session 3 of 6</div>
+    <h1>Search <span class="accent">vs browse</span></h1>
+    <p class="sub">Every shopper who reaches a product page took one of two roads to get there: they typed what they wanted, or they wandered the aisles. At Mango Lane those two roads reach the same product pages - and convert 2.67x apart. This session is the leader's guide to why, what each road needs, and the three judgment calls you will face about them.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Leader track</span>
+      <span class="chip audience">Commercial + product leaders</span>
+      <span class="chip audience">Reading mode - no computation</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · The two roads</span>
+      <span class="a3" style="flex:4">18-33 · Why searchers convert</span>
+      <span class="a4" style="flex:3">33-45 · Judgment calls</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where this session sits</h2>
+    </div>
+    <p class="lede">Session 2 showed you the five doors sessions enter through. This session follows them one step further: once inside, how do they find a product? Two roads exist - <strong>search</strong> (type what you want) and <strong>browse</strong> (walk the categories) - and they behave so differently that treating them as one "traffic" number hides your biggest levers. As always on this track: nothing to compute, everything to ask.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill inkpill">Sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      Your two-roads mental model with Mango Lane's real numbers on it, the honest industry range for how much better search converts (and why to distrust the dramatic versions), and the questions that separate a real search problem from a traffic-mix illusion.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: THE TWO ROADS ============ -->
+  <section class="section" id="roads">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the two roads to every product page</span>
+      <h2>Same store, two very different roads <span class="tag concept">15 min live</span></h2>
+    </div>
+    <p class="lede">Of Mango Lane's 144,000 product-page sessions this month, <strong>43,200 (30%) arrived via search</strong> and <strong>100,800 (70%) arrived via browse</strong> - the category menus, the homepage rails, the listing grids. The search road converts at <strong>12%</strong>. The browse road converts at <strong>4.5%</strong>. That is a 2.67x gap between two groups of shoppers looking at the same products, at the same prices, in the same month.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two roads diagram: the narrow fast search road and the wide slow browse road both lead to the PDP, with Mango Lane counts and conversion rates">
+        <style>
+          .rdH { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .rdV { font: 800 13px Inter, sans-serif; fill: #134E4A; }
+          .rdC { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .rdT { font: 800 13px Inter, sans-serif; fill: #FFFFFF; }
+          .rdW { font: 600 12px Inter, sans-serif; fill: #FFFFFF; }
+          .rdN { font: 600 12.5px Inter, sans-serif; fill: #042F2E; }
+          .rdArr { stroke: #14B8A6; stroke-width: 2; fill: none; marker-end: url(#rdArrHead); }
+        </style>
+        <defs>
+          <marker id="rdArrHead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#14B8A6"/>
+          </marker>
+        </defs>
+
+        <!-- Search origin -->
+        <rect x="30" y="56" width="185" height="64" rx="10" fill="#0F766E"/>
+        <text class="rdT" x="122" y="82" text-anchor="middle">Search road</text>
+        <text class="rdW" x="122" y="102" text-anchor="middle">43,200 sessions · 30%</text>
+
+        <!-- Narrow fast road band -->
+        <rect x="215" y="72" width="185" height="30" rx="6" fill="#14B8A6"/>
+        <text class="rdW" x="307" y="91" text-anchor="middle">narrow · fast</text>
+        <text class="rdC" x="307" y="52" text-anchor="middle">typed what they want</text>
+
+        <!-- Browse origin -->
+        <rect x="30" y="196" width="185" height="88" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="rdH" x="122" y="228" text-anchor="middle">Browse road</text>
+        <text class="rdV" x="122" y="250" text-anchor="middle">100,800 sessions</text>
+        <text class="rdC" x="122" y="268" text-anchor="middle">70% of PDP traffic</text>
+
+        <!-- Wide slow road band -->
+        <rect x="215" y="206" width="185" height="68" rx="6" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="rdV" x="307" y="238" text-anchor="middle">wide · slow</text>
+        <text class="rdC" x="307" y="257" text-anchor="middle">wandering the aisles</text>
+
+        <!-- PDP box -->
+        <rect x="428" y="118" width="160" height="110" rx="10" fill="#134E4A"/>
+        <text class="rdT" x="508" y="152" text-anchor="middle">The PDP</text>
+        <text class="rdT" x="508" y="176" text-anchor="middle" style="font-size:15px">144,000</text>
+        <text class="rdW" x="508" y="196" text-anchor="middle">sessions reach one</text>
+
+        <!-- Road arrows into PDP -->
+        <path class="rdArr" d="M400,87 C420,90 420,120 424,136"/>
+        <path class="rdArr" d="M400,240 C420,236 420,220 424,210"/>
+
+        <!-- Outcomes -->
+        <rect x="626" y="66" width="228" height="72" rx="10" fill="#0F766E"/>
+        <text class="rdT" x="740" y="94" text-anchor="middle">Search path CR: 12%</text>
+        <text class="rdW" x="740" y="116" text-anchor="middle">5,184 orders</text>
+
+        <rect x="626" y="206" width="228" height="72" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="rdH" x="740" y="234" text-anchor="middle">Browse path CR: 4.5%</text>
+        <text class="rdV" x="740" y="256" text-anchor="middle">4,536 orders</text>
+
+        <path class="rdArr" d="M588,150 C606,144 606,116 622,104"/>
+        <path class="rdArr" d="M588,200 C606,206 606,230 622,240"/>
+
+        <!-- Bottom note -->
+        <rect x="30" y="312" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="rdN" x="54" y="324">Same store, same month, same products: the search road converts 2.67x the browse road - 12% vs 4.5%.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - two roads into the same product pages: 30% of traffic on the fast road, 70% on the slow one</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Reading the two roads like a leader<span class="mini">6 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three things this picture tells you before anyone opens a dashboard:</p>
+        <ul>
+          <li><strong>The minority road carries outsized money.</strong> Search is 30% of product-page traffic but produces 5,184 of the 9,720 orders - more than half. Small road, heavy freight.</li>
+          <li><strong>The majority road is where most shoppers actually live.</strong> 70% of everyone who ever sees a product got there by browsing. Whatever you think of its 4.5% conversion, this road IS the store for most visitors.</li>
+          <li><strong>The gap is a property of the shopper, not just the store.</strong> The same site serves both roads. The 2.67x difference is mostly about who chooses each road - which is exactly why "make browse convert like search" is usually the wrong goal. Part 2 explains.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Where these numbers come from<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The analyst track computes this split in b3 using GA4's path exploration - the report that draws the actual sequences of screens users walk, forward from a search or backward from a purchase. If you want to see the machinery, that session is the one to sit in on. For this track you only need the shape: two roads, 30/70 traffic, 12% vs 4.5%, orders 5,184 + 4,536 = 9,720 exactly.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <strong>What to ask your team after Part 1</strong>
+      "What share of our product-page traffic comes through search, what share through browse - and what does each road convert at?" If nobody can answer within a day, that is itself the finding: the store's two biggest roads are unmeasured.
+    </div>
+  </section>
+
+  <!-- ============ PART 2: WHY SEARCHERS CONVERT ============ -->
+  <section class="section" id="why">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · why searchers convert more</span>
+      <h2>Typing is a declaration of intent <span class="tag concept">15 min live</span></h2>
+    </div>
+    <p class="lede">The search box is a confession booth. To use it, a shopper must already know - and be willing to type - what they want. "Linen midi dress" is a shopper halfway to a decision; a shopper tapping through "New in" is still deciding whether to decide. The conversion gap between the roads is mostly this <strong>self-selection of intent</strong>, and only partly the quality of your search engine. Both halves matter, but confusing them leads to bad investments.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The honest numbers: what the industry actually knows<span class="mini">6 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>You will hear dramatic claims about search users. Here is the range, honestly flagged - all of it is vendor and analyst data, not academic research:</p>
+        <table class="clean">
+          <thead><tr><th>Source</th><th>Claim</th><th>Weight it as</th></tr></thead>
+          <tbody>
+            <tr><td>Econsultancy</td><td>Search users convert ~1.8x browse users</td><td>Analyst study - the modest end</td></tr>
+            <tr><td>Forrester (commonly cited)</td><td>2-3x browse conversion</td><td>The mid-range most teams see</td></tr>
+            <tr><td>Algolia-relayed figures</td><td>Amazon 6x · Walmart 2.4x · Etsy 3x</td><td>Vendor-relayed - directional only</td></tr>
+          </tbody>
+        </table>
+        <p>So the defensible sentence is: <strong>"vendor and analyst studies put search users at 1.8-6x browse conversion."</strong> Mango Lane's 2.67x sits comfortably mid-range - which is reassuring, not remarkable. If someone pitches you a search vendor using only the 6x number, they picked the most flattering point on a wide range.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The search road's failure modes - what leaders should ask about<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Precisely because searchers arrive with declared intent, failing them is expensive - you are dropping the shoppers most ready to buy. Three failure modes account for most of the loss:</p>
+        <ul>
+          <li><strong>Zero-result searches.</strong> The shopper typed what they want and the store said "nothing found". Sometimes you truly do not stock it (useful demand signal - see Part 3); often you do stock it and the engine missed it.</li>
+          <li><strong>Misspellings.</strong> "Linnen dress" should find linen dresses. An engine without forgiving matching quietly zeroes out a slice of your highest-intent traffic.</li>
+          <li><strong>Synonym gaps.</strong> The shopper says "jumper", your catalog says "sweater". Same garment, zero results. Every market and generation brings its own vocabulary; the catalog only has one.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>The zero-result report is the cheapest audit in ecommerce.</strong> Most analytics setups already record every search term (GA4 does it automatically). Sorting for terms that returned nothing takes an analyst an hour and routinely finds both fixable engine gaps and products worth stocking.</p>
+        </div>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <strong>What to ask your team after Part 2</strong>
+      "Show me our top 20 zero-result search terms this month." Then two follow-ups: which of these do we actually stock (engine problem), and which do we not (assortment signal)? This one question exercises the whole search road.
+    </div>
+  </section>
+
+  <!-- ============ PART 3: WHAT EACH ROAD NEEDS ============ -->
+  <section class="section" id="needs">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · what each road needs</span>
+      <h2>Two roads, two maintenance crews <span class="tag concept">10 min live</span></h2>
+    </div>
+    <p class="lede">Because the roads serve different shoppers, they need different investments - and usually different owners. Funding "site improvements" as one bucket guarantees the louder road wins. Name the two crews explicitly:</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The two maintenance lists<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <table class="clean">
+          <thead><tr><th>Road</th><th>What it needs</th><th>What failure looks like</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Search</strong> (30% of PDP traffic, 12% CR)</td><td>Relevance (right products, right order) · autocomplete that guides the query · zero-result rescue (forgiving matching, synonyms, "did you mean")</td><td>High-intent shoppers hitting "no results" and leaving</td></tr>
+            <tr><td><strong>Browse</strong> (70% of PDP traffic, 4.5% CR)</td><td>Category logic that matches how shoppers think · merchandising order (what leads each grid) · PLP scannability (can you judge 20 products in 10 seconds?)</td><td>Shoppers scrolling grids without ever tapping into a product</td></tr>
+          </tbody>
+        </table>
+        <p>Note what is NOT on either list: making browse shoppers behave like search shoppers. Browse conversion of 4.5% on 70% of traffic is not a bug to eliminate - it is the browsing population being itself. The browse crew's job is a better 4.5%, not a fake 12%.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The search bar as market research<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Every search is a shopper telling you demand <strong>in their own words</strong> - unprompted, unfiltered, spelled however they spell it. GA4 records this automatically: a <code>view_search_results</code> event fires with the <code>search_term</code> attached whenever on-site search runs. That log is a free, continuously updated market-research panel: what people call your products, what they want that you do not stock, which trends arrive before your buyers notice. Teams pay agencies for demand studies while this sits unread in their own analytics. One honest caveat from the analyst track: app and single-page-app search that never touches the URL can silently vanish from this data - worth one question to confirm yours is captured.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <strong>What to ask your team after Part 3</strong>
+      "Who owns the search road, and who owns the browse road?" If the answer is the same overloaded team for both - or nobody for either - you have found why neither list gets worked. Then: "When did anyone last read the search-term report as a demand signal, not a bug list?"
+    </div>
+  </section>
+
+  <!-- ============ DEMO: THREE JUDGMENT CALLS ============ -->
+  <section class="section" id="calls">
+    <div class="section-kicker">
+      <span class="klabel">Demo · read along</span>
+      <h2>Three judgment calls you will actually face <span class="tag demo">★ read-along - no computation</span></h2>
+    </div>
+    <p class="lede">These three proposals cross every ecommerce leader's desk eventually. Walk each one with the two-roads model - the answers are judgments, not calculations, but the model keeps the judgments honest.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Call 1 · "Let's make search more prominent"<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>The pitch:</strong> search converts 2.67x better, so push more shoppers onto it - bigger bar, front and center.</p></div>
+          <div class="step"><p><strong>The model says:</strong> probably yes. Search carries only 30% of product-page sessions; if even some browse-inclined shoppers with formed intent switch roads, they convert better. The 2.67x gap means modest traffic shifts move real money.</p></div>
+          <div class="step"><p><strong>The caveat to voice:</strong> check the search road can absorb more traffic without degrading. New search users are lighter-intent than current ones (the current 12% is partly self-selection), and the failure modes from Part 2 hit harder at volume. Expect the search CR to dip as its share grows - that can still be a win overall.</p></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Call 2 · "Our search conversion fell"<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>The alarm:</strong> search CR dropped from 12% toward 10% over two months. Someone wants to replace the search vendor.</p></div>
+          <div class="step"><p><strong>The question to ask first:</strong> did the search engine get worse, or did the search population change? A relevance regression and an influx of first-time browsers trying search look identical in the headline number.</p></div>
+          <div class="step"><p><strong>How to tell them apart:</strong> ask for the CR split by user type (returning searchers vs first-time), and for the zero-result rate trend. Regression: zero-results up, everyone's CR down. Mix shift: zero-results flat, returning searchers' CR steady, more low-intent newcomers in the pool - often the harmless side effect of Call 1 succeeding.</p></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Call 3 · "Kill the category menu - everyone searches now"<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>The pitch:</strong> search converts better, modern shoppers search, the menu is clutter. Strip the navigation, celebrate the minimalism.</p></div>
+          <div class="step"><p><strong>The model says:</strong> no. 70% of product-page reach still comes through the browse road. Removing the category menu does not convert browsers into searchers - many do not yet know what to type. It converts them into exits.</p></div>
+          <div class="step"><p><strong>The reframe to offer:</strong> the browse road being slower does not make it optional - it is how most shoppers form the intent that search then harvests. Fund the browse list from Part 3 instead of demolishing the road.</p></div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Two asks - this week <span class="tag exercise">◐ two emails, no computation</span></h2>
+    </div>
+    <ul>
+      <li>Ask your team for your search-vs-browse split of product-page traffic, and the conversion rate of each road. Compare against Mango Lane's shape: 30/70 traffic, 12% vs 4.5%, 2.67x apart.</li>
+      <li>Ask for the top 20 zero-result search terms this month. Mark each one: do we stock it (engine gap) or not (demand signal)?</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources</span>
+      <h2>Sources this session draws on</h2>
+    </div>
+    <p class="lede">Leader sessions cite the same sources the analyst track verifies - with honesty flags kept visible:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GA4 site search - view_search_results event with search_term, recorded automatically</span><span class="note">Part 3 · the search bar as free market research</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Search-vs-browse conversion studies (Econsultancy, Forrester, Algolia-relayed) - a 1.8-6x range, honestly hedged</span><span class="note">Part 2 · vendor and analyst data, not academic; quote the range, not the flattering endpoint</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Mango Lane journey canon - 43,200/100,800 split, 12% vs 4.5%, python-verified</span><span class="note">Part 1 · same month as the metrics course, sums to 9,720 orders exactly</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · Searchers convert at 12%, browsers at 4.5%, on the same store. What mostly explains the gap?</p>
+      <button class="qopt" type="button">A · The search engine is simply better software than the category menu</button>
+      <button class="qopt" type="button">B · Self-selection - typing a query is a declaration of intent, so higher-intent shoppers choose the search road</button>
+      <button class="qopt" type="button">C · Browse pages load slower</button>
+      <p class="qwhy">The gap is mostly a property of who chooses each road, not the roads' engineering. That is why "make browse convert like search" is the wrong goal - and why new search traffic converts below the current 12%.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · Search conversion fell over two months. What should a leader ask before approving a new search vendor?</p>
+      <button class="qopt" type="button">A · Nothing - a falling CR means the engine regressed</button>
+      <button class="qopt" type="button">B · Whether competitors' search converts better</button>
+      <button class="qopt" type="button">C · Whether it is a relevance regression or a population shift - more first-time browsers trying search drags the average without anything breaking</button>
+      <p class="qwhy">The headline CR mixes engine quality with who is searching. Zero-result rate trend plus a returning-vs-new split separates the two - and a mix shift can be the harmless side effect of successfully promoting search.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · "Everyone searches now - kill the category menu." Why is this wrong at Mango Lane?</p>
+      <button class="qopt" type="button">A · 70% of product-page reach still comes through the browse road - removing it converts browsers into exits, not searchers</button>
+      <button class="qopt" type="button">B · Category menus are legally required</button>
+      <button class="qopt" type="button">C · It is right - search converts 2.67x better, so the menu is waste</button>
+      <p class="qwhy">Search's higher CR does not mean browse is disposable. Most shoppers form intent BY browsing; search harvests intent that browse helped create. Fund the browse road, do not demolish it.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Leader session 3 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The two roads</b><span>Search 43,200 sessions (30%) at 12% CR · browse 100,800 (70%) at 4.5% CR. Same store, 2.67x apart.</span></div>
+      <div class="cheat-item"><b>Why the gap</b><span>Typing = declared intent. The gap is mostly who chooses each road, not the roads' software.</span></div>
+      <div class="cheat-item"><b>The honest range</b><span>Vendor/analyst studies: search users at 1.8-6x browse conversion. Mango Lane's 2.67x is mid-range.</span></div>
+      <div class="cheat-item"><b>Search failure modes</b><span>Zero-result searches · misspellings · synonym gaps ("jumper" vs "sweater"). Failing high intent is expensive.</span></div>
+      <div class="cheat-item"><b>Search road needs</b><span>Relevance, autocomplete, zero-result rescue. Browse road needs: category logic, merchandising order, PLP scannability.</span></div>
+      <div class="cheat-item"><b>Free market research</b><span>search_term data = demand in the customer's own words. GA4 records it automatically (view_search_results).</span></div>
+      <div class="cheat-item"><b>Three judgment calls</b><span>Promote search: probably yes, expect CR dip. CR fell: regression or mix? Kill the menu: no - 70% of reach.</span></div>
+      <div class="cheat-item"><b>The two asks</b><span>Search-vs-browse split + both CRs · top 20 zero-result terms, tagged stock-it or demand-signal.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Leader session 3 of 6 · learn-user-journey-analytics-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="../index.html">← All sessions</a> &nbsp;·&nbsp; <a href="a2-entry-points.html">← Prev: Entry points</a> &nbsp;·&nbsp; <a href="a4-the-pdp-decision-room.html">Next: The PDP decision room →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/journey-live.js?v=2"></script>
+<script src="../assets/tree-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leader session 1 · The journey, not the funnel - learn user journey analytics with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-user-journey-analytics-with-phoebe</a> / Leader session 1 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn User Journey Analytics with Phoebe · Leader track · Session 1 of 6</div>
+    <h1>The journey, <span class="accent">not the funnel</span></h1>
+    <p class="sub">Your dashboards show a funnel: 360,000 sessions in at the top, 9,720 orders out at the bottom, gates in between. But no shopper has ever walked through a funnel. They open an app, search for a linen dress, read reviews, leave, come back. This session retrains your eye: a session is a story, and the funnel is that story with everything interesting deleted. Six leader sessions, zero computation - just better questions.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Leader track</span>
+      <span class="chip audience">Commercial + product leaders</span>
+      <span class="chip audience">Reading mode - no computation</span>
+      <span class="chip time">Start here</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · A session is a story</span>
+      <span class="a3" style="flex:5">18-40 · What the funnel hides</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>How the leader track works</h2>
+    </div>
+    <p class="lede">Six sessions, one store, no spreadsheets. You learn to read journeys the way you already read a P&amp;L: today the core reframe (a1), then where sessions enter the store (a2), the two roads shoppers take to a product (a3), what happens inside the product page (a4), the cart-to-order last mile (a5), and finally how to rank journey fixes by money (a6). Every number comes from Mango Lane, the same fashion store - and the same month - as the prequel <a href="https://phoebefu6.github.io/learn-ecommerce-metrics-with-phoebe/">learn-ecommerce-metrics-with-phoebe</a>. If a metric name here feels new, that course defines it. Your analysts have their own track (b1-b8) that computes everything you will only read.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill inkpill">Sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      One reframe (a session is a story, the funnel is its flattened summary), the three things funnels systematically hide - multiple doors, multiple roads, dead zones - and the leader question to ask about each one in your next trading review.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: A SESSION IS A STORY ============ -->
+  <section class="section" id="story">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · one session, two renderings</span>
+      <h2>A session is a story <span class="tag concept">15 min live</span></h2>
+    </div>
+    <p class="lede">Meet Maya, Tuesday evening. She opens the Mango Lane app, types "linen dress" into search, opens one dress, reads the reviews, adds size M to her cart, and buys. Six minutes, start to finish. Your funnel report records this as four green ticks: reached PDP, reached cart, reached checkout, purchased. True - and empty. The funnel keeps the gates and deletes the walk: where she entered, which road she took, what she read before she trusted the product.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The same session shown two ways: a four-gate funnel bar on top, Maya's actual six-minute walk across screens on a timeline below">
+        <style>
+          .jfK { font: 700 12px Inter, sans-serif; fill: #4B6A66; letter-spacing: 0.06em; }
+          .jfH { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .jfV { font: 800 13px Inter, sans-serif; fill: #134E4A; }
+          .jfT { font: 800 13px Inter, sans-serif; fill: #FFFFFF; }
+          .jfC { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .jfN { font: 600 12.5px Inter, sans-serif; fill: #042F2E; }
+          .jfArr { stroke: #14B8A6; stroke-width: 2; fill: none; marker-end: url(#jfArrHead); }
+        </style>
+        <defs>
+          <marker id="jfArrHead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#14B8A6"/>
+          </marker>
+        </defs>
+
+        <text class="jfK" x="30" y="26">HOW THE FUNNEL REPORTS IT · FOUR GATES</text>
+
+        <rect x="30" y="40" width="180" height="48" rx="9" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="jfH" x="120" y="60" text-anchor="middle">Sessions</text>
+        <text class="jfV" x="120" y="78" text-anchor="middle">360,000</text>
+
+        <rect x="250" y="40" width="140" height="48" rx="9" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="jfH" x="320" y="60" text-anchor="middle">PDP</text>
+        <text class="jfV" x="320" y="78" text-anchor="middle">144,000</text>
+
+        <rect x="430" y="40" width="120" height="48" rx="9" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="jfH" x="490" y="60" text-anchor="middle">Cart</text>
+        <text class="jfV" x="490" y="78" text-anchor="middle">36,000</text>
+
+        <rect x="590" y="40" width="120" height="48" rx="9" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="jfH" x="650" y="60" text-anchor="middle">Checkout</text>
+        <text class="jfV" x="650" y="78" text-anchor="middle">16,200</text>
+
+        <rect x="750" y="40" width="110" height="48" rx="9" fill="#0F766E"/>
+        <text class="jfT" x="805" y="60" text-anchor="middle">Orders</text>
+        <text class="jfT" x="805" y="78" text-anchor="middle">9,720</text>
+
+        <path class="jfArr" d="M210,64 L246,64"/>
+        <path class="jfArr" d="M390,64 L426,64"/>
+        <path class="jfArr" d="M550,64 L586,64"/>
+        <path class="jfArr" d="M710,64 L746,64"/>
+        <text class="jfC" x="228" y="104" text-anchor="middle">40%</text>
+        <text class="jfC" x="408" y="104" text-anchor="middle">25%</text>
+        <text class="jfC" x="568" y="104" text-anchor="middle">45%</text>
+        <text class="jfC" x="728" y="104" text-anchor="middle">60%</text>
+
+        <text class="jfK" x="30" y="160">THE ACTUAL WALK · MAYA, TUESDAY EVENING, 6 MINUTES</text>
+
+        <line x1="60" y1="235" x2="820" y2="235" stroke="#99F6E4" stroke-width="3"/>
+
+        <circle cx="90" cy="235" r="8" fill="#0F766E"/>
+        <text class="jfH" x="90" y="208" text-anchor="middle">Open app</text>
+        <text class="jfC" x="90" y="262" text-anchor="middle">0:00 · Home</text>
+
+        <circle cx="262" cy="235" r="8" fill="#0F766E"/>
+        <text class="jfH" x="262" y="208" text-anchor="middle">Search</text>
+        <text class="jfC" x="262" y="262" text-anchor="middle">0:20 · "linen dress"</text>
+
+        <circle cx="434" cy="235" r="8" fill="#0F766E"/>
+        <text class="jfH" x="434" y="208" text-anchor="middle">PDP</text>
+        <text class="jfC" x="434" y="262" text-anchor="middle">1:10 · reads reviews</text>
+
+        <circle cx="606" cy="235" r="8" fill="#0F766E"/>
+        <text class="jfH" x="606" y="208" text-anchor="middle">Cart</text>
+        <text class="jfC" x="606" y="262" text-anchor="middle">3:30 · adds size M</text>
+
+        <circle cx="778" cy="235" r="8" fill="#134E4A"/>
+        <text class="jfH" x="778" y="208" text-anchor="middle">Buy</text>
+        <text class="jfC" x="778" y="262" text-anchor="middle">6:00 · order placed</text>
+
+        <rect x="30" y="308" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="jfN" x="54" y="320">The funnel counts gates. The walk shows where Maya entered, what she read, and how long each step took.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the same session twice: the funnel's four gates on top, Maya's actual walk below</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why the walk matters more than the gates<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Every fact the funnel deleted is a lever you own:</p>
+        <ul>
+          <li><strong>Where she entered.</strong> Maya started at Home. Half of Mango Lane's sessions do not - and where a session starts largely decides how it ends (a2 is entirely about this).</li>
+          <li><strong>Which road she took.</strong> Maya searched. Searchers and browsers reach the same PDP gate but convert very differently - the search road produces orders at 2.67x the browse road's rate here (a3's whole story).</li>
+          <li><strong>What she did before trusting the product.</strong> She read reviews before adding to cart. That in-page behavior is where PDP conversion is actually won or lost (a4).</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>This is not a metaphor - it is a report.</strong> GA4's path exploration draws exactly this: a tree of the screens and events sessions actually walked, forward from any entry or backward from purchase ("how did buyers get here?"). Your analysts can pull it today. The leader skill is knowing it exists and asking for it by name.</p>
+        </div>
+        <div class="callout tip">
+          <strong>What to ask</strong>
+          "Show me one real session as a story, not a funnel row - entry, road, and what they did on the product page." If your team cannot narrate a single session, they are managing gates blind.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The funnel is still useful - as a summary<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Nothing here retires the funnel. Gates are how you track the health of the whole system month over month, and the prequel course taught you to decompose them. The reframe is about diagnosis: <strong>the funnel tells you WHERE the number dropped; only the journey tells you WHY.</strong> When a gate moves, the next question is never "which gate" (you already know) - it is "which door, which road, which behavior changed". That question order is this entire track in one sentence.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: WHAT THE FUNNEL HIDES ============ -->
+  <section class="section" id="hides">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · three systematic blind spots</span>
+      <h2>What the funnel hides <span class="tag concept">12 min live</span></h2>
+    </div>
+    <p class="lede">The funnel does not hide things randomly - it hides the same three things every time, because its shape assumes every session starts at the top, walks one road, and intended to buy. At Mango Lane, none of those assumptions hold.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Blind spot 1 · multiple doors<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The funnel draws one entrance at the top. Mango Lane has five. Only half of sessions start at Home - and 54,000 sessions a month land straight on a product page from an ad, a push notification, or a link a friend shared. Those sessions never see your homepage, your hero banner, or your carefully merchandised categories. For them, the landing PDP IS the brand's front door.</p>
+        <div class="callout tip">
+          <strong>What to ask</strong>
+          "What share of our sessions start somewhere other than Home - and who owns the experience of each door?" If the answer is "the homepage team owns landing", 15% of your store has no owner.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Blind spot 2 · multiple roads<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The funnel's "reached PDP" gate merges two very different shoppers: the one who typed what she wanted into search, and the one who wandered the category grids. Same gate, different intent, different economics - at Mango Lane the search road converts at 2.67x the browse road. a3 unpacks this properly; for now, hold the shape: <strong>a single gate number is always an average across roads, and averages across roads are where diagnoses go to die.</strong></p>
+        <div class="callout tip">
+          <strong>What to ask</strong>
+          "When you show me PDP conversion, split it by road - search versus browse. Which road moved?" One question, and a flat average becomes a diagnosis.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Blind spot 3 · dead zones<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>36,000 sessions a month land on account, order-tracking, and support screens. They check a delivery date and leave. They were never going to buy - and that is fine; they are customers being served. But they sit inside the 360,000 denominator of your site conversion rate, quietly dragging it down. A store whose service traffic grows looks like a store whose shopping is getting worse, unless someone separates the two.</p>
+        <div class="callout tip">
+          <strong>What to ask</strong>
+          "What share of our sessions were never shopping sessions - and is our conversion rate quoted with or without them?" You are not asking to inflate the number; you are asking to stop mixing two businesses in one ratio.
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO: THREE STORIES ============ -->
+  <section class="section" id="demo">
+    <div class="section-kicker">
+      <span class="klabel">Demo · read along, no computation</span>
+      <h2>Three sessions, told twice each <span class="tag demo">★ 10 min · read-along</span></h2>
+    </div>
+    <p class="lede">Three real journey shapes from Mango Lane's month. For each: what the funnel would say, then what the journey shows. Notice how often the funnel's verdict is not just incomplete - it is wrong.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Story 1 · the 90-second buyer<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>The walk.</strong> A push notification ("Your size is back in stock") deep-links straight to a PDP. She lands, confirms the size, taps buy. 90 seconds, no Home, no search, no browsing.</p></div>
+          <div class="step"><p><strong>The funnel says.</strong> A perfect four-tick conversion - indistinguishable from Maya's six-minute considered purchase.</p></div>
+          <div class="step"><p><strong>The journey shows.</strong> A manufactured door working exactly as designed: right message, right person, landing screen matched the promise. This session's success was decided before it started - by whoever wrote the push and chose the deeplink.</p></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Story 2 · the researcher who "failed"<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>The walk.</strong> Home, into the dresses category, then six PDPs in a row - photos, reviews, size guides - then leaves without adding anything to cart.</p></div>
+          <div class="step"><p><strong>The funnel says.</strong> Abandoned at the PDP-to-cart gate. A failure. One of the 108,000 PDP sessions that did not cart.</p></div>
+          <div class="step"><p><strong>The journey shows.</strong> Healthy research behavior - a shopper building a shortlist, very likely to return and buy on a later session. Punishing this session with a "fix the PDP" project would optimize against your own best customers mid-decision.</p></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Story 3 · the invisible leak<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>The walk.</strong> She searches "petite linen blazer". Zero results. She exits. Eleven seconds.</p></div>
+          <div class="step"><p><strong>The funnel says.</strong> Almost nothing - a session that never reached the first gate. It dissolves into the 216,000 sessions that never saw a PDP, indistinguishable from idle window-shopping.</p></div>
+          <div class="step"><p><strong>The journey shows.</strong> The highest-intent visitor of the three - she told you exactly what she wanted, in her own words - lost to an empty results screen. Zero-results searches are a demand signal AND a fixable leak, and the funnel files them under "nothing happened".</p></div>
+        </div>
+        <div class="callout tip">
+          <strong>What to ask</strong>
+          "What are our top ten zero-result search terms this month?" It is one of the cheapest reports in analytics and one of the most commonly never-pulled.
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 15 min total</span></h2>
+    </div>
+    <ul>
+      <li>Watch three real sessions - in your own store's session-replay tool if you have one, or simply over a colleague's shoulder in any shopping app.</li>
+      <li>Write each one as a one-line story: door, road, what they did, how it ended. ("Push to PDP, checked size, bought in 90 seconds.")</li>
+      <li>For each story, note what your funnel report would have said about it - and whether that verdict was fair.</li>
+      <li>Bring your best one-liner to session a2. The doors those three sessions used are exactly where we go next.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources</span>
+      <h2>Sources this session draws on</h2>
+    </div>
+    <p class="lede">Leader sessions stay non-technical, but every claim traces to a real report or the store canon:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GA4 path exploration - the report that draws journeys as a tree, forward and backward from any point</span><span class="note">Part 1 · the tool your "show me one session as a story" request lands on</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Mango Lane canon - 360,000 sessions, five doors, two roads, 9,720 orders; same month as the metrics course</span><span class="note">Throughout · every number on this page reconciles with the prequel</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Funnel-vs-map framing - craft synthesis, not a cited study</span><span class="note">Parts 1-2 · the reframe is teaching device; the numbers underneath are canon</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · The funnel and the journey disagree most about the browse session (Home, six PDPs, no cart). Who is right?</p>
+      <button class="qopt" type="button">A · The funnel - no cart means the PDP failed this shopper</button>
+      <button class="qopt" type="button">B · The journey - six PDPs of photos and reviews is research, likely finished on a later session</button>
+      <button class="qopt" type="button">C · Neither - sessions without orders carry no information</button>
+      <p class="qwhy">Research sessions are how considered purchases start. The funnel scores them as failures; the journey reads intent building. Fixing what is not broken is the classic funnel-only mistake.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · 54,000 sessions land straight on a product page. What does the classic funnel picture assume that they break?</p>
+      <button class="qopt" type="button">A · That every session intends to buy</button>
+      <button class="qopt" type="button">B · That conversion is measured per session</button>
+      <button class="qopt" type="button">C · That every session enters at the top - these skip Home entirely and enter mid-journey</button>
+      <p class="qwhy">The funnel draws one entrance. Mango Lane has five doors, and the PDP-direct door delivers 54,000 sessions past the "top" without ever seeing it - a2 is entirely about those doors.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · Why is the zero-results search exit called the invisible leak?</p>
+      <button class="qopt" type="button">A · The funnel files it under "never reached a PDP" - high, stated intent lost with no trace in any gate</button>
+      <button class="qopt" type="button">B · Because search analytics cannot record it</button>
+      <button class="qopt" type="button">C · Because it happens too rarely to matter</button>
+      <p class="qwhy">The session told you exactly what she wanted and got an empty screen - but no funnel gate moved, so no dashboard flags it. The zero-results report exists; someone has to ask for it.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Leader session 1 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The reframe</b><span>A session is a story: door, road, behavior, ending. The funnel is that story flattened to gates.</span></div>
+      <div class="cheat-item"><b>Funnel's proper job</b><span>Tells you WHERE a number dropped. Only the journey tells you WHY. Use both, in that order.</span></div>
+      <div class="cheat-item"><b>Blind spot 1 · doors</b><span>Half of sessions do not start at Home; 54,000 land straight on a product page.</span></div>
+      <div class="cheat-item"><b>Blind spot 2 · roads</b><span>Search and browse hit the same PDP gate but convert 2.67x apart. Gate numbers are averages across roads.</span></div>
+      <div class="cheat-item"><b>Blind spot 3 · dead zones</b><span>36,000 account/support sessions were never shopping - yet they sit in the conversion denominator.</span></div>
+      <div class="cheat-item"><b>The report to name</b><span>GA4 path exploration - draws real journeys forward from entry or backward from purchase.</span></div>
+      <div class="cheat-item"><b>Three leader questions</b><span>Who owns each door? Split conversion by road. What are our top zero-result searches?</span></div>
+      <div class="cheat-item"><b>Next session</b><span>a2 - the five doors: how much each carries, and how good each one is at delivering shoppers.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Leader session 1 of 6 · learn-user-journey-analytics-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="../index.html">← All sessions</a> &nbsp;·&nbsp; <a href="a2-entry-points.html">Next: Entry points →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/journey-live.js?v=2"></script>
+<script src="../assets/tree-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

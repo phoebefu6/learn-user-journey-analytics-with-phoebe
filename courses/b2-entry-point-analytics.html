@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyst session 2 · Entry-point analytics - learn user journey analytics with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-user-journey-analytics-with-phoebe</a> / Analyst session 2 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn User Journey Analytics with Phoebe · Analyst track · Session 2 of 8</div>
+    <h1>Entry-point <span class="accent">analytics</span></h1>
+    <p class="sub">b1 named the five doors. Today you measure them. You compute each door's quality (how often its sessions reach a PDP), prove that Mango Lane's 40% PDP penetration is a mix-weighted average of five door qualities - not one number - and then decompose a "penetration improved!" headline into mix effect versus quality effect before anyone takes a bow for it.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Analyst track</span>
+      <span class="chip audience">Analysts · PMs · UX · growth</span>
+      <span class="chip audience">Compute along</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Recap</span>
+      <span class="a2" style="flex:3">3-15 · The door table</span>
+      <span class="a3" style="flex:6">15-40 · Two math drills</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ PART 1: THE DOOR TABLE ============ -->
+  <section class="section" id="doortable">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers landing screens, entrances &amp; per-door reach</span>
+      <h2>The door table, computed <span class="tag concept">12 min live</span></h2>
+    </div>
+    <p class="lede">Two report ingredients build this table. <strong>Entrances</strong> count the sessions whose first event happened on each screen - that gives you the sessions and share columns. Then, for each entry group, you measure how many of its sessions ever fire <strong>view_item</strong> - the per-door reach-PDP rate. Multiply the two and each door tells you exactly how many PDP sessions it produces.</p>
+
+    <table class="clean">
+      <thead><tr><th>Entry door</th><th>Sessions</th><th>Share</th><th>Reach-PDP rate</th><th>PDP sessions produced</th></tr></thead>
+      <tbody>
+        <tr><td>Home</td><td>180,000</td><td>50%</td><td>20%</td><td>36,000</td></tr>
+        <tr><td>PDP-direct (deeplink, ads, push)</td><td>54,000</td><td>15%</td><td>100%</td><td>54,000</td></tr>
+        <tr><td>PLP - category grid</td><td>54,000</td><td>15%</td><td>50%</td><td>27,000</td></tr>
+        <tr><td>Search landing</td><td>36,000</td><td>10%</td><td>75%</td><td>27,000</td></tr>
+        <tr><td>Other (account, orders, support)</td><td>36,000</td><td>10%</td><td>0%</td><td>0</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>360,000</strong></td><td><strong>100%</strong></td><td><strong>40% weighted</strong></td><td><strong>144,000</strong></td></tr>
+      </tbody>
+    </table>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five entry doors drawn as bars: width shows sessions, color saturation shows reach-PDP rate, right column shows PDP sessions produced">
+        <style>
+          .epH { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .epL { font: 600 12px Inter, sans-serif; fill: #042F2E; }
+          .epW { font: 700 12px Inter, sans-serif; fill: #FFFFFF; }
+          .epC { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .epR { font: 800 13px Inter, sans-serif; fill: #134E4A; }
+          .epN { font: 600 12.5px Inter, sans-serif; fill: #042F2E; }
+        </style>
+
+        <text class="epH" x="30" y="26">Door width = sessions in · color depth = reach-PDP rate · right = PDP sessions out</text>
+
+        <!-- Home: 180,000 wide, 20% reach = pale -->
+        <rect x="30" y="46" width="500" height="38" rx="8" fill="#99F6E4"/>
+        <text class="epL" x="42" y="70">Home · 180,000 sessions · reach 20%</text>
+        <text class="epR" x="700" y="70">→ 36,000 PDP</text>
+
+        <!-- PDP-direct: 54,000 wide, 100% reach = deepest -->
+        <rect x="30" y="98" width="150" height="38" rx="8" fill="#134E4A"/>
+        <text class="epW" x="42" y="122">PDP-direct</text>
+        <text class="epC" x="196" y="115">54,000 sessions · reach 100%</text>
+        <text class="epR" x="700" y="122">→ 54,000 PDP</text>
+
+        <!-- PLP: 54,000 wide, 50% reach = mid -->
+        <rect x="30" y="150" width="150" height="38" rx="8" fill="#14B8A6"/>
+        <text class="epW" x="42" y="174">PLP</text>
+        <text class="epC" x="196" y="167">54,000 sessions · reach 50%</text>
+        <text class="epR" x="700" y="174">→ 27,000 PDP</text>
+
+        <!-- Search: 36,000 wide, 75% reach = strong -->
+        <rect x="30" y="202" width="100" height="38" rx="8" fill="#0F766E"/>
+        <text class="epW" x="42" y="226">Search</text>
+        <text class="epC" x="146" y="219">36,000 sessions · reach 75%</text>
+        <text class="epR" x="700" y="226">→ 27,000 PDP</text>
+
+        <!-- Other: 36,000 wide, 0% reach = empty -->
+        <rect x="30" y="254" width="100" height="38" rx="8" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="epL" x="42" y="278">Other</text>
+        <text class="epC" x="146" y="271">36,000 sessions · reach 0%</text>
+        <text class="epR" x="700" y="278">→ 0 PDP</text>
+
+        <rect x="30" y="312" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="epN" x="54" y="324">Cross-foot: 36,000 + 54,000 + 27,000 + 27,000 + 0 = 144,000 PDP sessions = 40% penetration. The table reconciles.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the five doors weighted: the widest door is the palest, the deepest door is one of the narrowest</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Where every number comes from<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Nothing in this table is exotic - it is two standard reports joined:</p>
+        <ul>
+          <li><strong>Sessions and share:</strong> the landing page / landing screen report. GA4 defines the landing page as the first page of a session, and entrances as the count of sessions whose first event happened on that screen. Sort by entrances, group into your five doors, done.</li>
+          <li><strong>Reach-PDP rate:</strong> segment sessions by landing screen, then ask what fraction of each segment fires <code>view_item</code> at least once. That is the door's quality - how good it is at getting a shopper in front of a product.</li>
+          <li><strong>PDP sessions produced:</strong> sessions x reach rate. The column that turns a traffic report into a contribution report.</li>
+        </ul>
+        <p>Read the picture the SVG paints: Home is the widest door and the palest - half the traffic, one fifth of it ever sees a product. PDP-direct is narrow and the deepest color - every one of its sessions is a PDP session by definition (they land on one).</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why "Other" earns a row of zeros<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>36,000 sessions land on account, order tracking, or support screens and never reach a PDP. Keeping them in the table (rather than filtering them out) is deliberate: they are 10% of the denominator of every session-level metric you report. When someone asks "why is our PDP penetration only 40%?", one honest tenth of the answer is "because a tenth of sessions were never shopping." b8's scorecard keeps this row visible for exactly that conversation.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2 / DEMO 1: DOOR QUALITY MATH ============ -->
+  <section class="section" id="drill1">
+    <div class="section-kicker">
+      <span class="klabel">Demo 1 · everyone computes</span>
+      <h2>The door quality drill <span class="tag demo">★ 12 min · everyone works</span></h2>
+    </div>
+    <p class="lede">Three computations, in order. Do them by hand - the punchline only lands if you feel the weights doing the work.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Compute along: three steps to the punchline<span class="mini">10 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>Step 1 - each door's PDP contribution share.</strong> Divide each door's PDP sessions by the 144,000 total: Home 36,000 / 144,000 = <strong>25%</strong> · PDP-direct 54,000 / 144,000 = <strong>37.5%</strong> · PLP 27,000 / 144,000 = 18.75% · Search 27,000 / 144,000 = 18.75% · Other 0%. Home carries 50% of traffic but only 25% of PDP reach; PDP-direct carries 15% of traffic and 37.5% of PDP reach. Traffic share and contribution share are different rankings.</p></div>
+          <div class="step"><p><strong>Step 2 - rebuild the 40% as a mix-weighted sum.</strong> Multiply each door's traffic share by its reach rate and add: 0.50 x 0.20 = 0.100 · 0.15 x 1.00 = 0.150 · 0.15 x 0.50 = 0.075 · 0.10 x 0.75 = 0.075 · 0.10 x 0 = 0. Sum: 0.100 + 0.150 + 0.075 + 0.075 + 0 = <strong>0.400 exactly</strong>. The headline number falls out of the table with nothing left over.</p></div>
+          <div class="step"><p><strong>Step 3 - say the punchline out loud.</strong> PDP penetration is not one number. It is a mix-weighted average of five door qualities. Any move in the headline is some blend of the weights moving (mix) and the qualities moving (doors getting better or worse) - and you cannot tell which from the headline alone.</p></div>
+        </div>
+        <div class="callout win">
+          <strong>★ The analyst's reflex</strong>
+          Whenever a metric is an average over segments, rebuild it as the weighted sum before interpreting a change. If you cannot rebuild it, you do not yet have the table that explains it.
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3 / DEMO 2: MIX VS QUALITY ============ -->
+  <section class="section" id="drill2">
+    <div class="section-kicker">
+      <span class="klabel">Demo 2 · everyone computes</span>
+      <h2>Mix versus quality: the 44.4% that fooled the standup <span class="tag demo">★ 13 min · everyone works</span></h2>
+    </div>
+    <p class="lede">A worked scenario. Next month a paid push campaign deep-links users straight to products. Home's reach-PDP rate holds at exactly 20% - no door gets better or worse. But the mix shifts: Home drops to 160,000 entries, PDP-direct rises to 74,000, and PLP, Search, and Other are unchanged. Compute what happens to penetration.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Compute along: the full arithmetic<span class="mini">10 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>Step 1 - new PDP sessions per door.</strong> Home 160,000 x 0.20 = <strong>32,000</strong> · PDP-direct 74,000 x 1.00 = <strong>74,000</strong> · PLP 54,000 x 0.50 = 27,000 · Search 36,000 x 0.75 = 27,000 · Other 36,000 x 0 = 0.</p></div>
+          <div class="step"><p><strong>Step 2 - new totals.</strong> Sessions: 160,000 + 74,000 + 54,000 + 36,000 + 36,000 = <strong>360,000</strong> - same month-sized store, only the doors reshuffled. PDP sessions: 32,000 + 74,000 + 27,000 + 27,000 + 0 = <strong>160,000</strong>.</p></div>
+          <div class="step"><p><strong>Step 3 - new penetration.</strong> 160,000 / 360,000 = <strong>44.4%</strong>. Up 4.4 points from 40%.</p></div>
+          <div class="step"><p><strong>Step 4 - name what happened.</strong> Every reach rate is identical to last month. Not one door improved. Penetration "improved" 4.4 points purely because traffic moved from the palest door (Home, 20%) toward the deepest one (PDP-direct, 100%). This is a pure mix effect - the campaign bought different sessions, it did not build a better journey.</p></div>
+        </div>
+        <div class="callout tip">
+          <strong>Decompose before you credit</strong>
+          Before anyone takes credit for a door-metric move, split it into mix effect (did the weights shift?) and quality effect (did any door's reach rate actually change?). Hold rates constant and recompute with new weights - whatever the headline moves, that part is mix; the remainder is quality. The metrics course hit this trap at the funnel level; it is sharper here because there are five weights.
+        </div>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>This is the most common false win in growth reviews.</strong> Paid campaigns that deep-link to products mechanically raise PDP penetration and often raise session CR - while the organic journey quietly stays the same or degrades. Teams that report the decomposition alongside the headline catch it in the same meeting instead of three months later when the campaign budget ends and the "improvement" evaporates with it.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 4: BOUNCE + SOURCE SCOPES ============ -->
+  <section class="section" id="bounce">
+    <div class="section-kicker">
+      <span class="klabel">Part 4 · covers bounce by entry &amp; the three source scopes</span>
+      <h2>Weak landings, and who sent them <span class="tag concept">6 min live</span></h2>
+    </div>
+    <p class="lede">The door table measures how far entering sessions get. Its dark twin measures the sessions that never get anywhere: single-screen sessions that land and leave. They do not spread evenly - they concentrate on weak landings, and finding which door leaks them is the cheapest diagnostic in this course.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Bounce, by door<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Segment single-screen sessions by landing screen, the same cut as the door table. The usual pattern, and Mango Lane follows it: PDP-direct landings bounce hardest when the ad promised something the product page does not deliver (price, availability, the exact item); Home bounces when it loads slowly or buries the way in; Search landings bounce when the query lands on an irrelevant results page. A door with big entrances and a heavy single-screen share is a door paying for traffic it immediately loses - fix the landing before buying more of it.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Doors are WHERE - sources are WHO SENT<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Keep the two dimensions straight: the door table is about WHERE sessions begin (landing screen). Source scopes are about WHO SENT them, and GA4 records that at three scopes:</p>
+        <table class="clean">
+          <thead><tr><th>Scope</th><th>Answers</th><th>Against the door table</th></tr></thead>
+          <tbody>
+            <tr><td>First user source (user-scoped)</td><td>Which channel found this person first, ever</td><td>Why a returning shopper walks in the Home door out of habit</td></tr>
+            <tr><td>Session source (session-scoped)</td><td>Which channel drove this session</td><td>Why 54,000 sessions land straight on a PDP - ads and pushes aim there</td></tr>
+            <tr><td>Event scope (key events)</td><td>Which channel gets conversion credit (data-driven attribution default)</td><td>Which sender gets paid for the orders a door produces</td></tr>
+          </tbody>
+        </table>
+        <p>Cross the two and reports get sharp: "PDP-direct door, session source = push campaign X, reach 100%, bounce 31%" is actionable. "Traffic is up" is not. The event-scope story runs deep - it is its own course, learn-marketing-attribution-with-phoebe.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 20-25 min total</span></h2>
+    </div>
+    <ul>
+      <li>Pull your landing-screen report, sorted by entrances. Group the long tail until you have your own five doors.</li>
+      <li>Build your five-door table: sessions, share, reach-PDP rate (share of each door's sessions that fire view_item), PDP sessions produced.</li>
+      <li>Compute your penetration as the mix-weighted sum of door qualities - then check it against the reported PDP penetration number. If they disagree, your door grouping or your segment definition is leaking sessions; find which.</li>
+      <li>Bonus: rerun last month's table next to this month's. Hold rates constant to separate mix effect from quality effect before your next traffic review.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources</span>
+      <h2>Sources this session draws on</h2>
+    </div>
+    <p class="lede">Everything here is standard-report material applied to one store, plus one piece of analyst craft shown with full arithmetic:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GA4 landing page + entrances - first page of session, sessions whose first event fired there</span><span class="note">Part 1 · the sessions and share columns of the door table</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GA4 source scopes - first user / session / event, data-driven attribution at event scope</span><span class="note">Part 4 · doors are WHERE, sources are WHO SENT</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Mango Lane canon - entry mix and reach rates, python-verified, cross-foots to 144,000</span><span class="note">Throughout · every number reconciles with b1 and the metrics course</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Mix-vs-quality decomposition - analyst craft, full arithmetic shown in Demo 2</span><span class="note">Demo 2 · hold rates constant, recompute with new weights, name the remainder</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · Mango Lane's 40% PDP penetration is best described as...</p>
+      <button class="qopt" type="button">A · The reach rate of the average door</button>
+      <button class="qopt" type="button">B · A mix-weighted sum of five door qualities: 0.50x0.20 + 0.15x1.00 + 0.15x0.50 + 0.10x0.75 + 0.10x0</button>
+      <button class="qopt" type="button">C · The Home door's reach rate, since Home is half the traffic</button>
+      <p class="qwhy">The weighted sum rebuilds 0.40 exactly. It is not one number - any move in it blends mix shifts and quality shifts, and only the decomposition tells you which.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · In the campaign scenario (Home 160,000, PDP-direct 74,000, all reach rates unchanged), penetration hits 44.4%. What improved?</p>
+      <button class="qopt" type="button">A · The Home door - fewer entries means the ones left are better</button>
+      <button class="qopt" type="button">B · The PDP-direct door's reach rate</button>
+      <button class="qopt" type="button">C · Nothing - every reach rate held; traffic just shifted toward the 100%-reach door. Pure mix effect.</button>
+      <p class="qwhy">32,000 + 74,000 + 27,000 + 27,000 = 160,000 PDP sessions over the same 360,000 = 44.4%. Zero doors got better - the weights moved, the qualities did not.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · What exactly does "entrances" count for a screen?</p>
+      <button class="qopt" type="button">A · Sessions whose FIRST event happened on that screen</button>
+      <button class="qopt" type="button">B · Every session that visited the screen at any point</button>
+      <button class="qopt" type="button">C · Users whose first-ever visit started on that screen</button>
+      <p class="qwhy">Entrances are session-scoped and first-event-scoped: the session began there. Any-visit counts are screen reach; first-ever-visit is the user-scoped acquisition lens.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 2 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The door table</b><span>Entry · sessions · share · reach-PDP rate · PDP sessions produced. Two reports joined.</span></div>
+      <div class="cheat-item"><b>Door qualities</b><span>Home 20% · PDP-direct 100% · PLP 50% · Search 75% · Other 0%. Quality = share reaching view_item.</span></div>
+      <div class="cheat-item"><b>Contribution beats traffic</b><span>Home: 50% of traffic, 25% of PDP sessions. PDP-direct: 15% of traffic, 37.5%.</span></div>
+      <div class="cheat-item"><b>The weighted sum</b><span>0.50x0.20 + 0.15x1.00 + 0.15x0.50 + 0.10x0.75 + 0.10x0 = 0.40 exactly.</span></div>
+      <div class="cheat-item"><b>Mix vs quality</b><span>Hold rates constant, recompute with new weights. The 44.4% scenario was 100% mix, 0% quality.</span></div>
+      <div class="cheat-item"><b>Decompose before crediting</b><span>Every door-metric move = mix effect + quality effect. Split it before the standup applauds.</span></div>
+      <div class="cheat-item"><b>Bounce by door</b><span>Single-screen sessions concentrate on weak landings. Fix the landing before buying more traffic.</span></div>
+      <div class="cheat-item"><b>WHERE vs WHO SENT</b><span>Doors = landing screens. Sources = first user / session / event scopes. Cross them for sharp reports.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 2 of 8 · learn-user-journey-analytics-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b1-map-the-journey.html">← Prev: Map the journey</a> &nbsp;·&nbsp; <a href="b3-path-analysis.html">Next: Path analysis →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/journey-live.js?v=2"></script>
+<script src="../assets/tree-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

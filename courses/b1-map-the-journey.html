@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyst session 1 · Map the journey - learn user journey analytics with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-user-journey-analytics-with-phoebe</a> / Analyst session 1 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn User Journey Analytics with Phoebe · Analyst track · Session 1 of 8</div>
+    <h1>Map <span class="accent">the journey</span></h1>
+    <p class="sub">The metrics course told you WHAT Mango Lane's numbers are: 360,000 sessions, 2.7% conversion, $660,960 GMV. This course tells you WHERE those numbers happen - on which screens, along which paths, after which taps. Today you draw the map every later session navigates by: the store's screens, how sessions enter them, and the events that record every move.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Analyst track</span>
+      <span class="chip audience">Analysts · PMs · UX · growth</span>
+      <span class="chip audience">No code - the map first</span>
+      <span class="chip time">Start here</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · The screen map</span>
+      <span class="a3" style="flex:5">18-42 · Entries &amp; instrumentation</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>How this track works</h2>
+    </div>
+    <p class="lede">Eight analyst sessions, one store, one map. You draw Mango Lane's screen map today (b1), measure where sessions enter it (b2), compare the search road against the browse road (b3), then weld the whole journey into a live flow simulator (b4). The back half goes deep where the money is: the product page (b5), the checkout (b6), a full leak diagnosis (b7), and the journey scorecard you hand to the business (b8). The leader track (a1-a6) reads the same journey without computing anything. New here? The prequel <a href="https://phoebefu6.github.io/learn-ecommerce-metrics-with-phoebe/">learn-ecommerce-metrics-with-phoebe</a> defines every metric this course builds on.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">▶ Live flow - editable &amp; runnable</span>
+      <span class="pill inkpill">Sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      Mango Lane's screen map with real session counts on every screen, the five entry doors and how much traffic each one carries, and the two events (screen_view, page_view) that record every step a shopper takes.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: THE SCREEN MAP ============ -->
+  <section class="section" id="screens">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the map every later session navigates by</span>
+      <h2>Six screens carry the whole store <span class="tag concept">8 min live</span></h2>
+    </div>
+    <p class="lede">Strip away every pixel of design and Mango Lane is six screen types: <strong>Home</strong>, <strong>Search results</strong>, <strong>PLP</strong> (product listing page - a category grid), <strong>PDP</strong> (product detail page - one product's own screen), <strong>Cart</strong>, and <strong>Checkout</strong>. Every shopper journey is some walk across these six. The counts below are the same month you decomposed in the metrics course - now placed on the map.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mango Lane screen map: six screens with monthly session reach and the main flows between them">
+        <style>
+          .smH { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .smV { font: 800 14px Inter, sans-serif; fill: #134E4A; }
+          .smC { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .smT { font: 800 13px Inter, sans-serif; fill: #FFFFFF; }
+          .smN { font: 600 12.5px Inter, sans-serif; fill: #042F2E; }
+          .smArr { stroke: #14B8A6; stroke-width: 2; fill: none; marker-end: url(#smArrHead); }
+        </style>
+        <defs>
+          <marker id="smArrHead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#14B8A6"/>
+          </marker>
+        </defs>
+
+        <rect x="30" y="40" width="150" height="66" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="smH" x="105" y="64" text-anchor="middle">Home</text>
+        <text class="smV" x="105" y="84" text-anchor="middle">180,000 land here</text>
+
+        <rect x="30" y="150" width="150" height="66" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="smH" x="105" y="174" text-anchor="middle">Search results</text>
+        <text class="smV" x="105" y="194" text-anchor="middle">36,000 land here</text>
+
+        <rect x="30" y="248" width="150" height="66" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="smH" x="105" y="272" text-anchor="middle">PLP · category grid</text>
+        <text class="smV" x="105" y="292" text-anchor="middle">54,000 land here</text>
+
+        <rect x="330" y="140" width="180" height="80" rx="10" fill="#0F766E"/>
+        <text class="smT" x="420" y="168" text-anchor="middle">PDP · product page</text>
+        <text class="smT" x="420" y="190" text-anchor="middle" style="font-size:15px">144,000 sessions</text>
+        <text class="smT" x="420" y="207" text-anchor="middle" style="font-size:11px">40% of all sessions</text>
+
+        <rect x="590" y="150" width="120" height="66" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="smH" x="650" y="174" text-anchor="middle">Cart</text>
+        <text class="smV" x="650" y="194" text-anchor="middle">36,000</text>
+
+        <rect x="750" y="150" width="110" height="66" rx="10" fill="#134E4A"/>
+        <text class="smT" x="805" y="174" text-anchor="middle">Checkout</text>
+        <text class="smT" x="805" y="194" text-anchor="middle">16,200</text>
+
+        <path class="smArr" d="M180,73 C260,80 280,120 326,152"/>
+        <path class="smArr" d="M180,183 L326,183"/>
+        <path class="smArr" d="M180,281 C260,275 280,235 326,206"/>
+        <path class="smArr" d="M510,180 L586,183"/>
+        <path class="smArr" d="M710,183 L746,183"/>
+
+        <text class="smC" x="253" y="118" text-anchor="middle">browse road</text>
+        <text class="smC" x="253" y="172" text-anchor="middle">search road</text>
+        <text class="smC" x="253" y="248" text-anchor="middle">category road</text>
+
+        <rect x="330" y="40" width="180" height="56" rx="10" fill="#FFE4E6"/>
+        <text class="smH" x="420" y="62" text-anchor="middle" style="fill:#881337">PDP direct entries</text>
+        <text class="smV" x="420" y="82" text-anchor="middle" style="fill:#BE123C">54,000 land straight here</text>
+        <path class="smArr" d="M420,96 L420,136"/>
+
+        <rect x="590" y="252" width="270" height="50" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="smH" x="725" y="272" text-anchor="middle">Other: account · orders · support</text>
+        <text class="smV" x="725" y="290" text-anchor="middle">36,000 land here, 0% reach a PDP</text>
+
+        <rect x="30" y="12" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="smN" x="54" y="24">All roads lead to the PDP - 144,000 sessions reach one. Everything after it is the money path.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the Mango Lane screen map: six screens, five entry doors, one money path</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why the map beats the funnel<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The metrics course drew Mango Lane as a straight funnel: sessions → PDP → cart → checkout → order. True, but flattened. The map restores what the funnel hides:</p>
+        <ul>
+          <li><strong>Multiple doors.</strong> Only half of sessions start at Home. 54,000 land directly on a PDP from an ad, a push notification, or a shared link - they skip the top of your "funnel" entirely.</li>
+          <li><strong>Multiple roads.</strong> A shopper reaches the PDP by searching, by browsing categories, or by landing on it. Same gate in the funnel, completely different experiences to fix (b3 shows they convert very differently).</li>
+          <li><strong>Dead zones.</strong> 36,000 sessions are account checks and order tracking - they were never going to buy. A "conversion rate" that includes them understates how well the shopping journey actually works.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>This is what GA4's path exploration draws for you.</strong> Its tree graph visualizes the sequences of screens and events users actually walk - forward from any starting point, or backward from a goal ("how did users get to purchase?"). It shows the top 5 next screens per step, expandable to 20. The map you drew by hand today is the mental model that makes that report readable instead of overwhelming.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The map's numbers, cross-checked<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Every count on the map reconciles with the metrics course - that is the point of a canon store:</p>
+        <table class="clean">
+          <thead><tr><th>Map fact</th><th>Cross-check</th></tr></thead>
+          <tbody>
+            <tr><td>Entries: 180K + 54K + 54K + 36K + 36K</td><td>= 360,000 sessions, the b1 baseline</td></tr>
+            <tr><td>PDP reach: 36K + 54K + 27K + 27K + 0</td><td>= 144,000 = 40% PDP penetration</td></tr>
+            <tr><td>Cart 36,000 · Checkout 16,200</td><td>= the 25% and 45% gates</td></tr>
+            <tr><td>Checkout x 60% completion</td><td>= 9,720 orders, 2.7% session CR</td></tr>
+          </tbody>
+        </table>
+        <p>b2 unpacks the per-door reach rates (Home entries reach a PDP only 20% of the time; search landings 75%) - the map's most actionable hidden numbers.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: FIVE DOORS ============ -->
+  <section class="section" id="doors">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers landing pages, entrances &amp; source scoping</span>
+      <h2>The five doors: where sessions begin <span class="tag concept">8 min live</span></h2>
+    </div>
+    <p class="lede">Analytics tools call the first screen of a session the <strong>landing page</strong> (or landing screen), and they count <strong>entrances</strong>: the number of sessions whose first event happened on that screen. Mango Lane's five doors: Home 50%, PDP direct 15%, PLP 15%, Search landing 10%, Other 10%. The mix matters because door quality differs wildly - a session that lands on a PDP is already looking at a product; a session that lands on Home still has to find one.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Who sent them? Three scopes of "source"<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Each entering session also carries where it came from, and GA4 records that at three scopes - mixing them up is a classic reporting bug:</p>
+        <ul>
+          <li><strong>First user source</strong> (user-scoped): the origin of this person's first-ever visit. Never changes afterward. Answers "which channel finds us new customers?"</li>
+          <li><strong>Session source</strong> (session-scoped): assigned fresh to each session. Answers "which channel drove this month's visits?"</li>
+          <li><strong>Event/key-event source</strong> (event-scoped): credit for a conversion under an attribution model. Answers "which channel gets credit for the order?" - the deep version of this is its own course (learn-marketing-attribution-with-phoebe).</li>
+        </ul>
+        <div class="callout tip">
+          <strong>The door drill</strong>
+          When a journey number moves, ask two questions in order: did the door MIX change (more PDP-direct traffic?), or did a door's QUALITY change (Home entries reaching fewer PDPs)? b2 computes both; the mix-effect trap from the metrics course (b6 there) applies to doors too.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The re-engagement doors: push and deeplinks<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>PDP-direct entries are mostly manufactured: an ad click, a shared link, or a push notification deep-linking straight to a product. Vendor benchmarks (flagged as vendor data - Airship's report covers hundreds of billions of pushes) find rich image notifications lift direct opens by about 56%, and users who receive any push in their first 90 days retain at roughly 3x the rate of those who receive none. The metric names worth knowing: a <strong>direct open</strong> (user tapped the push) versus an <strong>influenced open</strong> (user opened the app soon after receiving one). No credible benchmark exists for "deeplink conversion vs organic" - be suspicious of anyone quoting one.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3 / DEMO: INSTRUMENTATION ============ -->
+  <section class="section" id="events">
+    <div class="section-kicker">
+      <span class="klabel">Demo · everyone maps along</span>
+      <h2>The events that draw the map <span class="tag demo">★ 15 min · everyone works</span></h2>
+    </div>
+    <p class="lede">The map is only as good as its instrumentation. Two events record every step: on the app, <strong>screen_view</strong> fires automatically each time the visible screen changes (carrying <code>firebase_screen_class</code>, plus a <code>screen_name</code> you set); on the web, <strong>page_view</strong> does the same job. Layer the ecommerce events from the metrics course on top (view_item, add_to_cart, begin_checkout, purchase) and every journey fact in this course becomes computable.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Walk one session through the event log<span class="mini">6 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Maya's Tuesday session, as Mango Lane's analytics sees it:</p>
+        <div class="steps">
+          <div class="step"><p><code>session_start</code> + <code>screen_view</code> (screen_name: home) - she opens the app. Entrance counted for Home.</p></div>
+          <div class="step"><p><code>view_search_results</code> (search_term: "linen dress") - she searches. The search road begins; the term itself is now data.</p></div>
+          <div class="step"><p><code>screen_view</code> (pdp) + <code>view_item</code> - she opens a dress. This session now counts toward PDP penetration.</p></div>
+          <div class="step"><p><code>add_to_cart</code> → <code>screen_view</code> (cart) → <code>begin_checkout</code> → <code>purchase</code> - the money path, four events, each one a gate from the metrics course.</p></div>
+        </div>
+        <p>Read the pairing: <strong>screen_view events draw the map; ecommerce events mark progress on it.</strong> You need both - screens without commerce events cannot compute conversion, commerce events without screens cannot locate a problem.</p>
+      </div>
+    </details>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The three instrumentation traps<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <ul>
+          <li><strong>Unnamed screens.</strong> Auto screen tracking reports the class name (<code>ProductViewController</code>) unless you set a human <code>screen_name</code>. A path report full of class names is technically instrumented and practically unreadable.</li>
+          <li><strong>Screens that do not fire.</strong> Auto-logging keys on native screen changes; modern declarative UI (e.g. SwiftUI) and modal sheets often need manual <code>screen_view</code> logging. The symptom: a screen everyone uses that shows near-zero views. Trust the map only after you have walked one real session against the log - exactly the Maya drill above.</li>
+          <li><strong>Search that does not register.</strong> Web search tracking triggers on URL query params (q, s, search, query, keyword by default). An app or SPA whose search never changes the URL silently vanishes from search analytics - the search road disappears from your map while shoppers walk it all day.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>The instrumentation audit is always finding number one.</strong> Nearly every journey-analytics engagement starts the same way: walk five real sessions by hand against the event log, find the screen or search box that is not firing, and fix the map before trusting any number drawn on it. b8's scorecard bakes this in as a standing checklist row.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 15-20 min total</span></h2>
+    </div>
+    <ul>
+      <li>Draw your own product's screen map: the 5-8 screen types, arrows for the main roads. One page, boxes and arrows, no tooling.</li>
+      <li>Find your five doors: your analytics tool's landing page/screen report, sorted by entrances. What share is your Home?</li>
+      <li>Walk one real session (yours) against the event log. Note every screen you visited that the log missed.</li>
+      <li>Memorize the entry canon: Home 180K, PDP-direct 54K, PLP 54K, Search 36K, Other 36K. Every remaining session uses these doors.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources</span>
+      <h2>Sources this session draws on</h2>
+    </div>
+    <p class="lede">Journey analytics lives in the platforms' own documentation; this course applies it to one store end to end. This page draws on:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GA4 path exploration - tree graph of screen/event sequences, forward and backward pathing</span><span class="note">Part 1 · the report the hand-drawn map makes readable</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Firebase/GA4 screen tracking - screen_view, firebase_screen_class, manual logging cases</span><span class="note">Demo · the events that draw the map, and when they silently miss</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GA4 landing page + entrances, and the three source/medium scopes</span><span class="note">Part 2 · the five doors and who sent them</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Airship push benchmarks (vendor data) - direct vs influenced opens, rich-push lift</span><span class="note">Self-study · the manufactured doors, honestly flagged</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · 54,000 sessions land directly on a PDP. What does the plain funnel view get wrong about them?</p>
+      <button class="qopt" type="button">A · Nothing - they are normal sessions</button>
+      <button class="qopt" type="button">B · They should be excluded from conversion</button>
+      <button class="qopt" type="button">C · It assumes everyone starts at the top - these sessions skip Home and enter mid-journey</button>
+      <p class="qwhy">The funnel flattens the map. PDP-direct entries (ads, pushes, shared links) enter at the product itself - their journey, and their fixes, look nothing like a Home entry's.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · A screen everyone uses shows near-zero screen_view counts. Most likely cause?</p>
+      <button class="qopt" type="button">A · It is not firing - modern declarative UI and modals often need manual screen_view logging</button>
+      <button class="qopt" type="button">B · Users are lying</button>
+      <button class="qopt" type="button">C · The screen is unpopular after all</button>
+      <p class="qwhy">Auto screen tracking keys on native screen changes; SwiftUI-style UI and modal sheets often slip past it. Walk a real session against the log before trusting the map.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">3 · You want to know which channel finds NEW customers. Which source scope answers it?</p>
+      <button class="qopt" type="button">A · Session source - it updates every visit</button>
+      <button class="qopt" type="button">B · First user source - fixed at the person's first-ever visit</button>
+      <button class="qopt" type="button">C · Event source - it carries the attribution model</button>
+      <p class="qwhy">User-scoped first source never changes and answers acquisition questions. Session source answers this month's traffic; event scope answers conversion credit (the attribution course's territory).</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 1 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The six screens</b><span>Home, Search results, PLP, PDP, Cart, Checkout. Every journey is a walk across these.</span></div>
+      <div class="cheat-item"><b>The five doors</b><span>Home 180K · PDP-direct 54K · PLP 54K · Search 36K · Other 36K = 360,000 sessions.</span></div>
+      <div class="cheat-item"><b>All roads lead to the PDP</b><span>36K + 54K + 27K + 27K = 144,000 PDP sessions = the 40% penetration from the metrics course.</span></div>
+      <div class="cheat-item"><b>Landing + entrances</b><span>Landing screen = first screen of a session; entrances = sessions that started there.</span></div>
+      <div class="cheat-item"><b>Three source scopes</b><span>First user (acquisition) · session (this month's traffic) · event (conversion credit).</span></div>
+      <div class="cheat-item"><b>Two event families</b><span>screen_view/page_view draw the map; view_item → purchase mark progress on it. Need both.</span></div>
+      <div class="cheat-item"><b>Instrumentation traps</b><span>Unnamed screens, screens that never fire (manual-logging cases), search that skips the URL.</span></div>
+      <div class="cheat-item"><b>Running skill</b><span>Map first, numbers second. Next: b2 measures each door's quality.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 1 of 8 · learn-user-journey-analytics-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="../index.html">← All sessions</a> &nbsp;·&nbsp; <a href="b2-entry-point-analytics.html">Next: Entry-point analytics →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/journey-live.js?v=2"></script>
+<script src="../assets/tree-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

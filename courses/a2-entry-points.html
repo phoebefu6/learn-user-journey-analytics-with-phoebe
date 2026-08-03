@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leader session 2 · Entry points - learn user journey analytics with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-user-journey-analytics-with-phoebe</a> / Leader session 2 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn User Journey Analytics with Phoebe · Leader track · Session 2 of 6</div>
+    <h1>Entry <span class="accent">points</span></h1>
+    <p class="sub">Session a1 showed that half of Mango Lane's sessions never start at Home. Today you learn to read the five doors the store actually has: how much traffic each carries (the mix) and how good each one is at delivering a shopper to a product (the quality). Two numbers per door, and suddenly "traffic is up but orders are flat" stops being a mystery and starts being a diagnosis you can run from the leadership table.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Leader track</span>
+      <span class="chip audience">Commercial + product leaders</span>
+      <span class="chip audience">Reading mode - no computation</span>
+      <span class="chip time">Builds on a1</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Recap</span>
+      <span class="a2" style="flex:4">3-16 · The five doors</span>
+      <span class="a3" style="flex:3">16-28 · Manufactured doors</span>
+      <span class="a4" style="flex:4">28-45 · Mix vs quality + stories</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ PART 1: THE FIVE DOORS ============ -->
+  <section class="section" id="doors">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · every door has a width and a quality</span>
+      <h2>The five doors <span class="tag concept">13 min live</span></h2>
+    </div>
+    <p class="lede">Analytics calls a session's first screen its landing screen, and counts entrances per screen. Group Mango Lane's landing screens and five doors appear. Each door gets two numbers: its <strong>share</strong> of the 360,000 sessions, and its <strong>reach-PDP rate</strong> - the share of its sessions that go on to view at least one product. Share is how wide the door is; reach-PDP is how good it is.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five entry doors of different widths feeding the product page: bar length shows share of sessions, fill darkness shows reach-PDP quality">
+        <style>
+          .fdK { font: 700 12px Inter, sans-serif; fill: #4B6A66; letter-spacing: 0.06em; }
+          .fdH { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .fdB { font: 700 12px Inter, sans-serif; fill: #042F2E; }
+          .fdT { font: 800 13px Inter, sans-serif; fill: #FFFFFF; }
+          .fdC { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .fdV { font: 700 12.5px Inter, sans-serif; fill: #134E4A; }
+          .fdN { font: 600 12.5px Inter, sans-serif; fill: #042F2E; }
+          .fdArr { stroke: #14B8A6; stroke-width: 2; fill: none; marker-end: url(#fdArrHead); }
+        </style>
+        <defs>
+          <marker id="fdArrHead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#14B8A6"/>
+          </marker>
+        </defs>
+
+        <text class="fdK" x="30" y="24">DOOR WIDTH = SHARE OF SESSIONS · DARKER FILL = MORE OF ITS SESSIONS REACH A PRODUCT</text>
+
+        <text class="fdH" x="30" y="68">Home</text>
+        <rect x="170" y="46" width="320" height="36" rx="7" fill="#99F6E4"/>
+        <text class="fdB" x="330" y="68" text-anchor="middle">180,000 · 50% of sessions</text>
+        <text class="fdV" x="510" y="68">reach PDP 20% → 36,000</text>
+        <path class="fdArr" d="M672,64 L706,64"/>
+
+        <text class="fdH" x="30" y="118">PDP-direct</text>
+        <rect x="170" y="96" width="96" height="36" rx="7" fill="#134E4A"/>
+        <text class="fdC" x="276" y="118">54,000 · 15%</text>
+        <text class="fdV" x="510" y="118">reach PDP 100% → 54,000</text>
+        <path class="fdArr" d="M672,114 L706,114"/>
+
+        <text class="fdH" x="30" y="168">PLP category</text>
+        <rect x="170" y="146" width="96" height="36" rx="7" fill="#14B8A6"/>
+        <text class="fdC" x="276" y="168">54,000 · 15%</text>
+        <text class="fdV" x="510" y="168">reach PDP 50% → 27,000</text>
+        <path class="fdArr" d="M672,164 L706,164"/>
+
+        <text class="fdH" x="30" y="218">Search landing</text>
+        <rect x="170" y="196" width="64" height="36" rx="7" fill="#0F766E"/>
+        <text class="fdC" x="244" y="218">36,000 · 10%</text>
+        <text class="fdV" x="510" y="218">reach PDP 75% → 27,000</text>
+        <path class="fdArr" d="M672,214 L706,214"/>
+
+        <text class="fdH" x="30" y="268">Other · service</text>
+        <rect x="170" y="246" width="64" height="36" rx="7" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="fdC" x="244" y="268">36,000 · 10%</text>
+        <text class="fdV" x="510" y="268">reach PDP 0% → 0</text>
+
+        <rect x="710" y="46" width="150" height="236" rx="10" fill="#0F766E"/>
+        <text class="fdT" x="785" y="140" text-anchor="middle">PDP</text>
+        <text class="fdT" x="785" y="164" text-anchor="middle" style="font-size:16px">144,000</text>
+        <text class="fdT" x="785" y="186" text-anchor="middle" style="font-size:11px">sessions reached</text>
+
+        <rect x="30" y="304" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="fdN" x="54" y="316">The widest door is the weakest per session; the narrow deep door delivers every session to a product page.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - five doors feeding the store: width is share, darkness is reach-PDP quality</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The canon table - two numbers per door<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <table class="clean">
+          <thead><tr><th>Door</th><th>Sessions</th><th>Share</th><th>Reach-PDP</th><th>PDP sessions produced</th></tr></thead>
+          <tbody>
+            <tr><td>Home</td><td>180,000</td><td>50%</td><td>20%</td><td>36,000</td></tr>
+            <tr><td>PDP-direct (ads, push, links)</td><td>54,000</td><td>15%</td><td>100%</td><td>54,000</td></tr>
+            <tr><td>PLP category</td><td>54,000</td><td>15%</td><td>50%</td><td>27,000</td></tr>
+            <tr><td>Search landing</td><td>36,000</td><td>10%</td><td>75%</td><td>27,000</td></tr>
+            <tr><td>Other (account, orders, support)</td><td>36,000</td><td>10%</td><td>0%</td><td>0</td></tr>
+          </tbody>
+        </table>
+        <p>Read the surprises, not the totals. Home carries half the traffic but delivers only a quarter of the PDP sessions (36,000 of 144,000). The PDP-direct door, a third of Home's width, out-delivers it. And the "Other" door - a tenth of your store - delivers nothing by design, which is exactly why a1 told you to keep service sessions out of shopping conversion.</p>
+        <div class="callout tip">
+          <strong>What to ask</strong>
+          "Give me our doors as two numbers each - share and reach-PDP quality - on one page." Not twenty landing URLs; five doors, ten numbers. That is the whole entry picture a leader needs monthly.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Where these numbers come from<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Nothing exotic: GA4 defines the landing page as the first page of a session and counts entrances - sessions whose first event happened on that screen. Your analysts group landing screens into these five buckets and divide. The analyst track computes it end to end in b2; your job is to insist the five-door summary exists and stays on one page.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: MANUFACTURED DOORS ============ -->
+  <section class="section" id="manufactured">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · the doors you build yourself</span>
+      <h2>Manufactured doors <span class="tag concept">12 min live</span></h2>
+    </div>
+    <p class="lede">Home, PLP, and search are organic doors - shoppers open them. The PDP-direct door is different: nearly all of it is manufactured by your own teams. An ad click, a shared link, a push notification deep-linking straight to one product. It is the only door whose width AND quality you control directly - which is why it deserves its own scrutiny.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>What the vendor data says - flags attached<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Most published numbers on push and deeplinks come from the vendors who sell them, so treat them as directional, not gospel:</p>
+        <ul>
+          <li><strong>Airship (vendor data, 681 billion pushes analyzed):</strong> rich image pushes lift direct opens by about 56%, and users who receive pushes retain at roughly 3x the rate over 90 days versus those who receive none.</li>
+          <li><strong>CleverTap (vendor data):</strong> average push click-through sits around 2.74% - a useful sanity bar when someone pitches you double digits.</li>
+          <li><strong>Two metric names worth knowing:</strong> a <em>direct open</em> (the user tapped the push) versus an <em>influenced open</em> (the user opened the app soon after receiving one). Vendors love blending them; always ask which one a headline number counts.</li>
+          <li><strong>And one honest gap:</strong> there is no credible public benchmark for "deeplinked sessions convert Nx better than organic". Anyone quoting one is quoting a guess. Measure your own PDP-direct door instead - you have it, in the table above.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Landing screen quality - the door is only as good as the match<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The PDP-direct door reads 100% reach-PDP by definition - the session starts on a product. That makes its quality metric different: not "did they reach a product" but <strong>did the landing product match the promise that brought them</strong>. An ad for a linen dress that deep-links to a sold-out size, a generic homepage redirect, or last season's price turns your best door into your most expensive bounce. Ad-to-page match is a merchandising discipline, not an analytics one - but it shows up in analytics as a high-traffic, low-conversion PDP-direct door.</p>
+        <div class="callout tip">
+          <strong>What to ask</strong>
+          "For our top ten paid and push destinations: does each landing PDP have stock, the promised price, and the creative's product? Who checks, and how often?" If the answer is "nobody, systematically", your widest controllable door has no quality owner.
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: MIX VS QUALITY ============ -->
+  <section class="section" id="mixquality">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · the only two ways the door picture moves</span>
+      <h2>Mix vs quality <span class="tag concept">10 min live</span></h2>
+    </div>
+    <p class="lede">When entry numbers move, exactly two things can have happened: the <strong>mix</strong> changed (more sessions arriving through a weaker or stronger door) or a door's <strong>quality</strong> changed (the same door delivering more or fewer of its sessions to a product). The metrics course taught you the mix-effect trap on averages; this is the same lesson wearing a door costume. A blended "sessions to PDP" rate can fall while every single door improves - if the mix shifted toward Home.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The two-question drill<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Any time someone reports an entry or traffic change, run the questions in order:</p>
+        <ul>
+          <li><strong>Question 1 - mix:</strong> did the door shares shift? (A campaign, a season, an app-store feature can move millions of sessions between doors in a week.)</li>
+          <li><strong>Question 2 - quality:</strong> holding each door alone, did its reach-PDP rate move? (A homepage redesign, a broken search, a stale deeplink.)</li>
+        </ul>
+        <p>Mix problems belong to marketing and channel owners; quality problems belong to product and merchandising. Asking the two questions in order routes the fix to the right team before the meeting ends.</p>
+        <div class="callout tip">
+          <strong>What to ask</strong>
+          "Is this a mix move or a quality move?" Five words. If the report cannot answer, it is an average hiding a diagnosis - send it back split by door.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Who sent them - three scopes of "source", in plain words<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Each door also carries a "who sent them" label, and GA4 records it at three scopes. Leaders do not need the mechanics - just which question each scope answers, so you can catch reports mixing them:</p>
+        <ul>
+          <li><strong>First-user source:</strong> where this person came from on their first-ever visit, fixed forever. Answers "which channel finds us NEW customers?"</li>
+          <li><strong>Session source:</strong> where this particular session came from, assigned fresh each time. Answers "which channel drove THIS month's traffic?"</li>
+          <li><strong>Event source:</strong> which channel gets credit for a conversion under an attribution model. Answers "which channel gets credit for the ORDER?" - the deep end of that pool is its own course, <a href="https://phoebefu6.github.io/learn-marketing-attribution-with-phoebe/">learn-marketing-attribution-with-phoebe</a>.</li>
+        </ul>
+        <p>The classic boardroom bug: a new-customer question answered with session-scoped numbers. Same channel, three different shares - ask which scope before you compare two decks.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO: THREE DOOR INCIDENTS ============ -->
+  <section class="section" id="demo">
+    <div class="section-kicker">
+      <span class="klabel">Demo · read along, no computation</span>
+      <h2>Three door incidents <span class="tag demo">★ 10 min · read-along</span></h2>
+    </div>
+    <p class="lede">Three months, three headlines from Mango Lane's trading reviews. Each one resolves with the mix-or-quality drill and one leader question.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Incident 1 · sessions up 10%, orders flat<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>The headline.</strong> A paid re-engagement push added 36,000 sessions. Traffic up 10%, celebration email drafted - but orders did not move.</p></div>
+          <div class="step"><p><strong>The drill.</strong> Mix question first: which door did the new sessions enter through? Answer: the campaign deep-linked lapsed users to their account screen "to reactivate" - straight through the Other door, the 0% reach-PDP door.</p></div>
+          <div class="step"><p><strong>The read.</strong> Pure mix move: no door got worse, the store just bought width on its weakest door. The leader question: <em>"Before we buy traffic, which door does it land on, and what is that door's quality?"</em></p></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Incident 2 · Home's quality quietly slips<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>The headline.</strong> Home entries reaching a PDP fell from 20% to 16% - a fifth of the biggest door's quality, gone. Traffic and door mix: unchanged.</p></div>
+          <div class="step"><p><strong>The drill.</strong> Mix is clean, so it is a quality move on one door. What changed on Home this month? A full-bleed brand-campaign takeover banner - beautiful, unclickable-to-product, and it pushed the category tiles below the fold.</p></div>
+          <div class="step"><p><strong>The read.</strong> At 180,000 entries, four points of reach-PDP is 7,200 lost PDP sessions a month. The leader question: <em>"Every homepage change ships with a before-and-after on Home's reach-PDP rate - where is it?"</em></p></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Incident 3 · the influencer spike<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="steps">
+          <div class="step"><p><strong>The headline.</strong> An influencer post sends the PDP-direct door to double its usual width for a week. Great news - probably.</p></div>
+          <div class="step"><p><strong>The drill.</strong> Mix move, into your BEST door - but Part 2's rule applies: PDP-direct quality is the ad-to-page match. Does the landing PDP have the featured colorway in stock? Is the price the one in the video? Is the size guide one tap away for a first-time visitor?</p></div>
+          <div class="step"><p><strong>The read.</strong> A stock-out on the landing PDP turns the spike into 25,000 disappointed first impressions. The leader question: <em>"When an external spike hits one product page, who gets paged to check stock, price, and page health that same day?"</em></p></div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 15 min total</span></h2>
+    </div>
+    <ul>
+      <li>Ask your team for your own five doors: landing screens grouped into Home / product-direct / category / search / service, with sessions and share for each.</li>
+      <li>Ask for one quality number per door - the share of each door's sessions that reach a product page. Ten numbers, one page.</li>
+      <li>Circle the widest door and the deepest door. Are they the same? At Mango Lane they are opposites - check whether yours rhyme.</li>
+      <li>Ask who owns each door's quality. Write a name next to all five; a blank next to any door is your first finding.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources</span>
+      <h2>Sources this session draws on</h2>
+    </div>
+    <p class="lede">The door mechanics are platform documentation; the push numbers are vendor data and flagged as such:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GA4 landing page + entrances - landing screen = first page of a session; entrances counted per screen</span><span class="note">Part 1 · the raw material the five-door summary is built from</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GA4 source scopes - first-user vs session vs event scope, and the question each answers</span><span class="note">Part 3 · the "which scope is this deck using" catch</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Airship push benchmarks (vendor data, 681B pushes) - rich-push +56% direct opens, ~3x 90-day retention</span><span class="note">Part 2 · directional, vendor-flagged; direct vs influenced opens</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">CleverTap (vendor data) - average push CTR ~2.74%</span><span class="note">Part 2 · the sanity bar for pitched push performance</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Home carries 50% of sessions; PDP-direct carries 15%. Which delivers more PDP sessions, and why?</p>
+      <button class="qopt" type="button">A · Home - a wider door always delivers more</button>
+      <button class="qopt" type="button">B · They tie - share and quality cancel out</button>
+      <button class="qopt" type="button">C · PDP-direct - 54,000 at 100% reach beats Home's 180,000 at 20% (36,000)</button>
+      <p class="qwhy">Width times quality is what lands on the product page. The narrow deep door out-delivers the wide shallow one - which is why every door needs both numbers, not just traffic.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · Sessions rose 10% but orders stayed flat. First question to ask?</p>
+      <button class="qopt" type="button">A · Which door did the new sessions enter through - was this a mix move into a weak door?</button>
+      <button class="qopt" type="button">B · Whether the checkout broke</button>
+      <button class="qopt" type="button">C · Whether AOV declined</button>
+      <p class="qwhy">Run the drill in order: mix first, then quality. In the demo incident, a paid push poured 36,000 sessions through the 0% reach-PDP service door - no door got worse, the mix just got heavier on the weakest one.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">3 · A vendor deck claims "push drove 40% more app opens". What should you ask first?</p>
+      <button class="qopt" type="button">A · Nothing - opens are opens</button>
+      <button class="qopt" type="button">B · Direct opens (user tapped the push) or influenced opens (opened soon after receiving one)?</button>
+      <button class="qopt" type="button">C · Whether the pushes used images</button>
+      <p class="qwhy">The two metrics differ hugely and vendors blend them. Same discipline as source scopes: before comparing numbers, ask what exactly was counted.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Leader session 2 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Two numbers per door</b><span>Share (width) and reach-PDP rate (quality). Five doors, ten numbers, one page, monthly.</span></div>
+      <div class="cheat-item"><b>The canon mix</b><span>Home 50% · PDP-direct 15% · PLP 15% · Search 10% · Other 10% = 360,000 sessions.</span></div>
+      <div class="cheat-item"><b>The canon quality</b><span>Reach-PDP: Home 20% · PDP-direct 100% · PLP 50% · Search 75% · Other 0%.</span></div>
+      <div class="cheat-item"><b>Width is not delivery</b><span>Home's 180,000 sessions deliver 36,000 PDP visits; PDP-direct's 54,000 deliver 54,000.</span></div>
+      <div class="cheat-item"><b>Manufactured doors</b><span>PDP-direct is built by your teams. Its quality = ad-to-page match: stock, price, promise.</span></div>
+      <div class="cheat-item"><b>Vendor numbers, flagged</b><span>Airship: rich push +56% direct opens, ~3x retention. No credible deeplink-vs-organic benchmark exists.</span></div>
+      <div class="cheat-item"><b>The five-word question</b><span>"Mix move or quality move?" Mix routes to channel owners; quality routes to product teams.</span></div>
+      <div class="cheat-item"><b>Next session</b><span>a3 - the two roads from door to product: search vs browse, and why they convert 2.67x apart.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Leader session 2 of 6 · learn-user-journey-analytics-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="a1-the-journey-not-the-funnel.html">← Prev: The journey, not the funnel</a> &nbsp;·&nbsp; <a href="a3-search-vs-browse.html">Next: Search vs browse →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/journey-live.js?v=2"></script>
+<script src="../assets/tree-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyst session 6 · Cart &amp; checkout micro-funnel - learn user journey analytics with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-user-journey-analytics-with-phoebe</a> / Analyst session 6 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn User Journey Analytics with Phoebe · Analyst track · Session 6 of 8</div>
+    <h1>Cart &amp; checkout <span class="accent">micro-funnel</span></h1>
+    <p class="sub">The metrics course treated checkout as one number: 60% completion. Inside that number is a three-step walk - shipping details, payment details, pay - and each step has its own killers. Today you open the last gate up, put a count on every step, and map Baymard's abandonment research onto the exact step where each reason bites.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Analyst track</span>
+      <span class="chip audience">Analysts · PMs · UX · growth</span>
+      <span class="chip audience">Compute along</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · The steps &amp; their killers</span>
+      <span class="a3" style="flex:5">18-42 · Locate &amp; price a drop</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where you are</h2>
+    </div>
+    <p class="lede">The flow simulator (b4) treats checkout as one dial; the PDP session (b5) covered the decision room before it. This session zooms into the machine's last gate: the 16,200 sessions that begin checkout and the 9,720 that finish. In b7 you use this per-step view as the finest layer of the diagnosis drill-down.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">▶ Live flow - editable &amp; runnable</span>
+      <span class="pill inkpill">Sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      Mango Lane's checkout as a three-step chain with real counts, Baymard's abandonment reasons mapped to the exact step each one hits, and the ability to locate and price a completion drop from the per-step numbers alone.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: THE CHAIN ============ -->
+  <section class="section" id="chain">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the GA4 checkout journey report</span>
+      <h2>Inside the last gate: three steps <span class="tag concept">8 min live</span></h2>
+    </div>
+    <p class="lede">GA4's <strong>checkout journey report</strong> opens the gate up as a closed funnel: <code>begin_checkout</code> → <code>add_shipping_info</code> → <code>add_payment_info</code> → <code>purchase</code>, with abandonment shown below each step. Mango Lane's month: <strong>16,200 → 14,580 (90%) → 12,150 (83.3%) → 9,720 (80%)</strong>. Multiply the chain: 0.90 x 0.833 x 0.80 = 0.60 - exactly the 60% completion the metrics course reported as one number.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mango Lane checkout micro-funnel: begin checkout to shipping to payment to purchase with counts and per-step rates">
+        <style>
+          .cmH { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .cmE { font: 700 11.5px 'SF Mono', Menlo, monospace; fill: #FFFFFF; }
+          .cmV { font: 800 16px Inter, sans-serif; fill: #134E4A; }
+          .cmC { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .cmR { font: 700 12px Inter, sans-serif; fill: #BE123C; }
+          .cmN { font: 600 12.5px Inter, sans-serif; fill: #042F2E; }
+          .cmArr { stroke: #14B8A6; stroke-width: 2.5; fill: none; marker-end: url(#cmArrHead); }
+        </style>
+        <defs>
+          <marker id="cmArrHead" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#14B8A6"/>
+          </marker>
+        </defs>
+
+        <rect x="20" y="60" width="180" height="90" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="cmH" x="110" y="86" text-anchor="middle">Start checkout</text>
+        <text class="cmV" x="110" y="110" text-anchor="middle">16,200</text>
+        <rect x="40" y="120" width="140" height="20" rx="6" fill="#0F766E"/>
+        <text class="cmE" x="110" y="134" text-anchor="middle">begin_checkout</text>
+
+        <rect x="240" y="60" width="180" height="90" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="cmH" x="330" y="86" text-anchor="middle">Shipping details</text>
+        <text class="cmV" x="330" y="110" text-anchor="middle">14,580</text>
+        <rect x="255" y="120" width="150" height="20" rx="6" fill="#0F766E"/>
+        <text class="cmE" x="330" y="134" text-anchor="middle">add_shipping_info</text>
+
+        <rect x="460" y="60" width="180" height="90" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="cmH" x="550" y="86" text-anchor="middle">Payment details</text>
+        <text class="cmV" x="550" y="110" text-anchor="middle">12,150</text>
+        <rect x="475" y="120" width="150" height="20" rx="6" fill="#0F766E"/>
+        <text class="cmE" x="550" y="134" text-anchor="middle">add_payment_info</text>
+
+        <rect x="680" y="60" width="180" height="90" rx="10" fill="#134E4A"/>
+        <text class="cmH" x="770" y="86" text-anchor="middle" style="fill:#FFFFFF">Paid</text>
+        <text class="cmV" x="770" y="110" text-anchor="middle" style="fill:#FFFFFF">9,720</text>
+        <rect x="710" y="120" width="120" height="20" rx="6" fill="#0F766E"/>
+        <text class="cmE" x="770" y="134" text-anchor="middle">purchase</text>
+
+        <path class="cmArr" d="M200,105 L236,105"/>
+        <path class="cmArr" d="M420,105 L456,105"/>
+        <path class="cmArr" d="M640,105 L676,105"/>
+
+        <text class="cmC" x="218" y="90" text-anchor="middle">90%</text>
+        <text class="cmC" x="438" y="90" text-anchor="middle">83.3%</text>
+        <text class="cmC" x="658" y="90" text-anchor="middle">80%</text>
+
+        <text class="cmR" x="110" y="182" text-anchor="middle">-1,620 leave here</text>
+        <text class="cmR" x="330" y="182" text-anchor="middle">-2,430 leave here</text>
+        <text class="cmR" x="550" y="182" text-anchor="middle">-2,430 leave here</text>
+        <text class="cmC" x="770" y="182" text-anchor="middle">60% of starts finish</text>
+
+        <rect x="20" y="234" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="cmN" x="44" y="246">0.90 x 0.833 x 0.80 = 0.60 - the metrics course's one number, now three addressable steps.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the checkout micro-funnel: three steps, three different problems</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Cart abandonment vs checkout abandonment - stop mixing them<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Baymard's famous <strong>70.22%</strong> is CART abandonment - everyone who added to cart and did not buy - and roughly 42-43% of those people were just browsing with no intent to buy that day. Mostly normal shopper behavior. The micro-funnel above measures <strong>checkout abandonment</strong>: people who started entering shipping details and quit. That 40% loss (16,200 → 9,720) is the fixable slice - these shoppers proved intent by starting to pay.</p>
+        <ul>
+          <li><strong>Cart abandonment</strong> - big, partly normal, watch the trend not the level.</li>
+          <li><strong>Checkout abandonment</strong> - smaller, mostly actionable, diagnose per step.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: KILLERS PER STEP ============ -->
+  <section class="section" id="killers">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers Baymard's abandonment research (2025 survey wave)</span>
+      <h2>Name each step's killers <span class="tag concept">10 min live</span></h2>
+    </div>
+    <p class="lede">Baymard Institute's checkout-abandonment reasons (2025 survey wave, just-browsing excluded) are not one list - they land on specific steps. Mapped:</p>
+
+    <table class="clean">
+      <thead><tr><th>Step</th><th>Baymard reason</th><th>Share citing it</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="3"><strong>Shipping step</strong></td><td>Extra costs too high (shipping, fees, tax)</td><td>40%</td></tr>
+        <tr><td>Delivery was too slow</td><td>20%</td></tr>
+        <tr><td>Could not see total order cost upfront</td><td>12%</td></tr>
+        <tr><td rowspan="3"><strong>Payment step</strong></td><td>Did not trust the site with card information</td><td>19%</td></tr>
+        <tr><td>Card was declined</td><td>10%</td></tr>
+        <tr><td>Not enough payment methods</td><td>9%</td></tr>
+        <tr><td rowspan="4"><strong>Whole flow</strong></td><td>Site wanted an account created</td><td>18%</td></tr>
+        <tr><td>Checkout too long or complicated</td><td>17%</td></tr>
+        <tr><td>Website errors or crashes</td><td>17%</td></tr>
+        <tr><td>Returns policy unsatisfactory</td><td>13%</td></tr>
+      </tbody>
+    </table>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Form-field forensics<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Baymard's 2024 benchmark: the average US checkout runs <strong>5.1 steps</strong> and shows <strong>11.3 form fields</strong> - while an ideal checkout needs only about <strong>8 fields</strong>. Their key finding: <strong>field count predicts friction better than step count</strong> - a 5-step flow with 8 fields beats a 3-step flow with 14. The "too long or complicated" reason (17%) is usually a field problem wearing a step costume.</p>
+        <div class="callout tip">
+          <strong>The wallet effect</strong>
+          Wallet payments (Apple Pay, Google Pay, PayPal) collapse the payment step's fields to nearly zero and carry their own trust - one mechanism that attacks the 19% card-trust reason and the field count at once. This is why "one-page checkout + wallets" was b4's completion lever.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Friction vs reassurance - the measured trade<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Shorter is not automatically better. The card-trust reason (19%) means some ADDITIONS help: security badges near the card field, a visible returns link (13% cite returns policy), an order summary that keeps the total honest (12% cite hidden totals). The discipline: every added element must answer a named Baymard reason, and every removal must target the field count. "Cleaner" is not a reason; "attacks the 18% account-wall loss" is.</p>
+        <p>Also policy beats pixels at the top of the table: extra costs (40%) and slow delivery (20%) are business decisions - free-shipping thresholds, carrier choices - not UI work. Half of checkout optimization is a pricing meeting.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO ============ -->
+  <section class="section" id="demo">
+    <div class="section-kicker">
+      <span class="klabel">Demo · everyone computes</span>
+      <h2>Locate and price a drop <span class="tag demo">★ 15 min · everyone works</span></h2>
+    </div>
+    <p class="lede">Three drills with full arithmetic - the per-step chain is small enough to run on paper.</p>
+
+    <div class="steps">
+      <div class="step"><p><strong>Verify the chain.</strong> 16,200 x 0.90 = 14,580. 14,580 x 0.8333 = 12,150. 12,150 x 0.80 = 9,720. And 0.90 x 0.8333 x 0.80 = 0.60 - the chain reproduces the metrics course's completion exactly. Cross-footing is the habit; a chain that does not multiply back is a tracking bug, not a business event.</p></div>
+      <div class="step"><p><strong>Locate a drop.</strong> This week completion falls to 54%. The per-step read: 16,200 → 14,580 (90%, held) → 12,150 (83.3%, held) → 8,748. The last step fell from 80% to 8,748 ÷ 12,150 = <strong>72%</strong>. The leak has an address: the payment step. Suspects, straight off the Baymard map: declined cards (a provider issue?), a payment-method outage, or a trust regression (new layout burying the security cues). Nobody redesigns the shipping form today.</p></div>
+      <div class="step"><p><strong>Price a fix.</strong> Wallets lift the payment step from 80% to 86%: orders = 16,200 x 0.90 x 0.8333 x 0.86 = <strong>10,449</strong>. That is +729 orders, +7.5% - the same rung you saw in b4's ladder, now derived from inside the gate. At $68 AOV: about +$49,600 GMV per month on current traffic - the one-line business case.</p></div>
+    </div>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>Why per-step beats per-gate in a war room.</strong> "Completion fell" starts a blame meeting between UX, payments, and shipping. "The payment step fell from 80% to 72% at 2pm Tuesday, shipping step flat" ends it - payments owns the next hour, everyone else goes back to work. The micro-funnel is an argument-compression device.</p>
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 20-30 min total</span></h2>
+    </div>
+    <ul>
+      <li>Pull your per-step checkout funnel (GA4's checkout journey report or your tool's equivalent). Verify the steps multiply back to your reported completion rate.</li>
+      <li>Map each step's biggest Baymard reason for YOUR store - which of the top three (extra costs 40%, delivery 20%, trust 19%) applies, and at which step?</li>
+      <li>Do your own checkout on your phone; count the form fields shown. Compare against 11.3 average / ~8 ideal.</li>
+      <li>Price one fix: pick a step, a plausible delta, and compute the monthly order and GMV value.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources</span>
+      <h2>Sources this session draws on</h2>
+    </div>
+    <p class="lede">The checkout is the best-researched screen in ecommerce; this session leans on the primary work. This page draws on:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GA4 checkout journey report - begin_checkout → add_shipping_info → add_payment_info → purchase, abandonment per step</span><span class="note">Part 1 · the report the micro-funnel mirrors</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Baymard Institute, 2025 survey wave - checkout abandonment reasons with percentages, cart-vs-checkout distinction</span><span class="note">Part 2 · killers mapped to steps; reasons re-benchmark by wave, cite the wave</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Baymard checkout length benchmark - 5.1 steps, 11.3 fields shown, ~8 ideal; fields beat steps</span><span class="note">Part 2 · form-field forensics</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Mango Lane canon - the 16,200 → 14,580 → 12,150 → 9,720 chain, product = 60% exactly</span><span class="note">Demo · every drill cross-foots</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · Completion falls from 60% to 54%; shipping and payment-entry steps held at 90% and 83.3%. Where is the leak?</p>
+      <button class="qopt" type="button">A · The shipping step - it is first</button>
+      <button class="qopt" type="button">B · The final pay step - it fell from 80% to 72% (0.90 x 0.8333 x 0.72 = 0.54)</button>
+      <button class="qopt" type="button">C · Cannot tell from step data</button>
+      <p class="qwhy">The chain multiplies: if two steps held, the third must account for the drop. 0.54 ÷ (0.90 x 0.8333) = 0.72. Per-step data turns "completion fell" into an address.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · A card-decline spike at the payment provider hits which reason and step?</p>
+      <button class="qopt" type="button">A · "Card was declined" (10%) at the payment step - watch add_payment_info → purchase</button>
+      <button class="qopt" type="button">B · "Extra costs too high" (40%) at shipping</button>
+      <button class="qopt" type="button">C · "Account required" (18%) across the flow</button>
+      <p class="qwhy">Declines bite between entering payment details and completing purchase. A sudden fall isolated to that step with UX unchanged points at the provider before the pixels.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">3 · Baymard's field research says the better friction predictor is...</p>
+      <button class="qopt" type="button">A · Step count - fewer pages always wins</button>
+      <button class="qopt" type="button">B · Load time only</button>
+      <button class="qopt" type="button">C · Form-field count - 11.3 shown on average vs ~8 needed; a 5-step/8-field flow beats 3-step/14-field</button>
+      <p class="qwhy">Fields, not steps, are where shoppers give up. "Too long or complicated" (17%) is usually excess fields; wallets attack the count and the trust reason at once.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 6 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The chain</b><span>16,200 → 14,580 (90%) → 12,150 (83.3%) → 9,720 (80%). Product = 60% completion exactly.</span></div>
+      <div class="cheat-item"><b>The events</b><span>begin_checkout → add_shipping_info → add_payment_info → purchase (GA4 checkout journey).</span></div>
+      <div class="cheat-item"><b>Cart ≠ checkout abandonment</b><span>Cart 70.22% avg includes ~42-43% just-browsing (normal). Checkout abandonment is the fixable slice.</span></div>
+      <div class="cheat-item"><b>Shipping-step killers</b><span>Extra costs 40% · slow delivery 20% · hidden totals 12%. Mostly POLICY, not pixels.</span></div>
+      <div class="cheat-item"><b>Payment-step killers</b><span>Card trust 19% · declines 10% · few methods 9%. Wallets attack trust and fields at once.</span></div>
+      <div class="cheat-item"><b>Whole-flow killers</b><span>Account wall 18% · too long 17% · errors 17% · returns policy 13%. Guest checkout, fewer fields.</span></div>
+      <div class="cheat-item"><b>Fields beat steps</b><span>11.3 fields shown avg, ~8 ideal (Baymard). Count fields before counting pages.</span></div>
+      <div class="cheat-item"><b>Locate then price</b><span>Per-step read finds the address; chain arithmetic prices the fix (payment 80→86% = +7.5% orders).</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 6 of 8 · learn-user-journey-analytics-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b5-pdp-engagement-metrics.html">← Prev: PDP engagement metrics</a> &nbsp;·&nbsp; <a href="b7-diagnose-a-journey-leak.html">Next: Diagnose a journey leak →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/journey-live.js?v=2"></script>
+<script src="../assets/tree-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

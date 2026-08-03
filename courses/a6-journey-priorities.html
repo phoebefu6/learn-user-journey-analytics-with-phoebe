@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leader session 6 · Journey priorities - learn user journey analytics with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-user-journey-analytics-with-phoebe</a> / Leader session 6 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn User Journey Analytics with Phoebe · Leader track · Session 6 of 6</div>
+    <h1>Journey <span class="accent">priorities</span></h1>
+    <p class="sub">Five teams, five "critical" journey fixes, one budget. The last leader session gives you the ritual that ends that meeting well: score every proposed fix on reach, severity, and confidence; refuse anything that is not stated as a gate delta; and hand every funded fix to an experiment. No computation - just the three questions that rank anything.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Leader track</span>
+      <span class="chip audience">Commercial &amp; product leaders</span>
+      <span class="chip audience">Reading mode - no computation</span>
+      <span class="chip time">45 min · closes the track</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · The three lenses</span>
+      <span class="a3" style="flex:5">18-42 · Rank a real roadmap</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where you are</h2>
+    </div>
+    <p class="lede">You can now read the journey map (a1), judge the doors (a2), tell the search road from the browse road (a3), see what the product page must do (a4), and name what kills checkouts (a5). This session is the payoff: turning all of it into a funding decision. The analyst track's flow simulator (b4) prices every fix; your job is the ranking.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">▶ Live flow - editable &amp; runnable</span>
+      <span class="pill inkpill">Sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      The reach x severity x confidence ritual, the two vetoes that send weak proposals back, the journey rows that belong on your weekly review, and the rule that no funded fix ships without an experiment plan.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: THE THREE LENSES ============ -->
+  <section class="section" id="lenses">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the ranking ritual</span>
+      <h2>Reach x severity x confidence <span class="tag concept">10 min live</span></h2>
+    </div>
+    <p class="lede">Every journey fix claims to matter. Three lenses separate the ones that do:</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The three-lens scoring funnel: reach, severity, confidence, with a worked fix flowing through">
+        <style>
+          .jpH { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .jpT { font: 800 14px Inter, sans-serif; fill: #FFFFFF; }
+          .jpS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; }
+          .jpC { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .jpN { font: 600 12.5px Inter, sans-serif; fill: #042F2E; }
+          .jpArr { stroke: #14B8A6; stroke-width: 2.5; fill: none; marker-end: url(#jpArrHead); }
+        </style>
+        <defs>
+          <marker id="jpArrHead" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#14B8A6"/>
+          </marker>
+        </defs>
+
+        <rect x="20" y="80" width="170" height="80" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="jpH" x="105" y="108" text-anchor="middle">A proposed fix</text>
+        <text class="jpC" x="105" y="128" text-anchor="middle">"zero-result search</text>
+        <text class="jpC" x="105" y="144" text-anchor="middle">rescue"</text>
+
+        <rect x="238" y="60" width="170" height="120" rx="10" fill="#0F766E"/>
+        <text class="jpT" x="323" y="88" text-anchor="middle">1 · Reach</text>
+        <text class="jpS" x="323" y="112" text-anchor="middle">sessions touching</text>
+        <text class="jpS" x="323" y="128" text-anchor="middle">the gate</text>
+        <text class="jpS" x="323" y="152" text-anchor="middle">searchers: high</text>
+
+        <rect x="456" y="60" width="170" height="120" rx="10" fill="#0F766E"/>
+        <text class="jpT" x="541" y="88" text-anchor="middle">2 · Severity</text>
+        <text class="jpS" x="541" y="112" text-anchor="middle">distance to</text>
+        <text class="jpS" x="541" y="128" text-anchor="middle">benchmark</text>
+        <text class="jpS" x="541" y="152" text-anchor="middle">zero results: high</text>
+
+        <rect x="674" y="60" width="170" height="120" rx="10" fill="#134E4A"/>
+        <text class="jpT" x="759" y="88" text-anchor="middle">3 · Confidence</text>
+        <text class="jpS" x="759" y="112" text-anchor="middle">research grade</text>
+        <text class="jpS" x="759" y="128" text-anchor="middle">of the evidence</text>
+        <text class="jpS" x="759" y="152" text-anchor="middle">own data: high</text>
+
+        <path class="jpArr" d="M190,120 L234,120"/>
+        <path class="jpArr" d="M408,120 L452,120"/>
+        <path class="jpArr" d="M626,120 L670,120"/>
+
+        <text class="jpC" x="323" y="204" text-anchor="middle">gate 1 touches 360,000</text>
+        <text class="jpC" x="541" y="204" text-anchor="middle">60% completion beats ~45%</text>
+        <text class="jpC" x="759" y="204" text-anchor="middle">primary &gt; vendor &gt; hunch</text>
+
+        <rect x="20" y="254" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="jpN" x="44" y="266">Score all three, multiply the feel of them, rank. High-reach + high-severity + high-confidence funds first.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the three-lens scoring funnel every proposed fix walks through</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The lenses, one by one<span class="mini">6 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <ul>
+          <li><strong>Reach - how many sessions touch the gate.</strong> The first gate (PDP penetration) touches all 360,000 sessions; the last (completion) touches 16,200. A small lift on a huge base can beat a big lift on a tiny one - the b4 simulator makes this concrete.</li>
+          <li><strong>Severity - distance to benchmark.</strong> Mango Lane's completion (60%) already beats the ~45% typical Shopify store (Littledata, 2025) - little headroom. A gate lagging its benchmark has room to run. Severity is where a5's honest benchmark tables earn their keep.</li>
+          <li><strong>Confidence - the grade of the evidence.</strong> Your own measured data beats fetched-primary research (Baymard, Spiegel), which beats vendor benchmarks (Airship), which beats a hunch. A fix backed by a hunch is not dead - it just needs a cheap test before a big build.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>What to ask</strong>
+          For every item on a journey roadmap: "How many sessions touch this? What benchmark says it is broken? What grade is the evidence?" Three questions, one meeting, honest ranking.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The two vetoes<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Two proposals get sent back automatically, whatever their score:</p>
+        <ul>
+          <li><strong>No gate delta.</strong> A fix that cannot be stated as "gate X from A% to B% by mechanism M" cannot be priced by the simulator or tested by an experiment. "Redesign the homepage" goes back until it becomes a delta.</li>
+          <li><strong>Vendor stat, no test plan.</strong> A fix whose only evidence is a vendor benchmark ships with an A/B plan or not at all. Vendor numbers locate opportunities; they do not confirm them.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: PRICING ============ -->
+  <section class="section" id="pricing">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the b4 simulator ladder</span>
+      <h2>Every fix gets a price tag <span class="tag concept">8 min live</span></h2>
+    </div>
+    <p class="lede">The analyst track's flow simulator (b4) turns any gate delta into monthly GMV on current traffic. A fully priced roadmap looks like this - four fixes, compounding to +47%:</p>
+
+    <table class="clean">
+      <thead><tr><th>Fix</th><th>Gate delta</th><th>Orders</th><th>GMV</th><th>vs baseline</th></tr></thead>
+      <tbody>
+        <tr><td>baseline</td><td>-</td><td>9,720</td><td>$660,960</td><td>-</td></tr>
+        <tr><td>Smarter search &amp; nav</td><td>PDP penetration 40% → 43%</td><td>10,449</td><td>$710,532</td><td>+7.5%</td></tr>
+        <tr><td>+ Richer PDP</td><td>add-to-cart 25% → 28%</td><td>11,703</td><td>$795,796</td><td>+20.4%</td></tr>
+        <tr><td>+ Persistent cart</td><td>checkout start 45% → 50%</td><td>13,003</td><td>$884,218</td><td>+33.8%</td></tr>
+        <tr><td>+ One-page checkout</td><td>completion 60% → 66%</td><td>14,304</td><td>$972,639</td><td>+47.2%</td></tr>
+      </tbody>
+    </table>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Reading a priced roadmap as a leader<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three habits when the table lands on your desk:</p>
+        <ul>
+          <li><strong>Ask for single-fix prices, not just the stacked ladder.</strong> The ladder shows the dream; the per-fix delta shows what each team's ask is worth alone.</li>
+          <li><strong>Check the deltas against a5's benchmarks.</strong> A proposal moving an already-strong gate (60% → 66% completion) needs stronger evidence than one lifting a lagging gate.</li>
+          <li><strong>Remember the honesty rail.</strong> The arithmetic is real; the effect sizes are estimates until tested. Fund the fix AND its experiment.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Why gate-delta roadmaps win funding meetings.</strong> "Checkout redesign, Q3, 2 engineers" invites debate. "Completion 60% to 66% = +$88K GMV per month on current traffic, confirmed by a 4-week A/B" invites a yes. Same work - the second sentence carries its own business case.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: WBR + HANDOFF ============ -->
+  <section class="section" id="wbr">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · the standing instrument</span>
+      <h2>What goes on the weekly review <span class="tag concept">6 min live</span></h2>
+    </div>
+    <p class="lede">The metrics course built the weekly business review (its a4); this course adds the journey rows: the <strong>four gates WoW</strong>, the <strong>door mix</strong> (share per entry), <strong>search share and the zero-result rate</strong>, and the <strong>per-step checkout completion</strong>. Four rows, five minutes, and a journey leak never survives two weeks unseen.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The experiment handoff<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The ranking ritual ends where experimentation begins: every funded fix ships with an A/B plan - the hypothesis is the gate delta, the success metric is the gate itself, the guardrails come from the metrics course (margin, return rate). The craft of running that test honestly lives in <a href="https://phoebefu6.github.io/learn-experimentation-with-phoebe/">learn-experimentation-with-phoebe</a>. Until the test reads out, the simulator's numbers are the estimate, not the result.</p>
+        <div class="callout tip">
+          <strong>What to ask</strong>
+          "What is the test plan?" - four words, asked at funding time, saves quarters of arguing about whether a shipped fix worked.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The ritual's fine print<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <ul>
+          <li><strong>Reach and severity are computable; confidence is a judgment.</strong> Write the evidence grade next to each score so the judgment is at least visible.</li>
+          <li><strong>Re-rank quarterly, not weekly.</strong> Priorities that flap with every WBR exhaust teams; the WBR watches, the quarter decides.</li>
+          <li><strong>The ritual is craft, not law.</strong> No standards body certifies reach x severity x confidence - it is a distilled practice. Its value is that everyone argues inside the same three questions.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO ============ -->
+  <section class="section" id="demo">
+    <div class="section-kicker">
+      <span class="klabel">Demo · read-along</span>
+      <h2>Rank three competing fixes <span class="tag demo">★ 12 min · everyone judges</span></h2>
+    </div>
+    <p class="lede">Three teams, one budget. Walk the ritual out loud:</p>
+
+    <div class="steps">
+      <div class="step"><p><strong>Fix A - one-page checkout.</strong> Reach: 16,200 checkout sessions. Severity: LOW - 60% completion already beats the ~45% benchmark. Confidence: HIGH - Baymard's field research is fetched-primary. Verdict: solid but not urgent.</p></div>
+      <div class="step"><p><strong>Fix B - zero-result search rescue.</strong> Reach: HIGH - all 36,000 search landings plus every in-app searcher on the highest-converting path (12% vs 4.5%). Severity: HIGH - zero results is a dead end on the best road. Confidence: HIGH - your own search logs show the terms. Verdict: fund first.</p></div>
+      <div class="step"><p><strong>Fix C - homepage redesign.</strong> Reach: 180,000 sessions - huge. Severity: unknown. Confidence: LOW - no gate delta stated, no benchmark named. Verdict: veto one applies - send it back to be restated as "Home reach-PDP from 20% to X% by mechanism M".</p></div>
+      <div class="step"><p>Final ranking: B, then A, then C-after-restatement. Say the reasoning in the three-lens vocabulary and the meeting ends without a fight.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 15-20 min total</span></h2>
+    </div>
+    <ul>
+      <li>Take your team's current journey roadmap. Score every item on reach x severity x confidence; write the evidence grade next to each.</li>
+      <li>Send back every item with no gate delta - kindly, with the template: gate, from%, to%, mechanism.</li>
+      <li>Add the four journey rows to your weekly review: gates WoW, door mix, search share + zero-result rate, per-step checkout.</li>
+      <li>Ask "what is the test plan?" at your next funding decision. Watch what happens.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources</span>
+      <h2>Sources this session draws on</h2>
+    </div>
+    <p class="lede">The ranking ritual is distilled craft; the numbers inside it come from measured canon and flagged research. This page draws on:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The b4 simulator ladder - fixes priced as gate deltas, +47.2% GMV fully stacked</span><span class="note">Part 2 · the priced roadmap, arithmetic verified live</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Littledata Shopify benchmark 2025 - completion ~45% average</span><span class="note">Part 1 · the severity lens's yardstick, secondary-relayed</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">learn-experimentation-with-phoebe - the A/B craft every funded fix hands off to</span><span class="note">Part 3 · the handoff</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Reach x severity x confidence - distilled practice, no standards body behind it</span><span class="note">Honesty note · its value is shared vocabulary, not certification</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · A fix on the first gate touches 360,000 sessions; one on the last touches 16,200. What lens is this?</p>
+      <button class="qopt" type="button">A · Severity - the first gate is more broken</button>
+      <button class="qopt" type="button">B · Confidence - bigger numbers are more trustworthy</button>
+      <button class="qopt" type="button">C · Reach - a small lift on a huge base can beat a big lift on a tiny one</button>
+      <p class="qwhy">Reach counts the sessions that touch the gate. It is why gate-1 fixes so often out-value glamorous last-mile work - the base is 22x larger.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · "Redesign the homepage" arrives on the roadmap. What happens under the ritual?</p>
+      <button class="qopt" type="button">A · Veto - no gate delta stated; send it back as "Home reach-PDP from 20% to X% by mechanism M"</button>
+      <button class="qopt" type="button">B · Fund it - homepages matter</button>
+      <button class="qopt" type="button">C · Score it high on reach and approve</button>
+      <p class="qwhy">A fix without a gate delta cannot be priced or tested. The veto is not a rejection of the idea - it is a demand that the idea become measurable.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">3 · A funded fix's only evidence is a vendor benchmark. What must ship with it?</p>
+      <button class="qopt" type="button">A · Nothing - vendor benchmarks are evidence</button>
+      <button class="qopt" type="button">B · An A/B test plan - vendor numbers locate opportunities, experiments confirm them</button>
+      <button class="qopt" type="button">C · A bigger budget</button>
+      <p class="qwhy">The second veto: vendor stat, no test plan, no ship. The simulator and the benchmarks estimate; only the experiment measures your store.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Leader session 6 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The ritual</b><span>Score every fix: reach (sessions touching the gate) x severity (distance to benchmark) x confidence (evidence grade).</span></div>
+      <div class="cheat-item"><b>Reach</b><span>Gate 1 touches 360,000 sessions; gate 4 touches 16,200. Base size is leverage.</span></div>
+      <div class="cheat-item"><b>Severity</b><span>A gate beating its benchmark (60% vs ~45% completion) has little headroom. Fix what lags.</span></div>
+      <div class="cheat-item"><b>Confidence</b><span>Own data &gt; primary research (Baymard, Spiegel) &gt; vendor stats &gt; hunches. Write the grade down.</span></div>
+      <div class="cheat-item"><b>Veto one</b><span>No gate delta (gate, from%, to%, mechanism) = send it back. Unpriceable, untestable.</span></div>
+      <div class="cheat-item"><b>Veto two</b><span>Vendor stat with no test plan = no ship. Fund the fix AND its experiment.</span></div>
+      <div class="cheat-item"><b>WBR rows</b><span>Four gates WoW · door mix · search share + zero-result rate · per-step checkout.</span></div>
+      <div class="cheat-item"><b>Track complete</b><span>You can read the map, judge every room in it, and rank the fixes. The analyst track measures it all: start at b1.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Leader session 6 of 6 · learn-user-journey-analytics-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="a5-the-last-mile.html">← Prev: The last mile</a> &nbsp;·&nbsp; <a href="b1-map-the-journey.html">Ready to measure? The analyst track starts at b1 →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/journey-live.js?v=2"></script>
+<script src="../assets/tree-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

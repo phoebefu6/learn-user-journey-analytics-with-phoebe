@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyst session 8 · The journey scorecard - learn user journey analytics with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-user-journey-analytics-with-phoebe</a> / Analyst session 8 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn User Journey Analytics with Phoebe · Analyst track · Session 8 of 8</div>
+    <h1>The journey <span class="accent">scorecard</span></h1>
+    <p class="sub">Everything you measured this course - doors, paths, gates, engagement, checkout steps - dies with you unless it becomes a standing instrument. The finale extends the metrics course's spec sheet with the journey rows: every KPI gets a definition, a formula, an owner, an alert threshold, and one new field the journey demands - the screen it points to. Plus the audit row that keeps the whole map honest.</p>
+    <div class="chip-row">
+      <span class="chip level">🟠 Analyst track</span>
+      <span class="chip audience">Analysts · PMs · UX · growth</span>
+      <span class="chip audience">Hands-on finale</span>
+      <span class="chip time">45 min · closes the track</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-15 · The spec fields</span>
+      <span class="a3" style="flex:6">15-42 · Write the scorecard</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where you are</h2>
+    </div>
+    <p class="lede">Session eight of eight. You mapped the store (b1), measured its doors (b2) and paths (b3), ran the machine (b4), audited the decision room (b5) and the last mile (b6), and diagnosed a leak end to end (b7). This session turns all of it into the document that survives without you - and closes the course.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">▶ Live flow - editable &amp; runnable</span>
+      <span class="pill inkpill">Sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      A complete 8-row journey scorecard for Mango Lane - every row with definition, events, owner, threshold, and screen - plus the instrumentation-health row that goes first, always.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: SPEC FIELDS ============ -->
+  <section class="section" id="fields">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · extends the metrics course's spec sheet</span>
+      <h2>The spec fields, plus one <span class="tag concept">10 min live</span></h2>
+    </div>
+    <p class="lede">The metrics course's spec sheet (its b8) fixed seven fields per metric: <strong>name, definition, formula, denominator, source events, owner, alert threshold</strong>. Journey metrics need one more: <strong>SCREEN/STEP</strong> - the address a breach points to. A journey KPI without a screen is just another number; with one, every alert lands on someone's actual work.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A filled journey spec card for PDP penetration showing all eight fields">
+        <style>
+          .scH { font: 700 12px Inter, sans-serif; fill: #4B6A66; }
+          .scV { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .scT { font: 800 15px Inter, sans-serif; fill: #FFFFFF; }
+          .scN { font: 600 12.5px Inter, sans-serif; fill: #042F2E; }
+          .scLine { stroke: #99F6E4; stroke-width: 1.5; }
+        </style>
+        <rect x="60" y="26" width="760" height="234" rx="12" fill="#F0FDFA" stroke="#99F6E4"/>
+        <rect x="60" y="26" width="760" height="44" rx="12" fill="#0F766E"/>
+        <text class="scT" x="440" y="54" text-anchor="middle">Spec card · PDP penetration</text>
+
+        <text class="scH" x="90" y="98">Definition</text>
+        <text class="scV" x="90" y="116">Share of sessions that view at least one product detail page</text>
+        <text class="scH" x="90" y="146">Formula + denominator</text>
+        <text class="scV" x="90" y="164">sessions with &gt;=1 view_item ÷ ALL sessions = 144,000 ÷ 360,000 = 40%</text>
+        <text class="scH" x="90" y="194">Source events</text>
+        <text class="scV" x="90" y="212">session_start · view_item</text>
+
+        <line class="scLine" x1="470" y1="82" x2="470" y2="222"/>
+
+        <text class="scH" x="500" y="98">Owner</text>
+        <text class="scV" x="500" y="116">Search + navigation team</text>
+        <text class="scH" x="500" y="146">Alert threshold</text>
+        <text class="scV" x="500" y="164">±10% week over week</text>
+        <text class="scH" x="500" y="194">Screen / step (the new field)</text>
+        <text class="scV" x="500" y="212">Search results · PLP · Home modules</text>
+
+        <rect x="60" y="276" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="scN" x="84" y="288">The screen field is what makes it a JOURNEY spec: a breach arrives pre-addressed.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - one filled journey spec card: eight fields, one address</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why the screen field changes behavior<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>When PDP penetration breaches its threshold, the old spec pages "the analytics owner" - who then spends a day finding where to look. The screen field pre-computes that day: the spec itself says the breach lives on search results, the PLPs, or the Home modules, and the b7 drill-down starts there. Two rules make it work:</p>
+        <ul>
+          <li><strong>Screens, plural, ranked.</strong> Most journey KPIs have two or three candidate addresses; list them in drill-down order.</li>
+          <li><strong>The owner owns the screens.</strong> If the metric's owner cannot change its screens, the spec names the wrong owner - fix the row, not the org chart.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: THE SCORECARD ============ -->
+  <section class="section" id="scorecard">
+    <div class="section-kicker">
+      <span class="klabel">Demo 1 · everyone writes</span>
+      <h2>Mango Lane's full journey scorecard <span class="tag demo">★ 15 min · everyone builds</span></h2>
+    </div>
+    <p class="lede">The course's eight rows, filled. Thresholds are simple percentage bands - the statistical version of "is this move real" belongs to <a href="https://phoebefu6.github.io/learn-anomaly-detection-with-phoebe/">learn-anomaly-detection-with-phoebe</a>.</p>
+
+    <table class="clean">
+      <thead><tr><th>Row</th><th>Baseline</th><th>Formula / events</th><th>Owner</th><th>Alert</th><th>Screen / step</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Instrumentation health</strong></td><td>all screens firing</td><td>event volume per screen within expected band</td><td>Analytics</td><td>any screen ±40% vs 4-week norm</td><td>whichever screen went quiet</td></tr>
+        <tr><td>PDP penetration</td><td>40%</td><td>sessions with ≥1 view_item ÷ sessions</td><td>Search + nav</td><td>±10% WoW</td><td>Search results · PLP · Home modules</td></tr>
+        <tr><td>Door mix</td><td>50 / 15 / 15 / 10 / 10</td><td>entrances per landing screen ÷ sessions</td><td>Growth</td><td>any door ±5 pts</td><td>the door's landing screen</td></tr>
+        <tr><td>Home reach-PDP</td><td>20%</td><td>Home entries reaching ≥1 view_item ÷ Home entries</td><td>Homepage team</td><td>±10% WoW</td><td>Home modules · nav menu</td></tr>
+        <tr><td>Search path share + CR pair</td><td>30% · 12% vs 4.5%</td><td>view_search_results sessions of PDP sessions; orders ÷ path sessions</td><td>Search team</td><td>share ±5 pts; CRs ±10%</td><td>Search results · autocomplete</td></tr>
+        <tr><td>Engaged-PDP rate + CR pair</td><td>50% · 9% vs 4.5%</td><td>engaged rule (2+ images / reviews / size guide) ÷ PDP sessions</td><td>PDP team</td><td>±8% WoW</td><td>Gallery · reviews · size guide</td></tr>
+        <tr><td>Checkout step completions</td><td>90 / 83.3 / 80</td><td>GA4 checkout journey per-step rates</td><td>Payments + cart UX</td><td>any step ±8% WoW</td><td>Shipping form · payment form</td></tr>
+        <tr><td>Zero-result search rate</td><td>instrument first</td><td>zero-result view_search_results ÷ all searches</td><td>Search team</td><td>set after 4-week baseline</td><td>Search results (empty state)</td></tr>
+      </tbody>
+    </table>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why instrumentation health is row one<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Every other row assumes the events are firing. b1's traps (screens that never log, search that skips the URL) and b7's false-positive checklist both taught the same lesson: <strong>the most common journey "incident" is a measurement outage wearing a business costume</strong>. The health row - each screen's event volume within a band of its 4-week norm - catches it before anyone panics. It goes first on the scorecard and first in every diagnosis.</p>
+        <div class="callout tip">
+          <strong>The zero-result row's honest baseline</strong>
+          Mango Lane's canon does not fix a zero-result rate - and neither should you invent one for your store. Instrument it, watch four weeks, then set the band. "Instrument first" is a legitimate spec-row state; a made-up baseline is not.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Weekly rows vs monthly rows<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Not every row earns weekly attention (a6 set the leader's view; this is the analyst's split):</p>
+        <ul>
+          <li><strong>Weekly (the WBR rows):</strong> instrumentation health, the four gates WoW, door mix, search share + zero-result rate, per-step checkout. Fast-moving, incident-shaped.</li>
+          <li><strong>Monthly:</strong> path CR pair, engaged-PDP pair, and the reach-PDP rates per door. Slow-moving, mix-sensitive - weekly reads on them are mostly noise (the thin-slice rule from b3 applies).</li>
+          <li><strong>Changelog discipline (inherited from the metrics course):</strong> definitions change only with a dated entry, and affected dashboards carry a footnote for one quarter.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: COURSE CLOSE ============ -->
+  <section class="section" id="close">
+    <div class="section-kicker">
+      <span class="klabel">Demo 2 · the recap</span>
+      <h2>What you can now do <span class="tag demo">★ 8 min · say it out loud</span></h2>
+    </div>
+    <p class="lede">Eight sessions, one skill chain - walk it once, out loud:</p>
+
+    <div class="steps">
+      <div class="step"><p><strong>Map</strong> (b1): six screens, five doors, the events that draw them - and the audit that keeps the map honest.</p></div>
+      <div class="step"><p><strong>Doors</strong> (b2): entrances, per-door reach, and the mix-vs-quality decomposition that stops false credit.</p></div>
+      <div class="step"><p><strong>Paths</strong> (b3): search 12% vs browse 4.5%, forward and backward pathing, and the what-if arithmetic of shifting sessions between roads.</p></div>
+      <div class="step"><p><strong>Machine</strong> (b4): four gate dials, fixes as gate deltas, the +47.2% ladder - every fix priced.</p></div>
+      <div class="step"><p><strong>Decision room</strong> (b5): engaged sessions convert 2x plain - stated as a diagnostic, never a causal promise.</p></div>
+      <div class="step"><p><strong>Last mile</strong> (b6): three checkout steps, Baymard's killers mapped to each, drops located and priced from the chain.</p></div>
+      <div class="step"><p><strong>Diagnosis</strong> (b7): from a top-line drop to a single screen with an owner - the finding template that ends war rooms.</p></div>
+      <div class="step"><p><strong>Scorecard</strong> (b8): all of it as a standing instrument, instrumentation health first.</p></div>
+    </div>
+
+    <div class="callout win">
+      <strong>★ The series so far, and next</strong>
+      The metrics course gave every number a definition; this course gave every number an address. Course 3 of the series measures <strong>traffic</strong> - where sessions come from before they reach the doors - on the same Mango Lane month. Siblings when you need them: <a href="https://phoebefu6.github.io/learn-ecommerce-metrics-with-phoebe/">learn-ecommerce-metrics-with-phoebe</a> (the prequel), <a href="https://phoebefu6.github.io/learn-experimentation-with-phoebe/">learn-experimentation-with-phoebe</a> (test the fixes), <a href="https://phoebefu6.github.io/learn-marketing-attribution-with-phoebe/">learn-marketing-attribution-with-phoebe</a> (credit the channels).
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 30-40 min total</span></h2>
+    </div>
+    <ul>
+      <li>Write your own 8-row journey scorecard. Start from Mango Lane's rows and swap in your store's baselines - "instrument first" is an honest cell where you have no data.</li>
+      <li>Put the instrumentation-health row first and wire the cheapest version: a weekly glance at event volume per screen.</li>
+      <li>Get every owner named in a row to agree in writing - a spec nobody accepted is a wish with a table around it.</li>
+      <li>Ship it where your team actually reads (wiki, dashboard header, the WBR deck appendix) - not a drawer.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources</span>
+      <h2>Sources this session draws on</h2>
+    </div>
+    <p class="lede">The scorecard consolidates the whole course; its rows cite the sessions that verified them. This page draws on:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GA4/Firebase event definitions - view_item, view_search_results, screen_view, checkout journey steps</span><span class="note">Part 2 · every row's source events</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">learn-ecommerce-metrics b8 spec sheet - the seven base fields and the changelog discipline</span><span class="note">Part 1 · what the journey scorecard extends</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Mango Lane journey canon - every baseline in the table cross-foots to the course's numbers</span><span class="note">Part 2 · doors, paths, engagement, checkout chain</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Alert-threshold craft - simple % bands here; statistical detection in learn-anomaly-detection-with-phoebe</span><span class="note">Honesty note · pointer, not coverage</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · What does the SCREEN field add that the metrics course's spec sheet lacked?</p>
+      <button class="qopt" type="button">A · A prettier table</button>
+      <button class="qopt" type="button">B · A pre-computed address - a threshold breach arrives pointing at the screens to check, in drill-down order</button>
+      <button class="qopt" type="button">C · A second owner</button>
+      <p class="qwhy">Journey metrics live on screens. The field turns "PDP penetration breached" into "start at search results, then PLP, then Home modules" - b7's drill-down, pre-loaded.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · Why is instrumentation health row one?</p>
+      <button class="qopt" type="button">A · The most common journey "incident" is a measurement outage in a business costume - check the map before the store</button>
+      <button class="qopt" type="button">B · It is the easiest row to compute</button>
+      <button class="qopt" type="button">C · Alphabetical order</button>
+      <p class="qwhy">Every other row assumes events are firing. A screen that went quiet fakes a business drop perfectly - the health row catches it before the war room convenes.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">3 · The zero-result search row's baseline cell says "instrument first". Why not estimate one?</p>
+      <button class="qopt" type="button">A · Zero-result rates do not matter</button>
+      <button class="qopt" type="button">B · Estimates are always fine</button>
+      <button class="qopt" type="button">C · A made-up baseline poisons the threshold - instrument, watch four weeks, then set the band</button>
+      <p class="qwhy">A spec row is a promise about reality. Where no data exists yet, the honest state is "instrument first" - the same discipline as the course's flagged benchmarks.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 8 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Eight fields</b><span>Name · definition · formula · denominator · source events · owner · alert threshold · SCREEN/STEP.</span></div>
+      <div class="cheat-item"><b>The screen field</b><span>A breach arrives pre-addressed, screens listed in drill-down order. Owner must own the screens.</span></div>
+      <div class="cheat-item"><b>Row one, always</b><span>Instrumentation health: event volume per screen within ±40% of its 4-week norm.</span></div>
+      <div class="cheat-item"><b>The eight rows</b><span>Health · PDP pen · door mix · Home reach · search share + CR pair · engaged-PDP pair · checkout steps · zero-result rate.</span></div>
+      <div class="cheat-item"><b>Weekly vs monthly</b><span>Gates, doors, search, checkout steps weekly; path and engagement pairs monthly (thin-slice rule).</span></div>
+      <div class="cheat-item"><b>"Instrument first"</b><span>A legitimate baseline state. A made-up number is not. Four weeks of data, then the band.</span></div>
+      <div class="cheat-item"><b>Changelog discipline</b><span>Definitions change only with a dated entry; dashboards footnote it for a quarter.</span></div>
+      <div class="cheat-item"><b>Course complete</b><span>Definitions (prequel) + addresses (this course). Next in series: traffic - where sessions come from.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 8 of 8 · learn-user-journey-analytics-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b7-diagnose-a-journey-leak.html">← Prev: Diagnose a journey leak</a> &nbsp;·&nbsp; <a href="../index.html">Course complete - back to all sessions →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/journey-live.js?v=2"></script>
+<script src="../assets/tree-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

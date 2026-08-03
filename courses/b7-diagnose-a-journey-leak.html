@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyst session 7 · Diagnose a journey leak - learn user journey analytics with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-user-journey-analytics-with-phoebe</a> / Analyst session 7 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn User Journey Analytics with Phoebe · Analyst track · Session 7 of 8</div>
+    <h1>Diagnose <span class="accent">a journey leak</span></h1>
+    <p class="sub">Monday morning. GMV is down 9% week over week, and the metrics course's driver tree has already done its job: the conversion lever fell, not sessions, not AOV. That is where the prequel stopped - and where this course earns its keep. Today you run the tree's verdict down through the journey layers: which gate, which door, which path, which screen, which step. By the end the leak has an address and an owner.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Analyst track</span>
+      <span class="chip audience">Analysts · PMs · UX · growth</span>
+      <span class="chip audience">▶ Live flow simulator</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:3">3-14 · The extended workflow</span>
+      <span class="a3" style="flex:6">14-40 · Live diagnosis + the finding</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where you are</h2>
+    </div>
+    <p class="lede">This is the second simulator session - b4's machine, run in reverse. In b4 you turned dials up and watched GMV grow; today a dial has been turned DOWN somewhere and you must find which one, using everything since b1: the map, the doors (b2), the paths (b3), the PDP instruments (b5), and the checkout micro-funnel (b6). The prequel's diagnosis session (<a href="https://phoebefu6.github.io/learn-ecommerce-metrics-with-phoebe/courses/b5-diagnose-the-drop.html">its b5</a>) covered the tree; this session covers everything underneath it.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">▶ Live flow - editable &amp; runnable</span>
+      <span class="pill inkpill">Sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      The full six-step drill-down from a GMV alarm to a single screen, the simulator proof of why the top line alone cannot locate a leak, and a fill-in-the-blanks finding template that ends with a screen and an owner.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: THE WORKFLOW ============ -->
+  <section class="section" id="workflow">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the drill-down from money to screen</span>
+      <h2>The extended diagnosis workflow <span class="tag concept">11 min live</span></h2>
+    </div>
+    <p class="lede">The metrics course taught steps 1-2: confirm the drop is real, then let the driver tree name the lever. This course adds four more layers underneath the conversion lever. Six steps, each one narrowing the search space, each one using an instrument you have already built in this track.</p>
+
+    <div class="steps">
+      <div class="step"><p><strong>Confirm it is real.</strong> Tracking outage? Seasonality? Check event volumes and the same week last year before anyone panics. A fake drop diagnosed as real wastes a week.</p></div>
+      <div class="step"><p><strong>Tree: which lever.</strong> GMV = sessions x CR x AOV. The prequel's driver tree already ran: sessions held, AOV held, CR fell. Done - inherited from the metrics course.</p></div>
+      <div class="step"><p><strong>Gates: which of the four fell.</strong> CR is a product of PDP penetration x add-to-cart x checkout start x completion. Pull the four gate rates WoW and find the one that moved.</p></div>
+      <div class="step"><p><strong>Doors + paths: mix or quality.</strong> A gate is an average across five doors and two paths. Use b2's decomposition: did the door MIX shift, or did one door's QUALITY fall?</p></div>
+      <div class="step"><p><strong>Screen / step: where exactly.</strong> Drill into the screen-level instruments - b5's engagement events on the PDP, b6's step completions in checkout - until you can name one screen or one step.</p></div>
+      <div class="step"><p><strong>Write the screen-level finding.</strong> One paragraph: the drop, the lever, the gate, the door, the screen, the suspected cause, the owner, the action, the re-check date. Demo 2 gives you the template.</p></div>
+    </div>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The six-step drill-down from a GMV alarm to a single screen: lever, gate, door, screen, finding">
+        <style>
+          .dlgH { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .dlgC { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .dlgT { font: 800 13px Inter, sans-serif; fill: #FFFFFF; }
+          .dlgS { font: 400 11px Inter, sans-serif; fill: #99F6E4; }
+          .dlgN { font: 600 12.5px Inter, sans-serif; fill: #042F2E; }
+          .dlgArr { stroke: #14B8A6; stroke-width: 2.5; fill: none; marker-end: url(#dlgArrHead); }
+        </style>
+        <defs>
+          <marker id="dlgArrHead" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#14B8A6"/>
+          </marker>
+        </defs>
+
+        <rect x="240" y="20" width="400" height="56" rx="10" fill="#FFE4E6"/>
+        <text class="dlgH" x="440" y="43" text-anchor="middle" style="fill:#881337">Monday alarm: GMV down 9% WoW</text>
+        <text class="dlgC" x="440" y="62" text-anchor="middle" style="fill:#BE123C">the report line everyone sees - and where most meetings stop</text>
+
+        <path class="dlgArr" d="M440,76 L440,102"/>
+        <text class="dlgC" x="456" y="94" text-anchor="start">steps 1-2 · confirm real, then the driver tree (metrics course b5)</text>
+
+        <rect x="240" y="106" width="400" height="56" rx="10" fill="#0F766E"/>
+        <text class="dlgT" x="440" y="129" text-anchor="middle">Lever: conversion rate fell</text>
+        <text class="dlgS" x="440" y="148" text-anchor="middle">sessions held · AOV held - the tree already ruled them out</text>
+
+        <path class="dlgArr" d="M440,162 L440,188"/>
+        <text class="dlgC" x="456" y="180" text-anchor="start">step 3 · the four gates, WoW</text>
+
+        <rect x="240" y="192" width="400" height="56" rx="10" fill="#0F766E"/>
+        <text class="dlgT" x="440" y="215" text-anchor="middle">Gate: PDP penetration fell 40% to 36.4%</text>
+        <text class="dlgS" x="440" y="234" text-anchor="middle">add-to-cart, checkout start, completion all held</text>
+
+        <path class="dlgArr" d="M440,248 L440,274"/>
+        <text class="dlgC" x="456" y="266" text-anchor="start">step 4 · doors and paths - mix or quality? (b2, b3)</text>
+
+        <rect x="240" y="278" width="400" height="56" rx="10" fill="#0F766E"/>
+        <text class="dlgT" x="440" y="301" text-anchor="middle">Door: Home quality fell, mix held</text>
+        <text class="dlgS" x="440" y="320" text-anchor="middle">Home reach-PDP 20% to 16% - every other door held</text>
+
+        <path class="dlgArr" d="M440,334 L440,360"/>
+        <text class="dlgC" x="456" y="352" text-anchor="start">step 5 · screen and step instruments (b5, b6)</text>
+
+        <rect x="240" y="364" width="400" height="56" rx="10" fill="#134E4A"/>
+        <text class="dlgT" x="440" y="387" text-anchor="middle">Screen: the homepage</text>
+        <text class="dlgS" x="440" y="406" text-anchor="middle">banner takeover buried the catalog modules</text>
+
+        <path class="dlgArr" d="M440,420 L440,446"/>
+        <text class="dlgC" x="456" y="438" text-anchor="start">step 6 · write it down</text>
+
+        <rect x="240" y="450" width="400" height="52" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="dlgH" x="440" y="471" text-anchor="middle">The finding: screen + owner + action + re-check</text>
+        <text class="dlgC" x="440" y="490" text-anchor="middle">one paragraph, no meeting required</text>
+
+        <rect x="30" y="516" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="dlgN" x="54" y="528">Each level shrinks the search space: from all of GMV to one screen with one owner, in six steps.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the six-step drill-down: from a 9% GMV alarm to one screen with one owner</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why the extra layers exist at all<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The prequel could say "CR fell" - and then it had to stop, because CR is a blend of four gates, five doors, two paths, and a dozen screens. Everything you built in b1-b6 exists for exactly this Monday:</p>
+        <ul>
+          <li><strong>The gates</strong> (b4's machine) split CR into four owned rates - the first cut.</li>
+          <li><strong>The doors</strong> (b2's decomposition) split each gate into mix versus quality - the second cut.</li>
+          <li><strong>The screen instruments</strong> (b5's engagement events, b6's checkout steps) point at pixels - the final cut.</li>
+        </ul>
+        <p>Without the layers, "CR fell 9%" becomes a room full of teams each explaining why it is not them. With the layers, it becomes one team's Tuesday ticket.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO 1: THE LIVE DIAGNOSIS ============ -->
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Demo 1 of 2</span>
+      <h2>Run the diagnosis live <span class="tag demo">★ 15 min · everyone works</span></h2>
+    </div>
+    <p class="lede">Here is b4's machine again, loaded with three competing hypotheses instead of four fixes. Each lever recreates this week's reported drop through a different gate. Your job: prove the top line cannot tell them apart, then break the tie with gate-level data.</p>
+
+    <div class="flowbox" data-caption="Your diagnosis scratch pad - recreate the reported drop by matching the gates to this week's numbers.">
+<pre class="flow-src">{
+  "sessions": 360000, "aov": 68,
+  "stages": [
+    { "label": "Sessions" },
+    { "label": "PDP sessions",      "rate": 0.40, "rateLabel": "PDP penetration" },
+    { "label": "Cart sessions",     "rate": 0.25, "rateLabel": "add-to-cart" },
+    { "label": "Checkout sessions", "rate": 0.45, "rateLabel": "checkout start" },
+    { "label": "Orders",            "rate": 0.60, "rateLabel": "completion" }
+  ],
+  "levers": [
+    { "stage": 1, "to": 0.364, "label": "This week: PDP penetration fell", "desc": "40% down to 36.4% - the reported drop, recreated" },
+    { "stage": 2, "to": 0.2275, "label": "Alt hypothesis: add-to-cart fell", "desc": "25% down to 22.75% - produces the same -9%" },
+    { "stage": 4, "to": 0.546, "label": "Alt hypothesis: completion fell", "desc": "60% down to 54.6% - also the same -9%" }
+  ]
+}</pre>
+    </div>
+
+    <div class="steps">
+      <div class="step"><p><strong>Toggle each hypothesis alone.</strong> All three land on roughly the same orders line, about 9% below baseline. No coincidence: 0.364/0.40 = 0.2275/0.25 = 0.546/0.60 = 0.91, and in a multiplicative flow a 0.91x on ANY single gate passes straight through as a 0.91x on orders. The top line literally cannot tell them apart - that is WHY the journey layers exist.</p></div>
+      <div class="step"><p><strong>Break the tie with gate-level counts.</strong> Now pull the stage counts, not the ratios of ratios. This week PDP sessions fell to about 131,000 (360,000 x 36.4%), while cart-rate-of-PDP and both checkout gates held at 25% / 45% / 60%. Hypothesis 1 wins: the leak is above the PDP, in getting people TO products.</p></div>
+      <div class="step"><p><strong>Drill into the doors with b2's table.</strong> Door mix held - same five shares as always. But Home's reach-PDP quality fell from 20% to 16% after a homepage banner takeover buried the catalog modules; every other door held its rate. The leak has an address: the homepage.</p></div>
+    </div>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>This ambiguity is the most common diagnosis failure in the wild.</strong> A war room stares at "CR down 9%" and three teams each run their own analysis proving it is someone else's gate. Gate-level session counts settle it in one query - which is why b8's scorecard tracks the four gate COUNTS weekly, not just the blended CR.</p>
+    </div>
+  </section>
+
+  <!-- ============ DEMO 2: WRITE THE FINDING ============ -->
+  <section class="section" id="demo-2">
+    <div class="section-kicker">
+      <span class="klabel">Demo 2 of 2</span>
+      <h2>Write the screen-level finding <span class="tag demo">★ 10 min · everyone writes</span></h2>
+    </div>
+    <p class="lede">A diagnosis that lives in a dashboard dies in a dashboard. The deliverable is one paragraph, in a fixed shape, that any executive can read in twenty seconds and any team can act on. Memorize the template; fill it every time.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The template, then the filled version<span class="mini">6 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>The template:</strong> "GMV fell [X]% WoW. Tree: CR lever. Gate: [gate] fell [from] to [to]. Doors: [mix or quality, which door]. Screen: [the address]. Suspected cause: [change/incident]. Owner: [team]. Action: [fix]. Re-check: [date]."</p>
+        <table class="clean">
+          <thead><tr><th>Field</th><th>This week, filled in</th></tr></thead>
+          <tbody>
+            <tr><td>The drop</td><td>GMV fell 9% WoW</td></tr>
+            <tr><td>Tree</td><td>CR lever - sessions and AOV held (metrics course b5)</td></tr>
+            <tr><td>Gate</td><td>PDP penetration fell 40% to 36.4% (PDP sessions ~131,000); other three gates held</td></tr>
+            <tr><td>Doors</td><td>Quality, not mix: Home reach-PDP 20% to 16%, every other door held</td></tr>
+            <tr><td>Screen</td><td>Homepage</td></tr>
+            <tr><td>Suspected cause</td><td>Monday's banner takeover buried the catalog modules below the fold</td></tr>
+            <tr><td>Owner</td><td>Homepage / merchandising team</td></tr>
+            <tr><td>Action</td><td>Restore the catalog modules above the fold</td></tr>
+            <tr><td>Re-check</td><td>Friday - Home reach-PDP back at ~20%, PDP sessions back at ~144,000</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          <strong>A journey finding ends with a SCREEN and an OWNER, not a metric</strong>
+          "CR fell 9%" is a fact; "the homepage banner buried the catalog, merchandising restores the modules, re-check Friday" is a finding. If your last sentence names a number instead of a screen and a team, you stopped one layer too early - go back to step 5.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The false-positive checklist - before you accuse a screen<span class="mini">4 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three impostors produce exactly this signature without any real behavior change. Run this checklist between step 1 and step 6, every time:</p>
+        <ul>
+          <li><strong>Instrumentation outage.</strong> A screen stopped firing its events - b1's trap. A silent view_item makes PDP penetration "fall" while shoppers browse happily. Check raw event volumes per screen BEFORE any business panic; a screen at near-zero events is a bug report, not a leak.</li>
+          <li><strong>App release the same day.</strong> A new version can change what fires and when. Split every gate by app version: if the drop lives entirely in the new build, suspect the build - either its tracking or a genuinely broken screen it shipped.</li>
+          <li><strong>Campaign mix.</strong> A paid flood through a weak door (say, a burst of Other-door retargeting) drags the blended gate down while every door's own quality holds. That is a mix effect, not a quality leak - b2's decomposition separates them in one table.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 25-35 min total</span></h2>
+    </div>
+    <ul>
+      <li>Find your worst week this quarter - the biggest WoW drop in orders or GMV you can locate.</li>
+      <li>Run all six steps on it for real: confirm real, tree, gates, doors and paths, screen or step, finding.</li>
+      <li>Run the false-positive checklist before writing anything: event volumes, releases that week, campaign mix.</li>
+      <li>Write the finding in the template - even if it honestly ends "seasonal gravity, no action". A clean no-action finding is still a finding, and it saves the next analyst the same week of work.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources</span>
+      <h2>Sources this session draws on</h2>
+    </div>
+    <p class="lede">Diagnosis is where the whole two-course stack pays off at once. This page draws on:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Metrics-course diagnosis workflow - <a href="https://phoebefu6.github.io/learn-ecommerce-metrics-with-phoebe/courses/b5-diagnose-the-drop.html">its b5, diagnose the drop</a> (steps 1-2)</span><span class="note">Part 1 · the tree verdict this session inherits and extends</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Mango Lane journey canon - gates, doors, paths, all python-verified (b1-b3)</span><span class="note">Demo 1 · every count in the diagnosis cross-checks</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Instrumentation traps - silent screens and unfired events (this course's b1)</span><span class="note">Self-study · false positive number one</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">The finding template and false-positive checklist - practitioner craft, not a fetched primary source</span><span class="note">Demo 2 · field-tested shape, honestly flagged as craft</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Three different gate drops all produced the same -9% orders in the simulator. Why?</p>
+      <button class="qopt" type="button">A · Coincidence in the teaching numbers</button>
+      <button class="qopt" type="button">B · The simulator rounds everything to 9%</button>
+      <button class="qopt" type="button">C · The flow is multiplicative - a 0.91x on ANY single gate passes through as 0.91x on orders</button>
+      <p class="qwhy">0.364/0.40 = 0.2275/0.25 = 0.546/0.60 = 0.91. The top line carries the product of the gates, so it cannot say which factor moved - that ambiguity is the whole reason the journey layers exist.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · What data breaks the tie between the three hypotheses?</p>
+      <button class="qopt" type="button">A · Gate-level counts - PDP sessions fell to ~131,000 while the later gate rates all held</button>
+      <button class="qopt" type="button">B · A bigger sample of the top line</button>
+      <button class="qopt" type="button">C · Asking each team which gate they think fell</button>
+      <p class="qwhy">The blended CR is ambiguous; the per-stage counts are not. One query showing PDP sessions down and cart/checkout/completion rates flat localizes the leak above the PDP immediately.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">3 · Which of these is a COMPLETE journey finding?</p>
+      <button class="qopt" type="button">A · "CR fell 9% WoW, driven by PDP penetration"</button>
+      <button class="qopt" type="button">B · "Gate, door, screen, suspected cause, owner, action, re-check date - all named"</button>
+      <button class="qopt" type="button">C · "GMV fell 9%; investigation ongoing"</button>
+      <p class="qwhy">A finding ends with a screen and an owner, not a metric. Option A stops at step 3 of 6; the template forces you all the way down to the homepage, merchandising, and Friday's re-check.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 7 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The six steps</b><span>Confirm real → tree (lever) → gates → doors + paths → screen/step → write the finding.</span></div>
+      <div class="cheat-item"><b>Top-line ambiguity</b><span>A 0.91x on any gate = 0.91x on orders. The blended number cannot localize a leak.</span></div>
+      <div class="cheat-item"><b>The tie-breaker</b><span>Gate-level COUNTS: this week PDP sessions ~131,000, later gate rates held. Hypothesis 1 wins.</span></div>
+      <div class="cheat-item"><b>Mix vs quality</b><span>b2's decomposition: door shares held, Home reach-PDP fell 20% → 16%. Quality leak, one door.</span></div>
+      <div class="cheat-item"><b>The finding template</b><span>Drop, tree, gate, doors, screen, cause, owner, action, re-check. One paragraph, fixed shape.</span></div>
+      <div class="cheat-item"><b>Screen + owner rule</b><span>A finding ends with a screen and an owner, not a metric. Otherwise go back one layer.</span></div>
+      <div class="cheat-item"><b>False positives</b><span>Instrumentation outage, same-day app release, campaign mix flood. Check all three first.</span></div>
+      <div class="cheat-item"><b>No-action findings count</b><span>"Seasonal gravity, no action" is a valid ending. Next: b8 makes the whole drill a standing scorecard.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Analyst session 7 of 8 · learn-user-journey-analytics-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b6-cart-checkout-micro-funnel.html">← Prev: Cart &amp; checkout micro-funnel</a> &nbsp;·&nbsp; <a href="b8-the-journey-scorecard.html">Next: The journey scorecard →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/journey-live.js?v=2"></script>
+<script src="../assets/tree-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leader session 5 · The last mile - learn user journey analytics with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-user-journey-analytics-with-phoebe</a> / Leader session 5 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn User Journey Analytics with Phoebe · Leader track · Session 5 of 6</div>
+    <h1>The <span class="accent">last mile</span></h1>
+    <p class="sub">16,200 Mango Lane sessions start checkout every month. 9,720 pay. The 6,480 who quit mid-payment are the most expensive people in your business - they chose a product, tapped the buy button, and then changed their minds while holding out a card. This session teaches you to read the last mile like a leader: which abandonment numbers are normal, which are fixable, and why half the fixes are policy decisions only you can make.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Leader track</span>
+      <span class="chip audience">Commercial + product leaders</span>
+      <span class="chip audience">Reading mode - no computation</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-15 · The last 16,200</span>
+      <span class="a3" style="flex:6">15-42 · Why checkouts die &amp; the autopsies</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where you are</h2>
+    </div>
+    <p class="lede">You have followed the journey from its doors (a2), through search and browse (a3), into the product page decision room (a4). This session covers the final stretch: cart to paid order. It is the shortest part of the journey and the most misread - because two very different kinds of "abandonment" get mixed into one scary number. Next session (a6) closes the track with the prioritization ritual that decides which of all these fixes gets funded first.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill inkpill">Sources covered</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      The cart-vs-checkout abandonment distinction that stops bad meetings, the research table of why checkouts actually die, and three checkout autopsies you can rerun on your own store by asking four questions.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: THE LAST 16,200 ============ -->
+  <section class="section" id="lastmile">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the distinction that stops bad meetings</span>
+      <h2>The last 16,200: two abandonments, two problems <span class="tag concept">10 min read</span></h2>
+    </div>
+    <p class="lede">Mango Lane's last mile: 16,200 sessions begin checkout, 9,720 pay - a 60% completion rate, genuinely strong against the ~45% typical for comparable stores. But the meeting that goes wrong starts one screen earlier, when someone projects "70% of carts are abandoned!" and the room panics. That number mixes two populations that need opposite responses.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two-stage diagram separating cart abandonment, which is large and partly normal, from checkout abandonment, which is smaller and actionable">
+        <style>
+          .lmH { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .lmV { font: 800 14px Inter, sans-serif; fill: #134E4A; }
+          .lmC { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .lmT { font: 800 13px Inter, sans-serif; fill: #FFFFFF; }
+          .lmW { font: 400 11px Inter, sans-serif; fill: #FFFFFF; }
+          .lmN { font: 600 12.5px Inter, sans-serif; fill: #042F2E; }
+          .lmR { font: 700 13px Inter, sans-serif; fill: #881337; }
+          .lmP { font: 800 14px Inter, sans-serif; fill: #BE123C; }
+          .lmS { font: 400 11px Inter, sans-serif; fill: #881337; }
+          .lmArr { stroke: #14B8A6; stroke-width: 2; fill: none; marker-end: url(#lmArrHead); }
+        </style>
+        <defs>
+          <marker id="lmArrHead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#14B8A6"/>
+          </marker>
+        </defs>
+
+        <rect x="30" y="120" width="160" height="70" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="lmH" x="110" y="147" text-anchor="middle">Cart sessions</text>
+        <text class="lmV" x="110" y="169" text-anchor="middle">36,000</text>
+
+        <rect x="280" y="30" width="250" height="96" rx="10" fill="#FFE4E6"/>
+        <text class="lmR" x="405" y="54" text-anchor="middle">Cart abandonment</text>
+        <text class="lmP" x="405" y="76" text-anchor="middle">19,800 leave (55%)</text>
+        <text class="lmS" x="405" y="96" text-anchor="middle">~42-43% of abandoners were</text>
+        <text class="lmS" x="405" y="112" text-anchor="middle">just browsing - mostly normal</text>
+
+        <rect x="280" y="180" width="220" height="70" rx="10" fill="#0F766E"/>
+        <text class="lmT" x="390" y="207" text-anchor="middle">Start checkout</text>
+        <text class="lmT" x="390" y="229" text-anchor="middle">16,200 (45%)</text>
+
+        <rect x="590" y="120" width="270" height="66" rx="10" fill="#134E4A"/>
+        <text class="lmT" x="725" y="145" text-anchor="middle">Pay - 9,720 orders</text>
+        <text class="lmW" x="725" y="167" text-anchor="middle">60% completion, vs ~45% typical</text>
+
+        <rect x="590" y="212" width="270" height="90" rx="10" fill="#FFE4E6"/>
+        <text class="lmR" x="725" y="236" text-anchor="middle">Checkout abandonment</text>
+        <text class="lmP" x="725" y="258" text-anchor="middle">6,480 quit (40%)</text>
+        <text class="lmS" x="725" y="278" text-anchor="middle">started paying and stopped -</text>
+        <text class="lmS" x="725" y="293" text-anchor="middle">mostly fixable, all expensive</text>
+
+        <path class="lmArr" d="M190,138 C230,120 240,95 276,80"/>
+        <path class="lmArr" d="M190,172 C230,185 240,200 276,212"/>
+        <path class="lmArr" d="M500,200 C540,190 550,165 586,150"/>
+        <path class="lmArr" d="M500,228 C540,238 550,248 586,255"/>
+
+        <text class="lmC" x="228" y="90" text-anchor="middle">55% leave</text>
+        <text class="lmC" x="228" y="212" text-anchor="middle">45% proceed</text>
+        <text class="lmC" x="545" y="168" text-anchor="middle">60% pay</text>
+        <text class="lmC" x="545" y="255" text-anchor="middle">40% quit</text>
+
+        <rect x="30" y="316" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="lmN" x="54" y="328">Cart abandonment is partly normal browsing; checkout abandonment is money already in motion - read them apart.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - two stages, two problems: the big number is partly normal, the smaller number is the fixable one</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The distinction that stops bad meetings<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Two terms, two populations, two responses:</p>
+        <ul>
+          <li><strong>Cart abandonment</strong> - someone added a product and never bought. Baymard Institute's average across 50 studies is 70.22% (2025 survey wave). Sounds catastrophic, but when Baymard asks abandoners why, roughly 42-43% say they were just browsing - comparing, saving for later, window shopping. A large share of cart abandonment is <em>normal shopper behavior</em>, not a broken store.</li>
+          <li><strong>Checkout abandonment</strong> - someone began checkout, started entering shipping and payment details, and quit. These people had decided to buy. Their reasons are concrete, researchable, and mostly fixable - and every one of them is a nearly-closed sale walking out the door.</li>
+        </ul>
+        <p>Mango Lane's split: 36,000 cart sessions, 19,800 leave at the cart (partly normal), 16,200 proceed, and 6,480 of those quit mid-checkout (mostly fixable). The 6,480 is the number this session is about.</p>
+        <div class="callout tip">
+          <strong>What to ask</strong>
+          "When you say abandonment, do you mean cart or checkout?" - the single question that redirects a panicked meeting. Then: "What is our checkout completion rate, and how does it compare to the ~45% typical?" Mango Lane's answer is 60% - strong - which changes what gets funded (a6 picks that thread up).
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why the big number still matters a little<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>"Mostly normal" is not "ignore it". Two honest uses of the cart abandonment number: watch its <em>trend</em> (a sudden jump means something changed - price display, shipping banner, a bug), and mine the just-browsing majority with low-cost nudges (saved carts, back-in-stock notes, a reminder that respects the shopper). What you should not do is set a target like "halve cart abandonment" - you would be declaring war on window shopping, and you would lose.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: WHY CHECKOUTS DIE ============ -->
+  <section class="section" id="reasons">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · the research table worth memorizing</span>
+      <h2>Why checkouts die <span class="tag concept">10 min read</span></h2>
+    </div>
+    <p class="lede">Baymard Institute surveys shoppers who began a checkout and quit, excluding the just-browsing crowd. The reasons are stable year over year and refreshingly concrete (Baymard Institute, 2025 survey wave; respondents could pick several):</p>
+
+    <table class="clean">
+      <thead><tr><th>Reason people abandoned a checkout</th><th>Share</th><th>Whose decision is the fix?</th></tr></thead>
+      <tbody>
+        <tr><td>Extra costs too high (shipping, tax, fees)</td><td>40%</td><td>Policy - pricing &amp; shipping strategy</td></tr>
+        <tr><td>Delivery was too slow</td><td>20%</td><td>Policy - logistics &amp; carrier choice</td></tr>
+        <tr><td>Didn't trust the site with card information</td><td>19%</td><td>Design + brand - trust signals</td></tr>
+        <tr><td>Site wanted an account created</td><td>18%</td><td>Policy - a management choice</td></tr>
+        <tr><td>Checkout too long or complicated</td><td>17%</td><td>Design - forms &amp; steps</td></tr>
+        <tr><td>Website errors or crashes</td><td>17%</td><td>Engineering - reliability</td></tr>
+        <tr><td>Unsatisfactory returns policy</td><td>13%</td><td>Policy - commercial terms</td></tr>
+        <tr><td>Couldn't see the total cost upfront</td><td>12%</td><td>Design + policy - price transparency</td></tr>
+        <tr><td>Card was declined</td><td>10%</td><td>Payments - provider &amp; retry logic</td></tr>
+        <tr><td>Too few payment methods</td><td>9%</td><td>Payments - a commercial decision</td></tr>
+      </tbody>
+    </table>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Read the table like a leader: policy beats pixels<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Scan the third column. The top killers are not design flaws - they are <strong>business decisions</strong>. Extra costs (40%) is your shipping fee policy. Slow delivery (20%) is your logistics contract. Account required (18%) is a management preference for "capturing" customers. Returns policy (13%) is commercial terms. Roughly half of checkout abandonment is set in <em>your</em> meetings, not in the design team's Figma files.</p>
+        <p>This reframes the classic escalation. When checkout completion disappoints, the reflex is "redesign the checkout". The research says: first check whether policy is doing the killing. A beautiful checkout that reveals a surprise $9.90 shipping fee at the last step will lose to an ugly one that said "free shipping" on the product page.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>The cheapest checkout fix on record is a sentence.</strong> Stores that show the full cost early - shipping, tax, fees, on the cart or even the product page - attack the 40% reason and the 12% reason at once, with zero engineering. The expensive redesign can wait until the policy problems are gone.</p>
+        </div>
+        <div class="callout tip">
+          <strong>What to ask</strong>
+          "Of our checkout abandonment, how much is policy - shipping fees, delivery promise, forced accounts, returns terms - versus experience?" And: "When does a shopper first see the true total?" If the answer is "at the last step", you have found the 40% reason live in your own store.
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: FRICTION VS REASSURANCE ============ -->
+  <section class="section" id="friction">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · shorter is not automatically better</span>
+      <h2>Friction vs reassurance <span class="tag concept">10 min read</span></h2>
+    </div>
+    <p class="lede">The lazy conclusion from Part 2 is "make checkout shorter". The research is more interesting. Baymard measures the average US checkout at 5.1 steps and 11.3 form fields shown, against an ideal of roughly 8 fields - and finds that <strong>field count matters more than step count</strong>. A five-step checkout with few, well-labeled fields per step outperforms a heroic one-page checkout crammed with everything. Meanwhile 19% of abandoners quit because they did not trust the site with card details - which means some <em>additions</em> (recognized payment logos, security cues, a human returns promise) raise completion. The craft is removing friction while adding reassurance.</p>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The $260B claim<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Baymard's headline estimate: <strong>$260 billion</strong> of lost orders in the US and EU are recoverable through better checkout design alone - not more traffic, not lower prices, just fixing the flow and forms for people who already decided to buy. Treat the precise figure as an estimate, but take the shape of the claim seriously: the last mile is the highest-intent, lowest-cost place to recover revenue in ecommerce. Every session that reaches your checkout has already survived every earlier gate - losing it there wastes the entire journey you paid to create.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Guest checkout: move the account ask to the receipt<span class="mini">3 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>"Site wanted an account created" kills 18% of checkout abandoners - shoppers holding a card, blocked by a registration form. The fix is not "no accounts"; it is <strong>sequencing</strong>. Let everyone check out as a guest, take the money, and then make account creation the receipt-page ask: "Save your details for next time?" After payment, the shopper has nothing left to lose and a reason to say yes (order tracking). Before payment, the same form is a wall. The information collected is identical - only the moment changes, and the moment is everything.</p>
+        <div class="callout tip">
+          <strong>What to ask</strong>
+          "Do we offer guest checkout, and where does the account ask happen - before the money or after?" Then: "How many fields does our checkout show, against the ~8-field ideal?" Both answers arrive in a day and often embarrass the current flow.
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO: THREE AUTOPSIES ============ -->
+  <section class="section" id="autopsies">
+    <div class="section-kicker">
+      <span class="klabel">Demo · read along, no computation</span>
+      <h2>Three checkout autopsies <span class="tag demo">★ 12 min · read along</span></h2>
+    </div>
+    <p class="lede">Three ways a checkout number goes wrong, each diagnosed the way you would in a real review. Read the evidence, then the leader question that cracks each case.</p>
+
+    <div class="steps">
+      <div class="step"><p><strong>Autopsy 1 - completion fell the week a promotion ended.</strong> Checkout completion slid from 60% toward 55% right after "free shipping over $80" expired. Nothing in the checkout changed - the <em>total</em> did. This is the 40% reason (extra costs) arriving on schedule: shoppers who built carts under free shipping now meet a fee at the pay step. A policy killed the number; no redesign will resurrect it. <em>Leader question: "What changed in what the shopper pays or sees - price, shipping, fees - in the same week the number moved?"</em></p></div>
+      <div class="step"><p><strong>Autopsy 2 - mobile completion runs 15 points under desktop.</strong> Same store, same prices, same policy - so the gap is experience. On a phone, 11.3 fields hurt roughly twice as much, and the absence of wallet payments (one-tap pay instead of typing a card number on glass) removes the strongest mobile shortcut. <em>Leader question: "What is our completion rate split by device, and can a phone shopper pay without typing a card number?"</em></p></div>
+      <div class="step"><p><strong>Autopsy 3 - the drop concentrates at the payment step.</strong> Shipping details complete fine; the loss piles up exactly where the card goes in. That pattern points at declined cards (10%), too few payment methods (9%), or a trust wobble (19%) - three different owners, one location. You cannot tell which from the completion rate alone; you need the per-step split. <em>Leader question: "Show me completion step by step - shipping, payment, purchase. Where exactly do they quit?" (Your analysts build precisely this micro-funnel in b6 of the analyst track.)</em></p></div>
+    </div>
+
+    <div class="callout tip">
+      <strong>The pattern across all three</strong>
+      Never accept "checkout completion is down" as a finding. Ask when it moved (autopsy 1), for whom (autopsy 2), and at which step (autopsy 3). Three questions, no computation, and the room usually knows the answer to at least one of them already.
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 20 min total</span></h2>
+    </div>
+    <ul>
+      <li>Buy something from your own store on your phone, with a fresh account (or no account). Count the steps, count the fields, and note every surprise - a fee you did not expect, a wall you had to climb.</li>
+      <li>Ask your team for your checkout completion rate against the ~45% typical benchmark, and whether that number is trending.</li>
+      <li>Ask for your top abandonment step - shipping, payment, or purchase - and which of the Baymard reasons your team believes owns it.</li>
+      <li>Bring one policy suspect (shipping fee, account wall, returns terms) to a6 - the prioritization session will teach you what it is worth.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources</span>
+      <h2>Sources this session draws on</h2>
+    </div>
+    <p class="lede">The last mile is the best-researched stretch of ecommerce. This page draws on:</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Baymard Institute, 2025 survey wave - cart abandonment 70.22%, checkout abandonment reasons table</span><span class="note">Parts 1-2 · fetched from the primary source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Baymard checkout length research - 5.1 steps, 11.3 fields shown, ~8 ideal; field count beats step count</span><span class="note">Part 3 · friction vs reassurance</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Littledata Shopify benchmark - checkout completion ~45% typical</span><span class="note">Part 1 · vendor benchmark, treat as a range</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Mango Lane canon - 16,200 begin checkout, 9,720 pay, 60% completion</span><span class="note">Throughout · same store, same month as every session</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Someone projects "70% of our carts are abandoned!" and the room panics. Your move?</p>
+      <button class="qopt" type="button">A · Fund an emergency checkout redesign</button>
+      <button class="qopt" type="button">B · Set a target to halve cart abandonment this quarter</button>
+      <button class="qopt" type="button">C · Ask whether they mean cart or checkout - ~42-43% of cart abandoners were just browsing</button>
+      <p class="qwhy">Cart abandonment (70.22% average) is largely normal shopper behavior. Checkout abandonment - people who started paying and quit - is the smaller, mostly fixable number worth a meeting.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · The single biggest reason people abandon a checkout, per Baymard's 2025 survey wave?</p>
+      <button class="qopt" type="button">A · Extra costs too high (40%) - a shipping and fees policy, not a design flaw</button>
+      <button class="qopt" type="button">B · Ugly button styling</button>
+      <button class="qopt" type="button">C · Checkout too long (the top reason by far)</button>
+      <p class="qwhy">Extra costs at 40% dwarfs everything else, and it is a policy decision. "Too long/complicated" sits at 17% - real, but a supporting actor. Half the fixes belong to leadership, not to pixels.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">3 · Is a shorter checkout always a better checkout?</p>
+      <button class="qopt" type="button">A · Yes - every removed element raises completion</button>
+      <button class="qopt" type="button">B · No - field count matters more than step count, and trust signals are additions that help (19% quit over card trust)</button>
+      <button class="qopt" type="button">C · No - length is completely irrelevant</button>
+      <p class="qwhy">Baymard: ~8 fields is the ideal against 11.3 shown, and fields beat steps as the friction metric. Meanwhile reassurance - payment logos, security cues, clear returns - earns its space. Remove friction, add trust.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Leader session 5 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Two abandonments</b><span>Cart (70.22% avg, ~42-43% just browsing, mostly normal) vs checkout (started paying, quit - mostly fixable).</span></div>
+      <div class="cheat-item"><b>Mango Lane's last mile</b><span>16,200 begin checkout → 9,720 pay. 60% completion, strong vs ~45% typical. 6,480 quit mid-payment.</span></div>
+      <div class="cheat-item"><b>Why checkouts die</b><span>Extra costs 40% · slow delivery 20% · card trust 19% · account wall 18% · too long 17% (Baymard 2025).</span></div>
+      <div class="cheat-item"><b>Policy beats pixels</b><span>The top reasons are business decisions - shipping fees, delivery promise, forced accounts, returns terms.</span></div>
+      <div class="cheat-item"><b>Friction metric</b><span>US average 5.1 steps, 11.3 fields shown, ideal ~8 fields. Field count matters more than step count.</span></div>
+      <div class="cheat-item"><b>Reassurance earns space</b><span>19% quit over card trust - payment logos, security cues, and human returns copy are additions that help.</span></div>
+      <div class="cheat-item"><b>The $260B claim</b><span>Baymard: US+EU recoverable via better checkout design alone. Highest-intent revenue you can win back.</span></div>
+      <div class="cheat-item"><b>Guest checkout</b><span>Account walls kill 18%. Make account creation the receipt-page ask - after the money, never before.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Leader session 5 of 6 · learn-user-journey-analytics-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="a4-the-pdp-decision-room.html">← Prev: The PDP decision room</a> &nbsp;·&nbsp; <a href="a6-journey-priorities.html">Next: Journey priorities →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/journey-live.js?v=2"></script>
+<script src="../assets/tree-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>
