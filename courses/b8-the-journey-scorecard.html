@@ -81,7 +81,7 @@
         <text class="scH" x="90" y="98">Definition</text>
         <text class="scV" x="90" y="116">Share of sessions that view at least one product detail page</text>
         <text class="scH" x="90" y="146">Formula + denominator</text>
-        <text class="scV" x="90" y="164">sessions with &gt;=1 view_item ÷ ALL sessions = 144,000 ÷ 360,000 = 40%</text>
+        <text class="scV" x="90" y="164">&gt;=1 view_item ÷ all sessions = 144,000 ÷ 360,000 = 40%</text>
         <text class="scH" x="90" y="194">Source events</text>
         <text class="scV" x="90" y="212">session_start · view_item</text>
 
@@ -154,6 +154,51 @@
           <li><strong>Monthly:</strong> path CR pair, engaged-PDP pair, and the reach-PDP rates per door. Slow-moving, mix-sensitive - weekly reads on them are mostly noise (the thin-slice rule from b3 applies).</li>
           <li><strong>Changelog discipline (inherited from the metrics course):</strong> definitions change only with a dated entry, and affected dashboards carry a footnote for one quarter.</li>
         </ul>
+
+        <figure class="zoomable">
+          <svg viewBox="0 0 880 298" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The eight scorecard rows split by how often each earns a read. Weekly rows are instrumentation health, which is read first always, the four gates week over week, door mix, search share plus the zero-result rate, and per-step checkout completions. Monthly rows are the path conversion pair of 12 percent against 4.5 percent, the engaged-PDP pair of 9 percent against 4.5 percent, and the reach-PDP rate per door, because weekly reads on those are mostly noise.">
+            <style>
+              .b8cdT { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+              .b8cdH { font: 700 12px Inter, sans-serif; fill: #042F2E; }
+              .b8cdS { font: 400 10.5px Inter, sans-serif; fill: #4B6A66; }
+              .b8cdR { font: 400 11.5px Inter, sans-serif; fill: #134E4A; }
+              .b8cdF { font: 700 11.5px Inter, sans-serif; fill: #042F2E; }
+              .b8cdN { font: 400 12px Inter, sans-serif; fill: #4B6A66; }
+            </style>
+            <rect x="0" y="0" width="880" height="298" fill="#F7FCFA"/>
+            <text class="b8cdT" x="40" y="26">Which rows earn a weekly read, and which are monthly</text>
+
+            <rect x="40" y="44" width="390" height="200" rx="12" fill="#F0FDFA" stroke="#99F6E4"/>
+            <text class="b8cdH" x="58" y="70">WEEKLY · the WBR rows</text>
+            <text class="b8cdS" x="58" y="88">fast-moving, incident-shaped</text>
+            <circle cx="64" cy="114" r="4" fill="#F43F5E"/>
+            <text class="b8cdF" x="76" y="118">Instrumentation health · read first</text>
+            <circle cx="64" cy="136" r="4" fill="#0F766E"/>
+            <text class="b8cdR" x="76" y="140">The four gates, week over week</text>
+            <circle cx="64" cy="158" r="4" fill="#0F766E"/>
+            <text class="b8cdR" x="76" y="162">Door mix</text>
+            <circle cx="64" cy="180" r="4" fill="#0F766E"/>
+            <text class="b8cdR" x="76" y="184">Search share + zero-result rate</text>
+            <circle cx="64" cy="202" r="4" fill="#0F766E"/>
+            <text class="b8cdR" x="76" y="206">Per-step checkout completions</text>
+
+            <rect x="450" y="44" width="390" height="200" rx="12" fill="#FFFFFF" stroke="#DCEDEA"/>
+            <text class="b8cdH" x="468" y="70">MONTHLY</text>
+            <text class="b8cdS" x="468" y="88">slow-moving, mix-sensitive</text>
+            <circle cx="474" cy="114" r="4" fill="#4B6A66"/>
+            <text class="b8cdR" x="486" y="118">Path CR pair · 12% vs 4.5%</text>
+            <circle cx="474" cy="136" r="4" fill="#4B6A66"/>
+            <text class="b8cdR" x="486" y="140">Engaged-PDP pair · 9% vs 4.5%</text>
+            <circle cx="474" cy="158" r="4" fill="#4B6A66"/>
+            <text class="b8cdR" x="486" y="162">Reach-PDP rate per door</text>
+            <text class="b8cdS" x="468" y="196">Weekly reads on these are mostly noise -</text>
+            <text class="b8cdS" x="468" y="212">the thin-slice rule from b3 applies.</text>
+
+            <text class="b8cdN" x="40" y="270">Instrumentation health goes first on the scorecard and first in every diagnosis - a measurement outage</text>
+            <text class="b8cdN" x="40" y="288">is the commonest journey incident. Definitions change only with a dated changelog entry.</text>
+          </svg>
+          <figcaption>🔍 Click to zoom - reading a slow row weekly manufactures incidents that were only noise</figcaption>
+        </figure>
       </div>
     </details>
   </section>
@@ -165,6 +210,41 @@
       <h2>What you can now do <span class="tag demo">★ 8 min · say it out loud</span></h2>
     </div>
     <p class="lede">Eight sessions, one skill chain - walk it once, out loud:</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 302" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two stacked bars showing what this course adds to its prequel. The lower bar is learn-ecommerce-metrics-with-phoebe, where every number has a definition: gates, formulas and denominators. The upper bar is this course, where every number also has an address: a gate, a door, a path, a screen, a step and an owner. The four capabilities added are shown as chips above: map and doors in b1 to b2, paths and the machine in b3 to b4, the product page and checkout in b5 to b6, and diagnosis and the scorecard in b7 to b8.">
+        <style>
+          .b8adT { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .b8adC { font: 700 11px Inter, sans-serif; fill: #134E4A; }
+          .b8adB { font: 800 13px Inter, sans-serif; fill: #FFFFFF; }
+          .b8adS { font: 400 11.5px Inter, sans-serif; fill: rgba(255,255,255,.85); }
+          .b8adN { font: 400 12px Inter, sans-serif; fill: #4B6A66; }
+        </style>
+        <rect x="0" y="0" width="880" height="302" fill="#F7FCFA"/>
+        <text class="b8adT" x="40" y="26">What the two courses stack: a definition, then an address</text>
+
+        <rect x="60" y="60" width="170" height="30" rx="8" fill="#99F6E4"/>
+        <text class="b8adC" x="145" y="80" text-anchor="middle">b1-b2 · map, doors</text>
+        <rect x="250" y="60" width="170" height="30" rx="8" fill="#99F6E4"/>
+        <text class="b8adC" x="335" y="80" text-anchor="middle">b3-b4 · paths, machine</text>
+        <rect x="440" y="60" width="170" height="30" rx="8" fill="#99F6E4"/>
+        <text class="b8adC" x="525" y="80" text-anchor="middle">b5-b6 · PDP, checkout</text>
+        <rect x="630" y="60" width="170" height="30" rx="8" fill="#99F6E4"/>
+        <text class="b8adC" x="715" y="80" text-anchor="middle">b7-b8 · diagnose, spec</text>
+
+        <rect x="60" y="104" width="760" height="52" rx="10" fill="#0F766E"/>
+        <text class="b8adB" x="78" y="128">THIS COURSE · every number has an ADDRESS</text>
+        <text class="b8adS" x="78" y="146">a gate, a door, a path, a screen, a step - and an owner for each one</text>
+
+        <rect x="60" y="196" width="760" height="52" rx="10" fill="#4B6A66"/>
+        <text class="b8adB" x="78" y="220">THE PREQUEL · every number has a DEFINITION</text>
+        <text class="b8adS" x="78" y="238">learn-ecommerce-metrics-with-phoebe - gates, formulas, denominators</text>
+
+        <text class="b8adN" x="40" y="274">The prequel gave every number a definition; this course gave every number an address.</text>
+        <text class="b8adN" x="40" y="292">Course 3 measures traffic - where sessions come from before they reach the doors - on the same month.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the journey layer does not replace the metric layer, it tells you where each metric lives</figcaption>
+    </figure>
 
     <div class="steps">
       <div class="step"><p><strong>Map</strong> (b1): six screens, five doors, the events that draw them - and the audit that keeps the map honest.</p></div>

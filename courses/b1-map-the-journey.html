@@ -117,8 +117,8 @@
         <text class="smC" x="253" y="248" text-anchor="middle">category road</text>
 
         <rect x="330" y="40" width="180" height="56" rx="10" fill="#FFE4E6"/>
-        <text class="smH" x="420" y="62" text-anchor="middle" style="fill:#881337">PDP direct entries</text>
-        <text class="smV" x="420" y="82" text-anchor="middle" style="fill:#BE123C">54,000 land straight here</text>
+        <text class="smH" x="420" y="62" text-anchor="middle" style="fill:#042F2E">PDP direct entries</text>
+        <text class="smV" x="420" y="82" text-anchor="middle" style="fill:#042F2E">54,000 land straight here</text>
         <path class="smArr" d="M420,96 L420,136"/>
 
         <rect x="590" y="252" width="270" height="50" rx="10" fill="#F0FDFA" stroke="#99F6E4"/>
@@ -173,6 +173,65 @@
     </div>
     <p class="lede">Analytics tools call the first screen of a session the <strong>landing page</strong> (or landing screen), and they count <strong>entrances</strong>: the number of sessions whose first event happened on that screen. Mango Lane's five doors: Home 50%, PDP direct 15%, PLP 15%, Search landing 10%, Other 10%. The mix matters because door quality differs wildly - a session that lands on a PDP is already looking at a product; a session that lands on Home still has to find one.</p>
 
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 292" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five small columns, one per Mango Lane entry door, each showing monthly entrances with the portion that goes on to reach a product page filled in. Home takes 180,000 entrances and only 36,000 reach a product page, a rate of 20 percent. PDP-direct takes 54,000 and all of them reach one. PLP category takes 54,000 and 27,000 reach one. Search landing takes 36,000 and 27,000 reach one. The Other service door takes 36,000 and none reach one. The widest door converts to a product page least often.">
+        <style>
+          .b1drT { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .b1drK { font: 600 11px Inter, sans-serif; fill: #4B6A66; }
+          .b1drC { font: 700 11.5px Inter, sans-serif; fill: #042F2E; }
+          .b1drE { font: 800 11.5px Inter, sans-serif; fill: #134E4A; }
+          .b1drS { font: 400 10.5px Inter, sans-serif; fill: #4B6A66; }
+          .b1drR { font: 800 12px Inter, sans-serif; fill: #0F766E; }
+          .b1drN { font: 400 12px Inter, sans-serif; fill: #4B6A66; }
+        </style>
+        <rect x="0" y="0" width="880" height="292" fill="#F7FCFA"/>
+        <text class="b1drT" x="40" y="26">Five doors, same picture each time: entrances, and how many reach a product page</text>
+        <rect x="40" y="36" width="14" height="14" rx="3" fill="#0F766E"/>
+        <text class="b1drK" x="60" y="48">goes on to reach a product page</text>
+        <rect x="290" y="36" width="14" height="14" rx="3" fill="#DCEDEA"/>
+        <text class="b1drK" x="310" y="48">never reaches one</text>
+
+        <line x1="50" y1="200" x2="830" y2="200" stroke="#B5D6D1" stroke-width="1.5"/>
+
+        <text class="b1drC" x="134" y="76" text-anchor="middle">Home</text>
+        <text class="b1drE" x="134" y="92" text-anchor="middle">180,000</text>
+        <rect x="104" y="100" width="60" height="100" fill="#DCEDEA"/>
+        <rect x="104" y="180" width="60" height="20" fill="#0F766E"/>
+        <text class="b1drS" x="134" y="220" text-anchor="middle">36,000 reach a PDP</text>
+        <text class="b1drR" x="134" y="238" text-anchor="middle">20%</text>
+
+        <text class="b1drC" x="292" y="76" text-anchor="middle">PDP-direct</text>
+        <text class="b1drE" x="292" y="162" text-anchor="middle">54,000</text>
+        <rect x="262" y="170" width="60" height="30" fill="#0F766E"/>
+        <text class="b1drS" x="292" y="220" text-anchor="middle">54,000 reach a PDP</text>
+        <text class="b1drR" x="292" y="238" text-anchor="middle">100%</text>
+
+        <text class="b1drC" x="450" y="76" text-anchor="middle">PLP category</text>
+        <text class="b1drE" x="450" y="162" text-anchor="middle">54,000</text>
+        <rect x="420" y="170" width="60" height="30" fill="#DCEDEA"/>
+        <rect x="420" y="185" width="60" height="15" fill="#0F766E"/>
+        <text class="b1drS" x="450" y="220" text-anchor="middle">27,000 reach a PDP</text>
+        <text class="b1drR" x="450" y="238" text-anchor="middle">50%</text>
+
+        <text class="b1drC" x="608" y="76" text-anchor="middle">Search landing</text>
+        <text class="b1drE" x="608" y="172" text-anchor="middle">36,000</text>
+        <rect x="578" y="180" width="60" height="20" fill="#DCEDEA"/>
+        <rect x="578" y="185" width="60" height="15" fill="#0F766E"/>
+        <text class="b1drS" x="608" y="220" text-anchor="middle">27,000 reach a PDP</text>
+        <text class="b1drR" x="608" y="238" text-anchor="middle">75%</text>
+
+        <text class="b1drC" x="766" y="76" text-anchor="middle">Other · service</text>
+        <text class="b1drE" x="766" y="172" text-anchor="middle">36,000</text>
+        <rect x="736" y="180" width="60" height="20" fill="#DCEDEA"/>
+        <text class="b1drS" x="766" y="220" text-anchor="middle">0 reach a PDP</text>
+        <text class="b1drR" x="766" y="238" text-anchor="middle">0%</text>
+
+        <text class="b1drN" x="40" y="264">Entrances per month. The five doors sum to 360,000 sessions and the filled portions sum to 144,000,</text>
+        <text class="b1drN" x="40" y="282">which is the 40% PDP penetration gate. The widest door reaches a product page least often.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - door width and door quality are different numbers, and Home is wide and weak</figcaption>
+    </figure>
+
     <details class="card" open>
       <summary><span class="mode live">Live</span>Who sent them? Three scopes of "source"<span class="mini">4 min</span><span class="caret">▶</span></summary>
       <div class="body">
@@ -204,6 +263,80 @@
       <h2>The events that draw the map <span class="tag demo">★ 15 min · everyone works</span></h2>
     </div>
     <p class="lede">The map is only as good as its instrumentation. Two events record every step: on the app, <strong>screen_view</strong> fires automatically each time the visible screen changes (carrying <code>firebase_screen_class</code>, plus a <code>screen_name</code> you set); on the web, <strong>page_view</strong> does the same job. Layer the ecommerce events from the metrics course on top (view_item, add_to_cart, begin_checkout, purchase) and every journey fact in this course becomes computable.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 258" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maya's Tuesday session on a rail of six steps, showing which event fires at each one. Opening the app fires session_start and screen_view on home, counting the entrance for Home. Searching fires view_search_results with the term linen dress. Opening a dress fires screen_view on the pdp plus view_item, which counts toward PDP reach. Adding size M fires add_to_cart. Opening the cart fires screen_view on cart plus begin_checkout. Paying fires purchase. Map events locate her, commerce events mark her progress.">
+        <style>
+          .b1evT { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .b1evK { font: 600 11px Inter, sans-serif; fill: #4B6A66; }
+          .b1evH { font: 700 12px Inter, sans-serif; fill: #042F2E; }
+          .b1evB { font: 700 9.5px Inter, sans-serif; fill: #FFFFFF; letter-spacing: .04em; }
+          .b1evL { font: 600 11px Inter, sans-serif; fill: #134E4A; }
+          .b1evC { font: 400 10.5px Inter, sans-serif; fill: #4B6A66; }
+          .b1evN { font: 400 12px Inter, sans-serif; fill: #4B6A66; }
+        </style>
+        <rect x="0" y="0" width="880" height="258" fill="#F7FCFA"/>
+        <text class="b1evT" x="40" y="26">One session through the event log - Maya, Tuesday evening</text>
+        <rect x="40" y="36" width="14" height="14" rx="3" fill="#0F766E"/>
+        <text class="b1evK" x="60" y="48">map event - where she was</text>
+        <rect x="250" y="36" width="14" height="14" rx="3" fill="#14B8A6"/>
+        <text class="b1evK" x="270" y="48">both in one step</text>
+        <rect x="400" y="36" width="14" height="14" rx="3" fill="#F43F5E"/>
+        <text class="b1evK" x="420" y="48">progress event - what she did</text>
+
+        <line x1="95" y1="116" x2="812" y2="116" stroke="#DCEDEA" stroke-width="2"/>
+
+        <text class="b1evH" x="95" y="96" text-anchor="middle">opens the app</text>
+        <circle cx="95" cy="116" r="7" fill="#0F766E"/>
+        <rect x="51" y="128" width="88" height="17" rx="8" fill="#0F766E"/>
+        <text class="b1evB" x="95" y="140" text-anchor="middle">MAP</text>
+        <text class="b1evL" x="95" y="166" text-anchor="middle">session_start</text>
+        <text class="b1evL" x="95" y="182" text-anchor="middle">screen_view · home</text>
+        <text class="b1evC" x="95" y="204" text-anchor="middle">entrance counted for Home</text>
+
+        <text class="b1evH" x="240" y="96" text-anchor="middle">searches</text>
+        <circle cx="240" cy="116" r="7" fill="#0F766E"/>
+        <rect x="196" y="128" width="88" height="17" rx="8" fill="#0F766E"/>
+        <text class="b1evB" x="240" y="140" text-anchor="middle">MAP</text>
+        <text class="b1evL" x="240" y="166" text-anchor="middle">view_search_results</text>
+        <text class="b1evL" x="240" y="182" text-anchor="middle">term: linen dress</text>
+        <text class="b1evC" x="240" y="204" text-anchor="middle">the search road begins</text>
+
+        <text class="b1evH" x="385" y="96" text-anchor="middle">opens a dress</text>
+        <circle cx="385" cy="116" r="7" fill="#14B8A6"/>
+        <rect x="341" y="128" width="88" height="17" rx="8" fill="#14B8A6"/>
+        <text class="b1evB" x="385" y="140" text-anchor="middle">BOTH</text>
+        <text class="b1evL" x="385" y="166" text-anchor="middle">screen_view · pdp</text>
+        <text class="b1evL" x="385" y="182" text-anchor="middle">view_item</text>
+        <text class="b1evC" x="385" y="204" text-anchor="middle">counts toward PDP reach</text>
+
+        <text class="b1evH" x="530" y="96" text-anchor="middle">adds size M</text>
+        <circle cx="530" cy="116" r="7" fill="#F43F5E"/>
+        <rect x="486" y="128" width="88" height="17" rx="8" fill="#F43F5E"/>
+        <text class="b1evB" x="530" y="140" text-anchor="middle">PROGRESS</text>
+        <text class="b1evL" x="530" y="166" text-anchor="middle">add_to_cart</text>
+        <text class="b1evC" x="530" y="204" text-anchor="middle">gate 2 · add-to-cart</text>
+
+        <text class="b1evH" x="675" y="96" text-anchor="middle">opens the cart</text>
+        <circle cx="675" cy="116" r="7" fill="#14B8A6"/>
+        <rect x="631" y="128" width="88" height="17" rx="8" fill="#14B8A6"/>
+        <text class="b1evB" x="675" y="140" text-anchor="middle">BOTH</text>
+        <text class="b1evL" x="675" y="166" text-anchor="middle">screen_view · cart</text>
+        <text class="b1evL" x="675" y="182" text-anchor="middle">begin_checkout</text>
+        <text class="b1evC" x="675" y="204" text-anchor="middle">gate 3 · checkout start</text>
+
+        <text class="b1evH" x="812" y="96" text-anchor="middle">pays</text>
+        <circle cx="812" cy="116" r="7" fill="#F43F5E"/>
+        <rect x="768" y="128" width="88" height="17" rx="8" fill="#F43F5E"/>
+        <text class="b1evB" x="812" y="140" text-anchor="middle">PROGRESS</text>
+        <text class="b1evL" x="812" y="166" text-anchor="middle">purchase</text>
+        <text class="b1evC" x="812" y="204" text-anchor="middle">gate 4 · order placed</text>
+
+        <text class="b1evN" x="40" y="230">screen_view events draw the map; ecommerce events mark progress on it. You need both - screens without</text>
+        <text class="b1evN" x="40" y="248">commerce events cannot compute conversion, commerce events without screens cannot locate a problem.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - a session is readable only when the map events and the progress events are both firing</figcaption>
+    </figure>
 
     <details class="card" open>
       <summary><span class="mode live">Live</span>Walk one session through the event log<span class="mini">6 min</span><span class="caret">▶</span></summary>

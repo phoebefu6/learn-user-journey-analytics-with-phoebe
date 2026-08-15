@@ -93,8 +93,8 @@
 
         <!-- Ratio note -->
         <rect x="360" y="132" width="220" height="40" rx="8" fill="#FFE4E6"/>
-        <text class="paH" x="470" y="149" text-anchor="middle" style="fill:#881337">12% vs 4.5%</text>
-        <text class="paC" x="470" y="164" text-anchor="middle" style="fill:#BE123C">searchers convert at 2.67x</text>
+        <text class="paH" x="470" y="149" text-anchor="middle" style="fill:#042F2E">12% vs 4.5%</text>
+        <text class="paC" x="470" y="164" text-anchor="middle" style="fill:#042F2E">searchers convert at 2.67x</text>
 
         <rect x="30" y="302" width="14" height="14" rx="3" fill="#F43F5E"/>
         <text class="paN" x="54" y="314">Cross-foot: 5,184 + 4,536 = 9,720 orders exactly - the same total the metrics course computed. Nothing leaks.</text>
@@ -130,6 +130,60 @@
       <h2>Path exploration without drowning <span class="tag concept">12 min live</span></h2>
     </div>
     <p class="lede">GA4's path exploration draws a <strong>tree graph</strong>: the sequences of events or screens users actually walked, one branching step at a time. The tree is honest and overwhelming in equal measure - by step three you can be staring at hundreds of branches. Two settings decide whether you drown: the direction you path in, and what you use as nodes.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 294" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two path-exploration setups side by side. Recipe one paths backward from the purchase event with screen name as the node type, so several roads converge on purchase and the tree shows which roads actually produce orders. Recipe two paths forward from view_search_results, so the search results node branches either to a product page, meaning relevance works, or back to search again, which is the re-query loop.">
+        <style>
+          .b3pxT { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .b3pxH { font: 700 12px Inter, sans-serif; fill: #042F2E; }
+          .b3pxS { font: 400 10.5px Inter, sans-serif; fill: #4B6A66; }
+          .b3pxB { font: 600 10.5px Inter, sans-serif; fill: #134E4A; }
+          .b3pxW { font: 700 11px Inter, sans-serif; fill: #FFFFFF; }
+          .b3pxC { font: 400 11px Inter, sans-serif; fill: #042F2E; }
+          .b3pxN { font: 400 12px Inter, sans-serif; fill: #4B6A66; }
+        </style>
+        <defs>
+          <marker id="b3pxArw" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#14B8A6"/>
+          </marker>
+        </defs>
+        <rect x="0" y="0" width="880" height="294" fill="#F7FCFA"/>
+        <text class="b3pxT" x="40" y="26">Two path-exploration recipes, and what each tree answers</text>
+
+        <rect x="40" y="44" width="390" height="196" rx="12" fill="#FFFFFF" stroke="#DCEDEA"/>
+        <text class="b3pxH" x="58" y="70">RECIPE 1 · BACKWARD FROM PURCHASE</text>
+        <text class="b3pxS" x="58" y="88">ending point: purchase · nodes: screen name</text>
+        <rect x="58" y="104" width="118" height="24" rx="6" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="b3pxB" x="117" y="120" text-anchor="middle">search results</text>
+        <rect x="58" y="136" width="118" height="24" rx="6" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="b3pxB" x="117" y="152" text-anchor="middle">PLP · category</text>
+        <rect x="58" y="168" width="118" height="24" rx="6" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="b3pxB" x="117" y="184" text-anchor="middle">PDP-direct</text>
+        <path d="M176,116 C210,116 216,140 246,146" fill="none" stroke="#14B8A6" stroke-width="2" marker-end="url(#b3pxArw)"/>
+        <path d="M176,148 L246,148" fill="none" stroke="#14B8A6" stroke-width="2" marker-end="url(#b3pxArw)"/>
+        <path d="M176,180 C210,180 216,156 246,150" fill="none" stroke="#14B8A6" stroke-width="2" marker-end="url(#b3pxArw)"/>
+        <rect x="250" y="132" width="120" height="32" rx="8" fill="#0F766E"/>
+        <text class="b3pxW" x="310" y="152" text-anchor="middle">purchase</text>
+        <text class="b3pxC" x="58" y="214">shows which roads actually produce orders</text>
+
+        <rect x="450" y="44" width="390" height="196" rx="12" fill="#FFFFFF" stroke="#DCEDEA"/>
+        <text class="b3pxH" x="468" y="70">RECIPE 2 · FORWARD FROM SEARCH</text>
+        <text class="b3pxS" x="468" y="88">starting point: view_search_results</text>
+        <rect x="468" y="132" width="120" height="32" rx="8" fill="#0F766E"/>
+        <text class="b3pxW" x="528" y="152" text-anchor="middle">search results</text>
+        <path d="M588,142 C610,140 612,120 632,116" fill="none" stroke="#14B8A6" stroke-width="2" marker-end="url(#b3pxArw)"/>
+        <path d="M588,154 C610,156 612,172 632,176" fill="none" stroke="#14B8A6" stroke-width="2" marker-end="url(#b3pxArw)"/>
+        <rect x="636" y="104" width="184" height="24" rx="6" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="b3pxB" x="728" y="120" text-anchor="middle">next: a PDP = relevance works</text>
+        <rect x="636" y="164" width="184" height="24" rx="6" fill="#FFE4E6"/>
+        <text class="b3pxB" x="728" y="180" text-anchor="middle">back to search = re-query</text>
+        <text class="b3pxC" x="468" y="214">the re-query loop is your cheapest search signal</text>
+
+        <text class="b3pxN" x="40" y="266">The tree shows the top 5 nodes per step by default, expandable to 20, with event count and total users.</text>
+        <text class="b3pxN" x="40" y="284">Path exploration finds the story; funnel exploration measures it monthly. Name your screens first.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - direction and node type decide whether the tree is a diagnosis or a wall of branches</figcaption>
+    </figure>
 
     <details class="card" open>
       <summary><span class="mode live">Live</span>Forward, backward, and the five node types<span class="mini">5 min</span><span class="caret">▶</span></summary>
@@ -175,6 +229,59 @@
       <h2>Path accounting drills <span class="tag demo">★ 15 min · everyone works</span></h2>
     </div>
     <p class="lede">Three drills, full arithmetic, no calculator shame. Drill 1 proves the split is real accounting, not a slide decoration. Drills 2 and 3 turn it into money.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three drills worked with the same arithmetic. Drill one verifies the split: 43,200 search sessions at 12 percent give 5,184 orders and 100,800 browse sessions at 4.5 percent give 4,536, summing to the real total of 9,720. Drill two shifts 10,000 sessions from the browse road to the search road and reaches 10,470 orders, 750 more and 7.7 percent up, with no gate or path rate improving. Drill three rescues half of the 8 percent of search sessions that hit zero results, worth 207 extra orders a month or about 14,000 dollars at a 68 dollar order value.">
+        <style>
+          .b3drT { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .b3drE { font: 700 11px Inter, sans-serif; fill: #4B6A66; letter-spacing: .05em; }
+          .b3drA { font: 400 11.5px Inter, sans-serif; fill: #134E4A; }
+          .b3drR { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .b3drD { font: 800 12px Inter, sans-serif; fill: #042F2E; }
+          .b3drS { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .b3drN { font: 400 12px Inter, sans-serif; fill: #4B6A66; }
+        </style>
+        <rect x="0" y="0" width="880" height="290" fill="#F7FCFA"/>
+        <text class="b3drT" x="40" y="26">Three drills, one method: sessions x path CR = orders, every slice, always</text>
+
+        <rect x="40" y="44" width="256" height="192" rx="12" fill="#FFFFFF" stroke="#DCEDEA"/>
+        <text class="b3drE" x="56" y="68">DRILL 1 · VERIFY</text>
+        <text class="b3drA" x="56" y="94">43,200 x 0.12 = 5,184</text>
+        <text class="b3drA" x="56" y="114">100,800 x 0.045 = 4,536</text>
+        <text class="b3drA" x="56" y="134">sum = 9,720</text>
+        <line x1="56" y1="148" x2="280" y2="148" stroke="#DCEDEA" stroke-width="1.5"/>
+        <rect x="56" y="158" width="224" height="24" rx="8" fill="#DCEDEA"/>
+        <text class="b3drD" x="168" y="175" text-anchor="middle">9,720 orders</text>
+        <text class="b3drS" x="56" y="202">the exact metrics-course total</text>
+        <text class="b3drS" x="56" y="220">check this before presenting</text>
+
+        <rect x="312" y="44" width="256" height="192" rx="12" fill="#FFFFFF" stroke="#DCEDEA"/>
+        <text class="b3drE" x="328" y="68">DRILL 2 · MIX WHAT-IF</text>
+        <text class="b3drA" x="328" y="94">53,200 x 0.12 = 6,384</text>
+        <text class="b3drA" x="328" y="114">90,800 x 0.045 = 4,086</text>
+        <text class="b3drA" x="328" y="134">sum = 10,470</text>
+        <line x1="328" y1="148" x2="552" y2="148" stroke="#DCEDEA" stroke-width="1.5"/>
+        <rect x="328" y="158" width="224" height="24" rx="8" fill="#0F766E"/>
+        <text class="b3drR" x="440" y="175" text-anchor="middle">+750 orders · +7.7%</text>
+        <text class="b3drS" x="328" y="202">10,000 sessions changed road</text>
+        <text class="b3drS" x="328" y="220">no gate moved, no CR moved</text>
+
+        <rect x="584" y="44" width="256" height="192" rx="12" fill="#FFFFFF" stroke="#DCEDEA"/>
+        <text class="b3drE" x="600" y="68">DRILL 3 · ZERO-RESULT RESCUE</text>
+        <text class="b3drA" x="600" y="94">43,200 x 0.08 = 3,456</text>
+        <text class="b3drA" x="600" y="114">x 0.5 = 1,728 rescuable</text>
+        <text class="b3drA" x="600" y="134">x 0.12 = 207</text>
+        <line x1="600" y1="148" x2="824" y2="148" stroke="#DCEDEA" stroke-width="1.5"/>
+        <rect x="600" y="158" width="224" height="24" rx="8" fill="#0F766E"/>
+        <text class="b3drR" x="712" y="175" text-anchor="middle">+207 orders a month</text>
+        <text class="b3drS" x="600" y="202">about $14,000 at $68 AOV</text>
+        <text class="b3drS" x="600" y="220">the fix is a synonyms file</text>
+
+        <text class="b3drN" x="40" y="262">Verify the baseline cross-foots, then move ONE quantity at a time and recompute. Drill 2 is a mix play:</text>
+        <text class="b3drN" x="40" y="280">sessions migrated from the 4.5% road to the 12% road, and not one gate or path CR improved.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the cheap fix earns a quarter of what the big one does, at a fraction of the cost</figcaption>
+    </figure>
 
     <details class="card" open>
       <summary><span class="mode live">Live</span>Compute along: verify, shift, rescue<span class="mini">13 min</span><span class="caret">▶</span></summary>

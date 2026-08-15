@@ -106,8 +106,8 @@
         <text class="peC" x="735" y="236" text-anchor="middle">3,240 orders</text>
 
         <rect x="400" y="272" width="410" height="52" rx="10" fill="#FFE4E6"/>
-        <text class="peH" x="605" y="294" text-anchor="middle" style="fill:#881337">2x - engaged sessions convert at twice the plain rate</text>
-        <text class="peC" x="605" y="312" text-anchor="middle" style="fill:#BE123C">correlation, not proof - Part 2 spells out the trap</text>
+        <text class="peH" x="605" y="294" text-anchor="middle" style="fill:#042F2E">2x - engaged sessions convert at twice the plain rate</text>
+        <text class="peC" x="605" y="312" text-anchor="middle" style="fill:#042F2E">correlation, not proof - Part 2 spells out the trap</text>
 
         <text class="peN" x="440" y="350">6,480 + 3,240 = 9,720 orders - the same total, now split by behaviour</text>
 
@@ -148,6 +148,55 @@
       <h2>The correlation trap, stated honestly <span class="tag concept">6 min live</span></h2>
     </div>
     <p class="lede">Engaged sessions convert at 9%, plain at 4.5%. It is very tempting to read that as "if we get plain sessions to engage, they will convert at 9% too" - and that reading is wrong. Engaged shoppers were more interested to begin with; the swipe did not create the intent, the intent created the swipe. Forcing engagement (auto-playing the gallery, popping the size guide open) does not transplant the intent.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 312" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The same engaged-versus-plain split written two ways. The unsupported caption, engagement doubles conversion, is a claim about what a feature does that the chart cannot support. The supported caption, engaged sessions convert 2x, is a fact about sessions: 9 percent against 4.5 percent. Below sit the three things the split is genuinely good for: finding which zones correlate with buying, finding where the 72,000 plain sessions bail, and acting as a tripwire when a redesign inflates engaged share while the engaged rate collapses.">
+        <style>
+          .b5trT { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+          .b5trH { font: 700 12px Inter, sans-serif; fill: #042F2E; }
+          .b5trB { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+          .b5trM { font: 700 12px Inter, sans-serif; fill: #042F2E; }
+          .b5trC { font: 700 11.5px Inter, sans-serif; fill: #042F2E; }
+          .b5trS { font: 400 10.5px Inter, sans-serif; fill: #4B6A66; }
+          .b5trN { font: 400 12px Inter, sans-serif; fill: #4B6A66; }
+        </style>
+        <rect x="0" y="0" width="880" height="312" fill="#F7FCFA"/>
+        <text class="b5trT" x="40" y="26">Same chart, two captions - only one is supported by the data</text>
+
+        <rect x="40" y="44" width="390" height="112" rx="12" fill="#FFE4E6" stroke="#F43F5E"/>
+        <text class="b5trH" x="58" y="70">✗ "engagement doubles conversion"</text>
+        <text class="b5trB" x="58" y="94">a claim about what your feature does,</text>
+        <text class="b5trB" x="58" y="110">which the chart cannot support</text>
+        <text class="b5trB" x="58" y="126">forcing the swipe transplants no intent</text>
+
+        <rect x="450" y="44" width="390" height="112" rx="12" fill="#F0FDFA" stroke="#99F6E4"/>
+        <text class="b5trH" x="468" y="70">✓ "engaged sessions convert 2x"</text>
+        <text class="b5trB" x="468" y="94">a fact about sessions: 9% against 4.5%</text>
+        <text class="b5trB" x="468" y="110">the intent created the swipe,</text>
+        <text class="b5trB" x="468" y="126">not the other way round</text>
+
+        <text class="b5trM" x="40" y="178">What the split IS genuinely good for</text>
+
+        <rect x="40" y="190" width="256" height="68" rx="10" fill="#FFFFFF" stroke="#DCEDEA"/>
+        <text class="b5trC" x="56" y="212">Which zones correlate</text>
+        <text class="b5trS" x="56" y="230">split the engaged 72,000 by zone,</text>
+        <text class="b5trS" x="56" y="246">then test the strongest one</text>
+
+        <rect x="312" y="190" width="256" height="68" rx="10" fill="#FFFFFF" stroke="#DCEDEA"/>
+        <text class="b5trC" x="328" y="212">Where plain sessions bail</text>
+        <text class="b5trS" x="328" y="230">72,000 touch nothing: do they</text>
+        <text class="b5trS" x="328" y="246">bounce in 3 seconds or linger?</text>
+
+        <rect x="584" y="190" width="256" height="68" rx="10" fill="#FFFFFF" stroke="#DCEDEA"/>
+        <text class="b5trC" x="600" y="212">A before/after tripwire</text>
+        <text class="b5trS" x="600" y="230">engaged share 50% to 60% but</text>
+        <text class="b5trS" x="600" y="246">engaged CR collapsing = dilution</text>
+
+        <text class="b5trN" x="40" y="284">Engaged shoppers were more interested to begin with - any observational split carries this selection effect.</text>
+        <text class="b5trN" x="40" y="302">Causal proof needs an A/B test. The phrasing habit is the cheapest insurance an analyst owns.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the split is a diagnostic, never a promise about what a feature will do</figcaption>
+    </figure>
 
     <details class="card" open>
       <summary><span class="mode live">Live</span>Diagnostic, not causal promise<span class="mini">4 min</span><span class="caret">▶</span></summary>
@@ -237,6 +286,52 @@
       <summary><span class="mode live">Live</span>Step 2 · engagement rate by path<span class="mini">5 min</span><span class="caret">▶</span></summary>
       <div class="body">
         <p>Cross the engagement split with b3's paths. Mango Lane's numbers:</p>
+
+        <figure class="zoomable">
+          <svg viewBox="0 0 880 294" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The engagement split crossed with the two roads. The search road brings 43,200 product-page sessions, 60 percent of which engage, giving 25,920 engaged sessions, and it converts at a 12 percent path rate for 5,184 orders. The browse road brings 100,800 product-page sessions, 45.7 percent of which engage, giving 46,080 engaged sessions, and it converts at 4.5 percent for 4,536 orders. Searchers both engage more and convert more.">
+            <style>
+              .b5peT { font: 700 13px Inter, sans-serif; fill: #042F2E; }
+              .b5peH { font: 700 12px Inter, sans-serif; fill: #042F2E; }
+              .b5peS { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+              .b5peL { font: 400 11.5px Inter, sans-serif; fill: #4B6A66; }
+              .b5peG { font: 800 20px Inter, sans-serif; fill: #134E4A; }
+              .b5peC { font: 400 11px Inter, sans-serif; fill: #4B6A66; }
+              .b5peN { font: 400 12px Inter, sans-serif; fill: #4B6A66; }
+            </style>
+            <rect x="0" y="0" width="880" height="294" fill="#F7FCFA"/>
+            <text class="b5peT" x="40" y="26">Intent shows up at every layer: the search road engages more AND converts more</text>
+
+            <rect x="40" y="44" width="390" height="196" rx="12" fill="#FFFFFF" stroke="#DCEDEA"/>
+            <text class="b5peH" x="58" y="70">SEARCH ROAD</text>
+            <text class="b5peS" x="58" y="88">43,200 product-page sessions</text>
+            <text class="b5peL" x="58" y="120">engagement rate</text>
+            <text class="b5peG" x="412" y="120" text-anchor="end">60%</text>
+            <rect x="58" y="130" width="354" height="20" rx="6" fill="#DCEDEA"/>
+            <rect x="58" y="130" width="212" height="20" rx="6" fill="#0F766E"/>
+            <text class="b5peC" x="58" y="166">25,920 engaged sessions</text>
+            <line x1="58" y1="182" x2="412" y2="182" stroke="#DCEDEA" stroke-width="1.5"/>
+            <text class="b5peL" x="58" y="206">path conversion rate</text>
+            <text class="b5peG" x="412" y="206" text-anchor="end">12%</text>
+            <text class="b5peC" x="58" y="226">5,184 orders</text>
+
+            <rect x="450" y="44" width="390" height="196" rx="12" fill="#FFFFFF" stroke="#DCEDEA"/>
+            <text class="b5peH" x="468" y="70">BROWSE ROAD</text>
+            <text class="b5peS" x="468" y="88">100,800 product-page sessions</text>
+            <text class="b5peL" x="468" y="120">engagement rate</text>
+            <text class="b5peG" x="822" y="120" text-anchor="end">45.7%</text>
+            <rect x="468" y="130" width="354" height="20" rx="6" fill="#DCEDEA"/>
+            <rect x="468" y="130" width="162" height="20" rx="6" fill="#14B8A6"/>
+            <text class="b5peC" x="468" y="166">46,080 engaged sessions</text>
+            <line x1="468" y1="182" x2="822" y2="182" stroke="#DCEDEA" stroke-width="1.5"/>
+            <text class="b5peL" x="468" y="206">path conversion rate</text>
+            <text class="b5peG" x="822" y="206" text-anchor="end">4.5%</text>
+            <text class="b5peC" x="468" y="226">4,536 orders</text>
+
+            <text class="b5peN" x="40" y="266">Engagement bars run on a 0-100% scale. Searchers arrive warmer and engage more once they arrive.</text>
+            <text class="b5peN" x="40" y="284">One more reason the naive "make browsers engage more" reading of the 2x chart fails.</text>
+          </svg>
+          <figcaption>🔍 Click to zoom - the road a session took predicts both how it behaves on the page and whether it buys</figcaption>
+        </figure>
         <div class="steps">
           <div class="step"><p>Search-path PDP sessions: 43,200. Of these, 60% engage: 43,200 x 0.60 = <strong>25,920</strong> engaged.</p></div>
           <div class="step"><p>Browse-path engaged sessions: all engaged minus search engaged = 72,000 - 25,920 = <strong>46,080</strong>.</p></div>
