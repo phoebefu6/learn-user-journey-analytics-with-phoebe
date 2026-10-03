@@ -3,6 +3,7 @@
    (CSS var names still read --indigo/--amber; they hold teal/coral values.) */
 
 :root {
+  --fill-solid: #E80D33;
   --indigo: #0F766E;
   --indigo-deep: #134E4A;
   --indigo-mid: #14B8A6;
@@ -746,7 +747,7 @@ table.sql-table tr:last-child td { border-bottom: none; }
 .tree-btn { font: inherit; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; border: 1px solid #DCEDEA; background: #FFFFFF; color: #042F2E; cursor: pointer; }
 .tree-btn:hover { border-color: #0F766E; }
 .tree-btn.tree-drop { background: #FFE4E6; border-color: #F43F5E; color: #042F2E; }
-.tree-btn.tree-drop:hover { background: #F43F5E; color: #FFFFFF; }
+.tree-btn.tree-drop:hover { background: var(--fill-solid); color: #FFFFFF; }
 .tree-canvas { padding: 24px 18px; overflow-x: auto; }
 .tree-node-wrap { display: flex; flex-direction: column; align-items: center; }
 .tree-node { position: relative; min-width: 130px; max-width: 180px; padding: 12px 14px; border-radius: 12px; border: 1.5px solid #99F6E4; background: #F0FDFA; text-align: center; }
@@ -764,7 +765,7 @@ table.sql-table tr:last-child td { border-bottom: none; }
 .tree-input:focus { outline: none; border-color: #0F766E; background: #FFFFFF; }
 .tree-suffix { font-size: 12px; font-weight: 600; color: #4B6A66; }
 .tree-delta { position: absolute; top: -10px; right: -8px; font-size: 10.5px; font-weight: 800; padding: 2px 7px; border-radius: 999px; }
-.tree-delta.down { background: #F43F5E; color: #FFFFFF; }
+.tree-delta.down { background: var(--fill-solid); color: #FFFFFF; }
 .tree-delta.up { background: #0F766E; color: #FFFFFF; }
 .tree-kids { display: flex; gap: 16px; margin-top: 26px; position: relative; align-items: flex-start; justify-content: center; }
 .tree-kids::before { content: ""; position: absolute; top: -14px; left: 50%; width: 1.5px; height: 14px; background: #99F6E4; }
